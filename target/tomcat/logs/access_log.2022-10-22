@@ -1,2 +1,0 @@
-0:0:0:0:0:0:0:1 - - [22/Oct/2022:18:50:16 +0300] "GET /css/indexStyle.css HTTP/1.1" 304 - http-bio-8888-exec-2 345
-0:0:0:0:0:0:0:1 - - [22/Oct/2022:18:50:36 +0300] "GET /favicon.ico HTTP/1.1" 404 973 http-bio-8888-exec-4 12
