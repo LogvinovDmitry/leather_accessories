@@ -5,7 +5,35 @@ public class BagParam {
     private String bag_name;
     private Integer bag_category;
     private String bag_description;
+    private String bag_date_added;
+    private Double bag_price;
 
+    public Double getBag_price() {
+        return bag_price;
+    }
+
+    public void setBag_price(Double bag_price) {
+        this.bag_price = bag_price;
+    }
+
+
+    public String getBag_date_added() {
+        return bag_date_added;
+    }
+
+    public void setBag_date_added(String bag_date_added) {
+        this.bag_date_added = bag_date_added;
+    }
+
+    public String getBag_category_inf() {
+        return bag_category_inf;
+    }
+
+    public void setBag_category_inf(String bag_category_inf) {
+        this.bag_category_inf = bag_category_inf;
+    }
+
+    private String bag_category_inf;
 
 
     public Integer getBag_id() {
