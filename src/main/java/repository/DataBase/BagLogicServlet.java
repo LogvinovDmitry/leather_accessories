@@ -27,7 +27,7 @@ public class BagLogicServlet extends HttpServlet {
 
     private static final String GET_All = "SELECT i.bag_id, i.bag_name, i.bag_description, i.bag_date_added, i.bag_price, c.bag_category_inf FROM leather_accessories_schema.bag_information_1 i INNER JOIN leather_accessories_schema.bag_category c ON i.bag_category = c.category_id";
     private static final String INSERT_NEW = "INSERT INTO leather_accessories_schema.bag_information_1 VALUES (NULL, ?, ?, ?, ?, ?)";
-    private static final String DEL = "DELETE FROM my_movies.table_test WHERE test_id = ?";
+    private static final String DEL = "DELETE FROM leather_accessories_schema.bag_information_1 WHERE bag_id = ?";
     ConnectionLeatherAccessoriesSchema conLeather = new ConnectionLeatherAccessoriesSchema();
 
 
@@ -44,7 +44,7 @@ public class BagLogicServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
-        Connection con =  conLeather.getConnection();
+        Connection con = conLeather.getConnection();
 
         List<BagParam> bagInformation = new ArrayList<>();
 
@@ -64,6 +64,7 @@ public class BagLogicServlet extends HttpServlet {
 
                 bagInformation.add(bagParam);
             }
+           // preparedStatement_del.setInt(1, );
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -76,8 +77,8 @@ public class BagLogicServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Connection con =  conLeather.getConnection();
-        try (PreparedStatement preparedStatement_insert_new =con.prepareStatement(INSERT_NEW)) {
+        Connection con = conLeather.getConnection();
+        try (PreparedStatement preparedStatement_insert_new = con.prepareStatement(INSERT_NEW)) {
 
 
             for (Part part : req.getParts()) {
@@ -86,20 +87,20 @@ public class BagLogicServlet extends HttpServlet {
                     InputStream inputStream = part.getInputStream();
                     String form_bag_name = IOUtils.toString(inputStream, "UTF-8");//Деает из стрима строку
                     preparedStatement_insert_new.setString(1, form_bag_name);
-                   // preparedStatement_insert_new.execute();
+                    // preparedStatement_insert_new.execute();
                     //req.setAttribute("sec", s);
                 } else if (part.getName().equals("bag_category")) {
                     InputStream inputStream = part.getInputStream();
                     String str_bag_category = IOUtils.toString(inputStream, "UTF-8");//Деает из стрима строку
                     int bag_category = Integer.parseInt(str_bag_category);
                     preparedStatement_insert_new.setInt(2, bag_category);
-                   // preparedStatement_insert_new.execute();
+                    // preparedStatement_insert_new.execute();
                 } else if (part.getName().equals("bag_price")) {
                     InputStream inputStream = part.getInputStream();
                     String str_bag_price = IOUtils.toString(inputStream, "UTF-8");//Деает из стрима строку
                     double bag_price = Double.parseDouble(str_bag_price);
                     preparedStatement_insert_new.setDouble(5, bag_price);
-                   // preparedStatement_insert_new.execute();
+                    // preparedStatement_insert_new.execute();
                 } else if (part.getName().equals("bag_date_added")) {
                     InputStream inputStream = part.getInputStream();
                     String str_bag_date_added = IOUtils.toString(inputStream, "UTF-8");//Деает из стрима строку
@@ -107,12 +108,12 @@ public class BagLogicServlet extends HttpServlet {
                     java.sql.Date sqlDate = new java.sql.Date(date.getTime());
                     //Date date = new SimpleDateFormat("yyyy-MM-dd").parse(str_bag_date_added);
                     preparedStatement_insert_new.setDate(4, sqlDate);
-                   // preparedStatement_insert_new.execute();
+                    // preparedStatement_insert_new.execute();
                 } else if (part.getName().equals("bag_description")) {
                     InputStream inputStream = part.getInputStream();
                     String bag_description = IOUtils.toString(inputStream, "UTF-8");//Деает из стрима строку
                     preparedStatement_insert_new.setString(3, bag_description);
-                   // preparedStatement_insert_new.execute();
+                    // preparedStatement_insert_new.execute();
                 } else if (part.getName().equals("file-name")) {
                     String str = UUID.randomUUID().toString();
                     String fileName = getSubmittedFileName(part);
@@ -137,7 +138,7 @@ public class BagLogicServlet extends HttpServlet {
 
     @Override
     public void destroy() {
-        Connection con =  conLeather.getConnection();
+        Connection con = conLeather.getConnection();
         try {
             con.close();
         } catch (SQLException e) {

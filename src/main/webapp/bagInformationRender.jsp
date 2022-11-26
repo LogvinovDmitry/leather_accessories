@@ -27,7 +27,18 @@
 <c:forEach var="anyName" items="${bagInformation}">
 <li> ${anyName.getBag_id()} ${anyName.getBag_name()} ${anyName.getBag_description()} ${anyName.getBag_category_inf()} ${anyName.getBag_price()} ${anyName.getBag_date_added()} </li>
 
+<form method="post" action="/del-servlet" enctype="multipart/form-data">
+            <input type="submit" name=${anyName.getBag_id()} value="Delete entry">
+        </form>
+
+<form method="post" action="/change-servlet" enctype="multipart/form-data">
+            <input type="submit" name=${anyName.getBag_id()} value="Change entry">
+        </form>
+
+
 </c:forEach>
+
+
 </div>
 
 
