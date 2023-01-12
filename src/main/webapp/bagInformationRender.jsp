@@ -1,8 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
-<%@ page import="repository.DataBase.BagLogicServlet"%>
-<%@ page import="repository.DataBase.BagParam"%>
+<%@ page import="app.repository.BagLogicServlet"%>
+<%@ page import="app.repository.BagParam"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="java.util.List"%>
+
+
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 

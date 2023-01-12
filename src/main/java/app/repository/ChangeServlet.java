@@ -1,4 +1,4 @@
-package repository.DataBase;
+package app.repository;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;

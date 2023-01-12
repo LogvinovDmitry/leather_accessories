@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
-<%@ page import="repository.DataBase.BagLogicServlet"%>
-<%@ page import="repository.DataBase.BagParam"%>
+<%@ page import="repository.database.BagLogicServlet"%>
+<%@ page import="repository.database.BagParam"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="java.util.List"%>
 

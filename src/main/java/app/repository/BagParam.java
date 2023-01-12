@@ -1,4 +1,4 @@
-package repository.DataBase;
+package app.repository;
 
 public class BagParam {
     private Integer bag_id;

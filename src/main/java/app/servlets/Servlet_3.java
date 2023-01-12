@@ -1,7 +1,7 @@
 //package app.servlets;
 //
-//import repository.DataBase.BagParameters;
-////import repository.DataBase.ConnectionLeatherAccessoriesSchema;
+//import app.repository.app.repository.database.BagParameters;
+////import app.repository.app.repository.database.ConnectionLeatherAccessoriesSchema;
 //
 //import javax.servlet.ServletException;
 //import javax.servlet.annotation.WebServlet;
