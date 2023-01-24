@@ -20,11 +20,11 @@
 <jsp:include page="index.jsp"/>
 
 <p>
-<% List<BagParam> fullList = (List) request.getAttribute("fullList");%>
+<% List<BagParam> listOfBagsByCategory = (List) request.getAttribute("listOfBagsByCategory");%>
 </p>
 
 <div class="list_models1">
-<c:forEach var="anyName7" items="${fullList}">
+<c:forEach var="anyName7" items="${listOfBagsByCategory}">
 <li> ${anyName7.getBag_id()} ${anyName7.getBag_name()} ${anyName7.getBag_description()} ${anyName7.getBag_category_inf()} ${anyName7.getBag_price()} ${anyName7.getBag_date_added()} </li>
 
 </c:forEach>

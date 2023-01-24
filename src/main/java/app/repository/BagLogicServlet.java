@@ -1,5 +1,6 @@
 package app.repository;
 
+import app.model.BagParam;
 import org.apache.commons.io.IOUtils;
 
 import javax.servlet.ServletException;

@@ -1,4 +1,4 @@
-package app.repository;
+package app.model;
 
 public class BagParam {
     private Integer bag_id;
