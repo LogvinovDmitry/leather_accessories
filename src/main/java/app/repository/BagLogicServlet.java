@@ -55,13 +55,13 @@ public class BagLogicServlet extends HttpServlet {
 
             while (resultSet.next()) {
                 BagParam bagParam = new BagParam();
-                bagParam.setBag_id(resultSet.getInt("i.bag_id"));
-                bagParam.setBag_name(resultSet.getString("i.bag_name"));
+                bagParam.setBagId(resultSet.getInt("i.bag_id"));
+                bagParam.setBagName(resultSet.getString("i.bag_name"));
                 //bagParam.setBag_category(resultSet.getInt("bag_category"));
-                bagParam.setBag_description(resultSet.getString("i.bag_description"));
-                bagParam.setBag_date_added(resultSet.getString("i.bag_date_added"));
-                bagParam.setBag_price(resultSet.getDouble("i.bag_price"));
-                bagParam.setBag_category_inf(resultSet.getString("c.bag_category_inf"));
+                bagParam.setBagDescription(resultSet.getString("i.bag_description"));
+                bagParam.setBagDateAdded(resultSet.getString("i.bag_date_added"));
+                bagParam.setBagPrice(resultSet.getDouble("i.bag_price"));
+                bagParam.setBagCategoryInf(resultSet.getString("c.bag_category_inf"));
 
                 bagInformation.add(bagParam);
             }

@@ -1,71 +1,69 @@
 package app.model;
 
 public class BagParam {
-    private Integer bag_id;
-    private String bag_name;
-    private Integer bag_category;
-    private String bag_description;
-    private String bag_date_added;
-    private Double bag_price;
+    private Integer bagId;
+    private String bagName;
+    private Integer bagCategory;
+    private String bagDescription;
+    private String bagDateAdded;
+    private Double bagPrice;
+    private String bagCategoryInf;
 
-    public Double getBag_price() {
-        return bag_price;
+    public Double getBagPrice() {
+        return bagPrice;
     }
 
-    public void setBag_price(Double bag_price) {
-        this.bag_price = bag_price;
+    public void setBagPrice(Double bagPrice) {
+        this.bagPrice = bagPrice;
     }
 
 
-    public String getBag_date_added() {
-        return bag_date_added;
+    public String getBagDateAdded() {
+        return bagDateAdded;
     }
 
-    public void setBag_date_added(String bag_date_added) {
-        this.bag_date_added = bag_date_added;
+    public void setBagDateAdded(String bagDateAdded) {
+        this.bagDateAdded = bagDateAdded;
     }
 
-    public String getBag_category_inf() {
-        return bag_category_inf;
+    public String getBagCategoryInf() {
+        return bagCategoryInf;
     }
 
-    public void setBag_category_inf(String bag_category_inf) {
-        this.bag_category_inf = bag_category_inf;
+    public void setBagCategoryInf(String bagCategoryInf) {
+        this.bagCategoryInf = bagCategoryInf;
     }
 
-    private String bag_category_inf;
-
-
-    public Integer getBag_id() {
-        return bag_id;
+    public Integer getBagId() {
+        return bagId;
     }
 
-    public void setBag_id(Integer bag_id) {
-        this.bag_id = bag_id;
+    public void setBagId(Integer bagId) {
+        this.bagId = bagId;
     }
 
-    public String getBag_name() {
-        return bag_name;
+    public String getBagName() {
+        return bagName;
     }
 
-    public void setBag_name(String bag_name) {
-        this.bag_name = bag_name;
+    public void setBagName(String bagName) {
+        this.bagName = bagName;
     }
 
-    public Integer getBag_category() {
-        return bag_category;
+    public Integer getBagCategory() {
+        return bagCategory;
     }
 
-    public void setBag_category(Integer bag_category) {
-        this.bag_category = bag_category;
+    public void setBagCategory(Integer bagCategory) {
+        this.bagCategory = bagCategory;
     }
 
-    public String getBag_description() {
-        return bag_description;
+    public String getBagDescription() {
+        return bagDescription;
     }
 
-    public void setBag_description(String bag_description) {
-        this.bag_description = bag_description;
+    public void setBagDescription(String bagDescription) {
+        this.bagDescription = bagDescription;
     }
 
     //  @Override

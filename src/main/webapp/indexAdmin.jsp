@@ -1,13 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 
 
-<%@ page import="java.util.ArrayList"%>
-<%@ page import="java.util.List"%>
-<%@ page import="app.model.BagParam"%>
-<%@ page import="app.service.UserService"%>
-<%@ page import="app.service.impl.UserServiсeImpl"%>
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
 <head>
@@ -59,37 +52,6 @@
 </div>
 
 
-
-
-<p>
-<% UserService userService = new UserServiсeImpl();%>
-</p>
-
-<p>
-<% List<BagParam> fullListOfProducts = userService.getAll();%>
-</p>
-
-<p>
-<%= fullListOfProducts.size() %>
-</p>
-
-
-<div class="list_models1">
-
-<% for (BagParam bagParam : fullListOfProducts) {  %>
-    <li> <%=bagParam.getBagName() %> </li>
-<% } %>
-<c:forEach var="anyName7" items="${fullListOfProducts}">
-<li> ${anyName7.getBagId()} ${anyName7.getBagName()} ${anyName7.getBagDescription()} ${anyName7.getBagCategoryInf()} ${anyName7.getBagPrice()} ${anyName7.getBagDateAdded()} </li>
-
-</c:forEach>
-</div>
-
-
-
-<c:forEach var = "i" begin = "1" end = "15">
-         Item <c:out value = "${i}"/><p>
-      </c:forEach>
 
 </body>
 </html>

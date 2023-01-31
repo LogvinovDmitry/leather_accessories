@@ -1,4 +1,4 @@
-package app.repository.database;
+package app.repository;
 
 import app.model.BagParam;
 

@@ -2,7 +2,8 @@ package app.controller.user;
 
 import app.controller.Command;
 import app.model.BagParam;
-import app.service.imp.UserServiсeImpl;
+import app.service.UserService;
+import app.service.impl.UserServiсeImpl;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,10 +16,11 @@ public class FullListOfProductsCommand implements Command {
 
 //Положить в атрибут полный список продукции, который придет от сервиса
 
-        UserServiсeImpl userServiсeImpl = new UserServiсeImpl();
-        List<BagParam> fullList = userServiсeImpl.getAll();
 
-        request.setAttribute("fullList", fullList);
-        request.setAttribute("jsp", "fullList.jsp");
+        UserService userService = new UserServiсeImpl();
+        List<BagParam> fullListOfProducts = userService.getAll();
+
+        request.setAttribute("fullListOfProducts", fullListOfProducts);
+        request.setAttribute("jsp", "fullListOfProducts.jsp");
     }
 }

@@ -3,7 +3,6 @@
 
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="java.util.List"%>
-<%@ page import="app.repository.BagLogicServlet"%>
 <%@ page import="app.model.BagParam"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -17,15 +16,14 @@
 
 <body>
 
-<jsp:include page="index.jsp"/>
 
 <p>
-<% List<BagParam> fullList = (List) request.getAttribute("fullList");%>
+<% List<BagParam> fullListOfProducts = (List) request.getAttribute("fullListOfProducts");%>
 </p>
 
 <div class="list_models1">
-<c:forEach var="anyName7" items="${fullList}">
-<li> ${anyName7.getBag_id()} ${anyName7.getBag_name()} ${anyName7.getBag_description()} ${anyName7.getBag_category_inf()} ${anyName7.getBag_price()} ${anyName7.getBag_date_added()} </li>
+<c:forEach var="anyName7" items="${fullListOfProducts}">
+<li> ${anyName7.getBagId()} ${anyName7.getBagName()} ${anyName7.getBagDescription()} ${anyName7.getBagCategoryInf()} ${anyName7.getBagPrice()} ${anyName7.getBagDateAdded()} </li>
 
 </c:forEach>
 </div>
