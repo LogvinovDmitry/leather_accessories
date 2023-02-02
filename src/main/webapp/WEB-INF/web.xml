@@ -4,6 +4,12 @@
     <display-name>Archetype Created Web Application</display-name>
 
 
+    <welcome-file-list>
+        <welcome-file>start-servlet</welcome-file>
+    </welcome-file-list>
+
+
+
     <servlet>
         <servlet-name>Servlet_1</servlet-name>
         <servlet-class>app.servlets.Servlet_1</servlet-class>

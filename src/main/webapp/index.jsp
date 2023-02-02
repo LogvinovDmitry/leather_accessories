@@ -39,46 +39,27 @@
 
 <div>
         <form method="get" action="dispatcher">
-        <input type="hidden" id="thisField" name="category" value="Men's bag">
+        <input type="hidden" id="thisField1" name="category" value="Men's bag">
         <input type="submit" name="command" value="List of men's bags">
         </form>
 </div>
 
 <div>
         <form method="get" action="dispatcher">
-        <input type="hidden" id="thisField" name="category" value="Lady's bag">
+        <input type="hidden" id="thisField2" name="category" value="Lady's bag">
         <input type="submit" name="command" value="List of lady's bag bags">
         </form>
 </div>
 
 <div>
         <form method="get" action="dispatcher">
-        <input type="hidden" id="thisField" name="category" value="Accessories">
+        <input type="hidden" id="thisField3" name="category" value="Accessories">
         <input type="submit" name="command" value="Accessories">
         </form>
 </div>
 
 
-
-
-<p>
-<% UserService userService = new UserServiсeImpl();%>
-</p>
-
-<p>
-<% List<BagParam> fullListOfProducts = userService.getAll();%>
-</p>
-
-<p>
-<%= fullListOfProducts.size() %>
-</p>
-
-
 <div class="list_models1">
-
-<% for (BagParam bagParam : fullListOfProducts) {  %>
-    <li> <%=bagParam.getBagName() %> </li>
-<% } %>
 <c:forEach var="anyName7" items="${fullListOfProducts}">
 <li> ${anyName7.getBagId()} ${anyName7.getBagName()} ${anyName7.getBagDescription()} ${anyName7.getBagCategoryInf()} ${anyName7.getBagPrice()} ${anyName7.getBagDateAdded()} </li>
 
@@ -87,9 +68,10 @@
 
 
 
-<c:forEach var = "i" begin = "1" end = "15">
-         Item <c:out value = "${i}"/><p>
-      </c:forEach>
+
+
+
+
 
 </body>
 </html>
@@ -134,4 +116,14 @@
     </select>
     <input type="submit" value="Submit">
 </form>
-</div>-->
+</div>
+
+<% UserService userService = new UserServiсeImpl();
+List<BagParam> fullListOfProducts = userService.getAll();%>
+
+
+<div class="list_models1">
+<% for (BagParam bagParam : fullListOfProducts) {  %>
+    <li> <%=bagParam.getBagName() %> <%=bagParam.getBagDescription() %> </li>
+
+<% } %>-->

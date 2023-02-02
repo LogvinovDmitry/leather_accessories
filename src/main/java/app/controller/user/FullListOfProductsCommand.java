@@ -20,6 +20,8 @@ public class FullListOfProductsCommand implements Command {
         UserService userService = new UserServiсeImpl();
         List<BagParam> fullListOfProducts = userService.getAll();
 
+
+
         request.setAttribute("fullListOfProducts", fullListOfProducts);
         request.setAttribute("jsp", "fullListOfProducts.jsp");
     }

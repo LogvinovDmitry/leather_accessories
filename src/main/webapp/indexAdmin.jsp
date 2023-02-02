@@ -10,6 +10,7 @@
 </head>
 <body>
 
+
 <div>
         <p>To add a new product, fill out the form:</p>
         <form method="post" action="/bag-logic-servlet" enctype="multipart/form-data">
