@@ -1,7 +1,8 @@
 package app.repository;
 
-import app.model.BagParam;
+import app.model.entity.Bag;
 import org.apache.commons.io.IOUtils;
+import app.util.ConnectionLeatherAccessoriesSchema;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -17,6 +18,7 @@ import java.io.OutputStream;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -47,23 +49,24 @@ public class BagLogicServlet extends HttpServlet {
     protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
         Connection con = conLeather.getConnection();
 
-        List<BagParam> bagInformation = new ArrayList<>();
+        List<Bag> bagInformation = new ArrayList<>();
 
         try (PreparedStatement preparedStatement_get_all = con.prepareStatement(GET_All)) {
 
             ResultSet resultSet = preparedStatement_get_all.executeQuery();
 
             while (resultSet.next()) {
-                BagParam bagParam = new BagParam();
-                bagParam.setBagId(resultSet.getInt("i.bag_id"));
-                bagParam.setBagName(resultSet.getString("i.bag_name"));
+                Bag bag = new Bag();
+                bag.setBagId(resultSet.getInt("i.bag_id"));
+                bag.setBagName(resultSet.getString("i.bag_name"));
                 //bagParam.setBag_category(resultSet.getInt("bag_category"));
-                bagParam.setBagDescription(resultSet.getString("i.bag_description"));
-                bagParam.setBagDateAdded(resultSet.getString("i.bag_date_added"));
-                bagParam.setBagPrice(resultSet.getDouble("i.bag_price"));
-                bagParam.setBagCategoryInf(resultSet.getString("c.bag_category_inf"));
+                bag.setBagDescription(resultSet.getString("i.bag_description"));
+                //bag.setBagDateAdded(resultSet.getString("i.bag_date_added"));
+                bag.setBagDateAdded(resultSet.getObject("i.bag_date_added", LocalDate.class));
+                bag.setBagPrice(resultSet.getDouble("i.bag_price"));
+                bag.setBagCategoryInf(resultSet.getString("c.bag_category_inf"));
 
-                bagInformation.add(bagParam);
+                bagInformation.add(bag);
             }
            // preparedStatement_del.setInt(1, );
         } catch (SQLException e) {

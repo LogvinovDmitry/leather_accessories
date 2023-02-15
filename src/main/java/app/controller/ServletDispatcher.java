@@ -21,8 +21,11 @@ public class ServletDispatcher extends HttpServlet {
         Command command = commandHelper.chooseCommand(req); //new FullListOfProductsCommand()
         command.execute(req, resp);
 
+
         RequestDispatcher requestDispatcher = req.getRequestDispatcher((String) req.getAttribute("jsp"));
-        requestDispatcher.forward(req, resp);
+        if (requestDispatcher !=null) {
+            requestDispatcher.forward(req, resp);
+        }
     }
 
     @Override

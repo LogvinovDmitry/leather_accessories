@@ -1,10 +1,11 @@
 package app.controller;
 
-import app.model.BagParam;
+import app.model.dto.BagDto;
+import app.model.entity.Bag;
 import app.service.UserService;
 import app.service.impl.UserServiсeImpl;
+import com.google.gson.Gson;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -15,26 +16,22 @@ import java.io.IOException;
 import java.util.List;
 
 
-@WebServlet(urlPatterns = {"/start-servlet1"})
+@WebServlet(urlPatterns = {"/asynchronous-AJAX-jQuery-Test"})
 @MultipartConfig
-public class StartServletTest extends HttpServlet {
+public class AsynchronousAJAXjQueryTest extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         UserService userService = new UserServiсeImpl();
-        List<BagParam> fullListOfProducts = userService.getAll();
+        List<BagDto> fullListOfProducts = userService.getAll();
 
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
 
-        resp.getWriter().write(fullListOfProducts);
+        String strJsonFullListOfProducts = new Gson().toJson(fullListOfProducts);//Почти любой объект переводит в строку
+        resp.getWriter().write(strJsonFullListOfProducts);
 
-
-//        req.setAttribute("fullListOfProducts", fullListOfProducts);
-//
-//        RequestDispatcher requestDispatcher = req.getRequestDispatcher("index.jsp");
-//        requestDispatcher.forward(req, resp);
     }
 
 }

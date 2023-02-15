@@ -1,5 +1,7 @@
 package app.controller;
 
+import app.controller.admin.CreateNewEntryCommand;
+import app.controller.user.DisplayFileCommand;
 import app.controller.user.FullListOfProductsCommand;
 import app.controller.user.ListOfBagsByCategoryCommand;
 import app.exceptions.UnsupportedCommandException;
@@ -19,9 +21,11 @@ public class CommandHelper {
         commandsMap.put("List of lady's bag bags", new ListOfBagsByCategoryCommand());
         commandsMap.put("Accessories", new ListOfBagsByCategoryCommand());
 
+        commandsMap.put("Display file", new DisplayFileCommand());
+
 
         //Admin command
-
+        commandsMap.put("Create new entry", new CreateNewEntryCommand());
 
     }
 

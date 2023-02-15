@@ -3,7 +3,7 @@
 
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="java.util.List"%>
-<%@ page import="app.model.BagParam"%>
+<%@ page import="app.model.entity.Bag"%>
 <%@ page import="app.service.UserService"%>
 <%@ page import="app.service.impl.UserServiсeImpl"%>
 
@@ -59,14 +59,21 @@
 </div>
 
 
+
+
 <div class="list_models1">
-<c:forEach var="anyName7" items="${fullListOfProducts}">
-<li> ${anyName7.getBagId()} ${anyName7.getBagName()} ${anyName7.getBagDescription()} ${anyName7.getBagCategoryInf()} ${anyName7.getBagPrice()} ${anyName7.getBagDateAdded()} </li>
+<c:forEach var="anyName" items="${fullListOfProducts}">
+<li> ${anyName.getBagId()} ${anyName.getBagName()} ${anyName.getBagDescription()} ${anyName.getBagPrice()} ${anyName.getMainPhotoTitle()}</li>
+
+<div class="list_models1">
+<c:forEach var="someName" items="${anyName.getListPhoto()}">
+<li> ${someName} </li>
 
 </c:forEach>
 </div>
 
-
+</c:forEach>
+</div>
 
 
 
@@ -82,48 +89,3 @@
 
 
 
-
-
-<!--<h2>View the entire list of models from the database:</h2>
-
-<h2> <%--Ссылка на сервлет--%>
-<a href="bag-logic-servlet">Click here</a>
-</h2>-->
-
-
-
-<!--<div>
-              <%--Расшифровка полей формы--%>
-            <p>To add a new product, fill out the form:</p>
-            <form method="post" action="/bag-logic-servlet"> <%--Определяет куда будет отпраленны данный с формы--%>
-                <input type="text" <%--Определяет однострочное текстовое поле ввода--%> placeholder="Genre" <%--Подсвечивает ожидаеммый ввод--%> name="type" <%--Каждое поле ввода должно иметь атрибут name для отправки. Если атрибут name опущен, данные этого поля ввода не будут отправлены вообще.--%> size="20">
-                <input type="submit" name="command" value="Remove genre">
-            </form>
-    </div>-->
-
-
-
-
-<!--<div>
-                 <%--Форма для логина и пароля--%>
-<form class="login" method="get" action="dispatcher">
-    <input type="text" placeholder="Username" name="username" size="30">
-    <input type="password" placeholder="********" name="password" size="30">
-    <select name="command" id="command">
-        <option disabled selected>Choose mode</option>
-        <option value="To dataChange">editor</option>
-        <option value="To mainPage">user</option>
-    </select>
-    <input type="submit" value="Submit">
-</form>
-</div>
-
-<% UserService userService = new UserServiсeImpl();
-List<BagParam> fullListOfProducts = userService.getAll();%>
-
-
-<div class="list_models1">
-<% for (BagParam bagParam : fullListOfProducts) {  %>
-    <li> <%=bagParam.getBagName() %> <%=bagParam.getBagDescription() %> </li>
-
-<% } %>-->

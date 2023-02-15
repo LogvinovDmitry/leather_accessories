@@ -1,46 +1,56 @@
 package app.repository.impl;
 
-import app.model.BagParam;
-import app.repository.ConnectionLeatherAccessoriesSchema;
+import app.model.entity.Bag;
+import app.model.entity.BagPhoto;
+import app.util.ConnectionLeatherAccessoriesSchema;
 import app.repository.UserRepository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserRepositoryImpl implements UserRepository {
-    private static final String GET_All = "SELECT i.bag_id, i.bag_name, i.bag_description, i.bag_date_added, i.bag_price, c.bag_category_inf FROM leather_accessories_schema.bag_information_1 i INNER JOIN leather_accessories_schema.bag_category c ON i.bag_category = c.category_id";
-    private static final String GET_CATEGORY = "SELECT i.bag_id, i.bag_name, i.bag_description, i.bag_date_added, i.bag_price, c.bag_category_inf FROM leather_accessories_schema.bag_information_1 i INNER JOIN leather_accessories_schema.bag_category c ON i.bag_category = c.category_id WHERE bag_category_inf = ?";
+    //private static final String GET_All = "SELECT i.bag_id, i.bag_name, i.bag_description, i.bag_date_added, i.bag_price, c.bag_category_inf FROM leather_accessories_schema.bag_information_1 i INNER JOIN leather_accessories_schema.bag_category c ON i.bag_category = c.category_id";
+    private static final String GET_All = "SELECT i.bag_id, i.bag_name, i.bag_description, i.bag_date_added, i.bag_price, i.main_photo_title, c.bag_category_inf FROM leather_accessories_schema.bag_information i INNER JOIN leather_accessories_schema.bag_category c ON i.bag_category = c.category_id";
+    private static final String GET_CATEGORY = "SELECT i.bag_id, i.bag_name, i.bag_description, i.bag_date_added, i.bag_price, i.main_photo_title, c.bag_category_inf FROM leather_accessories_schema.bag_information i INNER JOIN leather_accessories_schema.bag_category c ON i.bag_category = c.category_id WHERE bag_category_inf = ?";
+    //private static final String GET_PHOTO = "SELECT photo_title FROM leather_accessories_schema.bag_photo WHERE bag_id = ?";
+    //private static final String GET_PHOTO = "SELECT photo_id, bag_id, photo_title FROM leather_accessories_schema.bag_photo";
+    private static final String GET_PHOTO = "SELECT photo_id, bag_id, photo_title FROM leather_accessories_schema.bag_photo WHERE bag_id = ?";
+
 
     ConnectionLeatherAccessoriesSchema conLeather = new ConnectionLeatherAccessoriesSchema();
 
 
-    private List<BagParam> formingAListByParameters(ResultSet resultSet) throws SQLException {
-        List<BagParam> ListByParameters = new ArrayList<>();
+    private List<Bag> formingAListByParameters(ResultSet resultSet) throws SQLException {
+        List<Bag> listByParameters = new ArrayList<>();
 
 
         while (resultSet.next()) {
-            BagParam bagParam = new BagParam();
-            bagParam.setBagId(resultSet.getInt("i.bag_id"));
-            bagParam.setBagName(resultSet.getString("i.bag_name"));
-            bagParam.setBagDescription(resultSet.getString("i.bag_description"));
-            bagParam.setBagDateAdded(resultSet.getString("i.bag_date_added"));
-            bagParam.setBagPrice(resultSet.getDouble("i.bag_price"));
-            bagParam.setBagCategoryInf(resultSet.getString("c.bag_category_inf"));
+            Bag bag = new Bag();
+            bag.setBagId(resultSet.getInt("i.bag_id"));
+            bag.setBagName(resultSet.getString("i.bag_name"));
+            bag.setBagDescription(resultSet.getString("i.bag_description"));
+            //director.setDayOfBirth(resultSet.getObject("day_of_birth", LocalDate.class));
+            //bag.setBagDateAdded(resultSet.getString("i.bag_date_added"));
+            bag.setBagDateAdded(resultSet.getObject("i.bag_date_added", LocalDate.class));
+            bag.setBagPrice(resultSet.getDouble("i.bag_price"));
+            bag.setBagCategoryInf(resultSet.getString("c.bag_category_inf"));
+            bag.setMainPhotoTitle(resultSet.getString("i.main_photo_title"));
 
-            ListByParameters.add(bagParam);
+            listByParameters.add(bag);
         }
 
-        return ListByParameters;
+        return listByParameters;
     }
 
     @Override
-    public List<BagParam> getAll() {
+    public List<Bag> getAll() {
 
-        List<BagParam> fullListOfProducts = new ArrayList<>();
+        List<Bag> fullListOfProducts = new ArrayList<>();
 
         Connection con = conLeather.getConnection();
 
@@ -57,10 +67,10 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public List<BagParam> getListOfBagsByCategory(String category) {
+    public List<Bag> getListOfBagsByCategory(String category) {
 
         Connection con = conLeather.getConnection();
-        List<BagParam> listOfBagsByCategory = new ArrayList<>();
+        List<Bag> listOfBagsByCategory = new ArrayList<>();
 
         try (PreparedStatement preparedStatement = con.prepareStatement(GET_CATEGORY)) {
             preparedStatement.setString(1, category);
@@ -75,36 +85,29 @@ public class UserRepositoryImpl implements UserRepository {
 
     }
 
+    @Override
+    public List<BagPhoto> getListBagPhoto(int bagId) {
+        List<BagPhoto> listBagPhoto = new ArrayList<>();
+
+        Connection con = conLeather.getConnection();
+
+        try (PreparedStatement preparedStatement = con.prepareStatement(GET_PHOTO)) {
+            preparedStatement.setInt(1, bagId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                BagPhoto bagPhoto = new BagPhoto();
+
+                bagPhoto.setPhotoId(resultSet.getInt("photo_id"));
+                bagPhoto.setBagId(resultSet.getInt("bag_id"));
+                bagPhoto.setPhotoTitle(resultSet.getString("photo_title"));
+
+                listBagPhoto.add(bagPhoto);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listBagPhoto;
+    }
+
 }
-
-
-//     Работающий метод
-//    @Override
-//    public List<BagParam> getListOfBagsByCategory() {
-//        List<BagParam> bagInf = new ArrayList<>();
-//
-//        Connection con = conLeather.getConnection();
-//
-//        try (PreparedStatement preparedStatement_get_all = con.prepareStatement(GET_CATEGORY)) {
-//            preparedStatement_get_all.setString(1, "Accessories");
-//            preparedStatement_get_all.execute();
-//            ResultSet resultSet = preparedStatement_get_all.executeQuery();
-//            while (resultSet.next()) {
-//                BagParam bagParam = new BagParam();
-//                bagParam.setBag_id(resultSet.getInt("i.bag_id"));
-//                bagParam.setBag_name(resultSet.getString("i.bag_name"));
-//                //bagParam.setBag_category(resultSet.getInt("bag_category"));
-//                bagParam.setBag_description(resultSet.getString("i.bag_description"));
-//                bagParam.setBag_date_added(resultSet.getString("i.bag_date_added"));
-//                bagParam.setBag_price(resultSet.getDouble("i.bag_price"));
-//                bagParam.setBag_category_inf(resultSet.getString("c.bag_category_inf"));
-//
-//                bagInf.add(bagParam);
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//
-//        return bagInf;
-//
-//    }

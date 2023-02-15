@@ -1,6 +1,8 @@
 package app.controller;
 
-import app.model.BagParam;
+import app.model.dto.BagDto;
+import app.model.entity.Bag;
+import app.model.entity.BagPhoto;
 import app.service.UserService;
 import app.service.impl.UserServiсeImpl;
 
@@ -23,7 +25,7 @@ public class StartServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         UserService userService = new UserServiсeImpl();
-        List<BagParam> fullListOfProducts = userService.getAll();
+        List<BagDto> fullListOfProducts = userService.getAll();
 
 
         req.setAttribute("fullListOfProducts", fullListOfProducts);

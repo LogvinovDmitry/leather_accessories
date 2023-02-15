@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ page import="app.repository.BagLogicServlet"%>
-<%@ page import="app.model.BagParam"%>
+<%@ page import="app.model.entity.Bag"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="java.util.List"%>
 
@@ -22,7 +22,7 @@
 </div>
 
 <p>
-<% List<BagParam> bagInformation = (List) request.getAttribute("bagInformation");%>
+<% List<Bag> bagInformation = (List) request.getAttribute("bagInformation");%>
 </p>
 
 <div class="list_models1">

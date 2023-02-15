@@ -3,7 +3,7 @@
 
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="java.util.List"%>
-<%@ page import="app.model.BagParam"%>
+<%@ page import="app.model.entity.Bag"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -58,12 +58,19 @@
 </div>
 
 <p>
-<% List<BagParam> listOfBagsByCategory = (List) request.getAttribute("listOfBagsByCategory");%>
+<% List<Bag> listOfBagsByCategory = (List) request.getAttribute("listOfBagsByCategory");%>
 </p>
 
 <div class="list_models1">
-<c:forEach var="anyName7" items="${listOfBagsByCategory}">
-<li> ${anyName7.getBagId()} ${anyName7.getBagName()} ${anyName7.getBagDescription()} ${anyName7.getBagCategoryInf()} ${anyName7.getBagPrice()} ${anyName7.getBagDateAdded()} </li>
+<c:forEach var="anyName" items="${listOfBagsByCategory}">
+<li> ${anyName.getBagId()} ${anyName.getBagName()} ${anyName.getBagDescription()} ${anyName.getBagPrice()} ${anyName.getMainPhotoTitle()}</li>
+
+<div class="list_models1">
+<c:forEach var="someName" items="${anyName.getListPhoto()}">
+<li> ${someName} </li>
+
+</c:forEach>
+</div>
 
 </c:forEach>
 </div>

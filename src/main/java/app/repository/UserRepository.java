@@ -1,13 +1,15 @@
 package app.repository;
 
-import app.model.BagParam;
+import app.model.entity.Bag;
+import app.model.entity.BagPhoto;
 
 import java.util.List;
 
 public interface UserRepository {
-    List<BagParam> getAll();
+    List<Bag> getAll();
 
-    List<BagParam> getListOfBagsByCategory(String category);
+    List<Bag> getListOfBagsByCategory(String category);
 
+    List<BagPhoto> getListBagPhoto(int bagId);
     //Перечислены все имеющиеся методы
 }

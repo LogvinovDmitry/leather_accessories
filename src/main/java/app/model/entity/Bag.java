@@ -1,13 +1,29 @@
-package app.model;
+package app.model.entity;
 
-public class BagParam {
+
+import java.time.LocalDate;
+import java.util.List;
+
+public class Bag {
     private Integer bagId;
     private String bagName;
     private Integer bagCategory;
     private String bagDescription;
-    private String bagDateAdded;
+    private LocalDate bagDateAdded;
     private Double bagPrice;
     private String bagCategoryInf;
+    private String mainPhotoTitle;
+
+
+
+
+    public String getMainPhotoTitle() {
+        return mainPhotoTitle;
+    }
+
+    public void setMainPhotoTitle(String mainPhotoTitle) {
+        this.mainPhotoTitle = mainPhotoTitle;
+    }
 
     public Double getBagPrice() {
         return bagPrice;
@@ -18,11 +34,11 @@ public class BagParam {
     }
 
 
-    public String getBagDateAdded() {
+    public LocalDate getBagDateAdded() {
         return bagDateAdded;
     }
 
-    public void setBagDateAdded(String bagDateAdded) {
+    public void setBagDateAdded(LocalDate bagDateAdded) {
         this.bagDateAdded = bagDateAdded;
     }
 

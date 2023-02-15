@@ -1,5 +1,7 @@
 package app.repository;
 
+import app.util.ConnectionLeatherAccessoriesSchema;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;

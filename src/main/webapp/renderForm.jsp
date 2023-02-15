@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ page import="app.repository.BagLogicServlet"%>
-<%@ page import="app.model.BagParam"%>
+<%@ page import="app.model.entity.Bag"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="java.util.List"%>
 
@@ -14,9 +14,6 @@
 
 <body>
 
-<p>
-<% Integer param = (Integer) request.getAttribute("sec");%>
-</p>
 
 <%= param %>
 

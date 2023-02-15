@@ -1,13 +1,17 @@
 package app.service;
 
-import app.model.BagParam;
+import app.model.dto.BagDto;
+import app.model.entity.Bag;
+import app.model.entity.BagPhoto;
 
 import java.util.List;
 
 public interface UserService {
 
 
-    List<BagParam> getAll();
+    List<BagDto> getAll();
 
-    List<BagParam> getListOfBagsByCategory(String category);
+    List<BagDto> getListOfBagsByCategory(String category);
+
+
 }

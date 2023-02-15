@@ -1,7 +1,9 @@
 package app.controller.user;
 
 import app.controller.Command;
-import app.model.BagParam;
+import app.model.dto.BagDto;
+import app.model.entity.Bag;
+import app.model.entity.BagPhoto;
 import app.service.UserService;
 import app.service.impl.UserServiсeImpl;
 
@@ -18,9 +20,7 @@ public class FullListOfProductsCommand implements Command {
 
 
         UserService userService = new UserServiсeImpl();
-        List<BagParam> fullListOfProducts = userService.getAll();
-
-
+        List<BagDto> fullListOfProducts = userService.getAll();
 
         request.setAttribute("fullListOfProducts", fullListOfProducts);
         request.setAttribute("jsp", "fullListOfProducts.jsp");

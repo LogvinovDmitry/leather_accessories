@@ -10,25 +10,8 @@
 
 
 
-    <servlet>
-        <servlet-name>Servlet_1</servlet-name>
-        <servlet-class>app.servlets.Servlet_1</servlet-class>
-    </servlet>
 
-    <servlet-mapping>
-        <servlet-name>Servlet_1</servlet-name>
-        <url-pattern>/servlet_1</url-pattern>
-    </servlet-mapping>
 
-    <servlet>
-        <servlet-name>testJsp</servlet-name>
-        <jsp-file>/testJsp.jsp</jsp-file>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>testJsp</servlet-name>
-        <url-pattern>/testJspAddress</url-pattern>
-    </servlet-mapping>
 
 
 
