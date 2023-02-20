@@ -66,7 +66,8 @@
 
 <div class="list_models1">
 <c:forEach var="anyName" items="${fullListOfProducts}">
-<li> ${anyName.getBagId()} ${anyName.getBagName()} ${anyName.getBagDescription()} ${anyName.getBagPrice()} ${anyName.getMainPhotoTitle()}</li>
+<li> ${anyName.getBagId()} ${anyName.getBagName()} ${anyName.getBagDescription()} ${anyName.getBagPrice()} </li>
+<img src="dispatcher?path=${anyName.getMainPhotoTitle()}&command=Display file" width="270" height="350">
 
 <div class="list_models1">
 <c:forEach var="someName" items="${anyName.getListPhoto()}">
@@ -79,8 +80,16 @@
 </div>
 
 
+
 <div>
-    <img src="dispatcher?path=file/619484b4-b89b-4094-ba8b-e1da87f39862photo_2022-12-05_11-38-23.jpg&command=Display file" width="270" height="350">
+    <img src="dispatcher?path=C:/PhotoTest/RRR.jpg&command=Display file" width="270" height="350">
+    <img src="dispatcher?path=C%3A%2FPhotoTest%2FRRR.jpg&command=Display file" width="270" height="350">
+
+    <img src="dispatcher?path=C:/PhotoTest/Название.jpg&command=Display file" width="270" height="350">
+    <img src="dispatcher?path=C%3A%2FPhotoTest%2F%D0%9D%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5.jpg&command=Display file" width="270" height="350">
+
+    <img src="dispatcher?path=C:\PhotoTest\RRR.jpg&command=Display file" width="270" height="350">
+    <img src="dispatcher?path=C:\\PhotoTest\\RRR.jpg&command=Display file" width="270" height="350">
 
 </div>
 

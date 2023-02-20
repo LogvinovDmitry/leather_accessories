@@ -1,12 +1,16 @@
 package app.model.mapper;
 
+import app.model.dto.BagCreateDto;
 import app.model.dto.BagDto;
 import app.model.entity.Bag;
 import app.model.entity.BagPhoto;
 import app.repository.UserRepository;
 import app.repository.impl.UserRepositoryImpl;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class BagMapper {
@@ -18,8 +22,6 @@ public class BagMapper {
         bagDto.setBagDescription(bag.getBagDescription());
         bagDto.setBagPrice(bag.getBagPrice());
         bagDto.setMainPhotoTitle(bag.getMainPhotoTitle());
-
-
 
 
         List<String> listPhoto = new ArrayList<>();
@@ -35,10 +37,20 @@ public class BagMapper {
 
 //Добавиить два метода конвектирования обьекта ДТО в баг (один для полей, второй для листа)
 
-//    public BagDto bagParamToDto(Bag bag) {
-//        new Bag
-//
-//    }
+
+    public Bag bagCreateDtoToBag(BagCreateDto bagCreateDto) {
+        Bag bag = new Bag();
+
+        bag.setBagName(bagCreateDto.getBagName());
+        bag.setBagCategory(bagCreateDto.getBagCategory());
+        bag.setBagDescription(bagCreateDto.getBagDescription());
+        bag.setBagDateAdded(bagCreateDto.getBagDateAdded());
+        bag.setBagPrice(bagCreateDto.getBagPrice());
+        bag.setMainPhotoTitle(bagCreateDto.getMainPhotoTitle());
+
+        return bag;
+    }
+
 
 //
 //    public Bag bagFromRequest(HttpServletRequest request){

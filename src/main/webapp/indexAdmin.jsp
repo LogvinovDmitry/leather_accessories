@@ -23,11 +23,12 @@
             <input type="text" placeholder="Name (Standart №1)" name="bag_name">
             <input type="text" placeholder="Сategory: M, W, A (1, 2, 3)" name="bag_category">
             <input type="text" placeholder="Price (56.00)" name="bag_price">
-            <input type="text" placeholder="Date (YYYY-MM-DD)" name="bag_date_added">
            <p> <input type="text" placeholder="Description" name="bag_description" size="140"> </p>
-           <p> <input type="file" name="file-name"> </p>
-           <p> <input type="file" name="file-name1"> </p>
-            <input type="submit" name="command" value="Create new entry">
+           <p> Upload a main product photo:
+           <input type="file" name="file_main_photo_title"> </p>
+           <%--<p> Upload other product photos:
+           <input type="file" name="file_names" multiple></p>--%>
+           <input type="submit" name="command" value="Create new entry">
         </form>
 </div>
 
@@ -62,7 +63,7 @@
 
 <div class="list_models1">
 <c:forEach var="anyName" items="${fullListOfProducts}">
-<li> ${anyName.getBagId()} ${anyName.getBagName()} ${anyName.getBagDescription()} ${anyName.getBagPrice()} ${anyName.getMainPhotoTitle()}</li>
+<li> ${anyName.getBagId()} ${anyName.getBagName()} ${anyName.getBagDescription()} ${anyName.getBagPrice()} ${anyName.getMainPhotoTitle()} ${anyName.getBagDateAdded()}</li>
 
 <div class="list_models1">
 <c:forEach var="someName" items="${anyName.getListPhoto()}">

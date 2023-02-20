@@ -121,6 +121,7 @@ public class BagLogicServlet extends HttpServlet {
                 } else if (part.getName().equals("file-name")) {
                     String str = UUID.randomUUID().toString();
                     String fileName = getSubmittedFileName(part);
+
                     try (InputStream inputStream = part.getInputStream();
                          OutputStream outputStream = new FileOutputStream("C:\\Users\\Дмитрий\\leather_accessories\\file\\" + str + fileName)) {
                         IOUtils.copy(inputStream, outputStream);
