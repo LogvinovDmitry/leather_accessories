@@ -23,7 +23,7 @@ public class ServletDispatcher extends HttpServlet {
 
 
         RequestDispatcher requestDispatcher = req.getRequestDispatcher((String) req.getAttribute("jsp"));
-        if (requestDispatcher !=null) {
+        if (requestDispatcher != null) {
             requestDispatcher.forward(req, resp);
         }
     }

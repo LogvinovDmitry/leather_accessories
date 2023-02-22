@@ -24,10 +24,23 @@
             <input type="text" placeholder="Сategory: M, W, A (1, 2, 3)" name="bag_category">
             <input type="text" placeholder="Price (56.00)" name="bag_price">
            <p> <input type="text" placeholder="Description" name="bag_description" size="140"> </p>
-           <p> Upload a main product photo:
-           <input type="file" name="file_main_photo_title"> </p>
+           <p> Upload a main product photo:</p>
+           <p> <input type="file" name="file_main_photo_title"> </p>
+
+           <p> Upload other product photos:</p>
+           <p><input type="file" name="file_name_1">
+           <input type="file" name="file_name_2">
+           <input type="file" name="file_name_3"></p>
+           <p><input type="file" name="file_name_4">
+           <input type="file" name="file_name_5">
+           <input type="file" name="file_name_6"></p>
+           <p><input type="file" name="file_name_7">
+           <input type="file" name="file_name_8">
+           <input type="file" name="file_name_9"></p>
+
            <%--<p> Upload other product photos:
-           <input type="file" name="file_names" multiple></p>--%>
+           <input type="file" name="file_names[]" multiple></p>--%>
+
            <input type="submit" name="command" value="Create new entry">
         </form>
 </div>

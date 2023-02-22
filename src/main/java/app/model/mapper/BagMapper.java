@@ -51,6 +51,20 @@ public class BagMapper {
         return bag;
     }
 
+    public List<BagPhoto> bagCreateDtoToBagPhoto(BagCreateDto bagCreateDto, int bagId) {
+        List<BagPhoto> listBagPhoto = new ArrayList<>();
+        List<String> listPhoto = bagCreateDto.getListPhoto();
+
+        for (String strList : listPhoto) {
+
+        BagPhoto bagPhoto = new BagPhoto();
+
+        bagPhoto.setBagId(bagId);
+        bagPhoto.setPhotoTitle(strList);
+        listBagPhoto.add(bagPhoto);
+        }
+        return listBagPhoto;
+    }
 
 //
 //    public Bag bagFromRequest(HttpServletRequest request){

@@ -76,13 +76,7 @@
 </div>
 
 
-<div>
 
-
-    <img src="dispatcher?path=C:/PhotoTest/Название.jpg&command=Display file" width="270" height="350">
-
-
-</div>
 
 
 

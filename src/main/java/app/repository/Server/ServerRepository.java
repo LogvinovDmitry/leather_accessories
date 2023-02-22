@@ -11,13 +11,15 @@ import java.net.URLDecoder;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 
 public class ServerRepository {
 
-    //final private String PATH_TO_STORE_OF_IMAGES = "C:\\Users\\Дмитрий\\leather_accessories\\file\\";
-    final private String PATH_TO_STORE_OF_IMAGES = "C:\\photo_for_leather_accessories\\";
+    final private String PATH_TO_STORE_OF_IMAGES = "D:\\Projects\\leather_accessories\\file\\mainPhotoTitle\\";
+    final private String PATH_TO_STORE_OF_OTHER_IMAGES = "D:\\Projects\\leather_accessories\\file\\otherImages\\";
 
     private static String getSubmittedFileName(Part part) {
         for (String cd : part.getHeader("content-disposition").split(";")) {
@@ -44,12 +46,18 @@ public class ServerRepository {
 
             try (InputStream inputStream = filePart.getInputStream()) {
                 Files.copy(inputStream, file.toPath());
-                String imagePath = file.toString().replaceAll("\\\\", "/");
-                return imagePath; // C:/photo_for_leather_accessories/72f12e40-c4d9-48ff-9821-b92b09e4213c.jpg
+                return file.toString().replaceAll("\\\\", "/"); // C:/photo_for_leather_accessories/72f12e40-c4d9-48ff-9821-b92b09e4213c.jpg
             }
 
 
-            //Так не работает Ретерн!! не вписіваеться в нужное место
+            //При появлении иключения в консоль выведется сообщение и метод продолжит выполняться (и продолжает выполнятся с вся программа).
+            //А метод должен заканчиваться ретерном. Поэтому в начале необходимо назначить переменную как нулл в блоке
+            //try присвоить ей необходимое значение и в конце ретернуть.
+
+            //В ситуации, когда мы обрабатываем исключение так как сейчас (подсвеченная часть кода),
+            //при исключении метод останавливается как все выполнение программы.
+            //Поэтому ретерн можно писать там, где он есть сейчас.
+
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        } catch (ServletException e) {
@@ -63,30 +71,56 @@ public class ServerRepository {
 
     }
 
+    public List<String> uploadFiles(HttpServletRequest req) {
+        List<String> listPhoto = new ArrayList<>();
+
+        try {
+
+            List<Part> listPart = new ArrayList<>();
+
+            listPart.add(req.getPart("file_name_1"));
+            listPart.add(req.getPart("file_name_2"));
+            listPart.add(req.getPart("file_name_3"));
+            listPart.add(req.getPart("file_name_4"));
+            listPart.add(req.getPart("file_name_5"));
+            listPart.add(req.getPart("file_name_6"));
+            listPart.add(req.getPart("file_name_7"));
+            listPart.add(req.getPart("file_name_8"));
+            listPart.add(req.getPart("file_name_9"));
+
+
+            for (Part filePart : listPart) {
+
+
+                String fileName = getSubmittedFileName(filePart); //photo_2022-12-05_11-38-23.jpg
+                if (!fileName.equals("")) {
+
+                    String str = UUID.randomUUID().toString();
+
+                    String[] partsOfName = fileName.split("\\.");
+                    String mime = partsOfName[partsOfName.length - 1];
+
+
+                    File file = new File(PATH_TO_STORE_OF_OTHER_IMAGES + str + "." + mime);
+
+                    try (InputStream inputStream = filePart.getInputStream()) {
+                        Files.copy(inputStream, file.toPath());
+                        String imagePath = file.toString().replaceAll("\\\\", "/");
+                        listPhoto.add(imagePath);
+
+
+                    }
+                }
+            }
+        } catch (IOException | ServletException e) {
+            throw new RuntimeException("Couldn't save file", e);
+        }
+        // System.out.println(listPhoto.size());
+        return listPhoto;
+
+    }
 
 }
 
-
-//        try {
-//            Part filePart = req.getPart("file_main_photo_title");
-//filePart.getFileName();
-//filePart.getSubmittedFileName();
-//
-//
-//            String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
-//            String mime = FileName.getMime(fileName);
-//            File file = File.createTempFile(partOfFileName, "." + mime, new File(pathToStore));
-//
-//            try( InputStream inputStream = filePart.getInputStream()) {
-//                Files.copy(inputStream, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
-//
-//
-//                return file.toString().replaceAll("\\\\","/");
-//
-//            }
-//        } catch (IOException | ServletException e) {
-//            throw new RuntimeException("Couldn't save file", e);
-//        }
-//    }
 
 

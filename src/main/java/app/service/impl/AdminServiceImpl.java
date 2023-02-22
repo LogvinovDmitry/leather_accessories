@@ -1,7 +1,6 @@
 package app.service.impl;
 
 import app.model.dto.BagCreateDto;
-import app.model.dto.BagDto;
 import app.model.entity.Bag;
 import app.model.entity.BagPhoto;
 import app.model.mapper.BagMapper;
@@ -14,7 +13,6 @@ import app.service.AdminService;
 import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -47,10 +45,21 @@ public class AdminServiceImpl implements AdminService {
         bagCreateDto.setMainPhotoTitle(imagePath);
 
 
-        //BagMapper bagMapper = new BagMapper();
+
         Bag bag = bagMapper.bagCreateDtoToBag(bagCreateDto);
 
-        adminRepository.create(bag);
+        adminRepository.createBag(bag);
+
+
+        List<String> listPhoto = serverRepository.uploadFiles(request);
+        bagCreateDto.setListPhoto(listPhoto);
+
+        int bagId = bag.getBagId();
+        List<BagPhoto> listBagPhoto = bagMapper.bagCreateDtoToBagPhoto(bagCreateDto, bagId);
+
+        for (BagPhoto bagPhoto : listBagPhoto) {
+            adminRepository.createBagPhoto(bagPhoto);
+        }
 
 
 //        BagDto bagDto = new BagDto();

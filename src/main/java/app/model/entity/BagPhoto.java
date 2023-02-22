@@ -4,16 +4,6 @@ package app.model.entity;
 import java.util.List;
 
 public class BagPhoto {
-//    private List<String> listPhoto;
-//
-//    public List<String> getListPhoto() {
-//        return listPhoto;
-//    }
-//
-//    public void setListPhoto(List<String> listPhoto) {
-//        this.listPhoto = listPhoto;
-//    }
-
 
     private Integer bagId;
 
