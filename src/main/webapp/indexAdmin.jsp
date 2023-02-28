@@ -20,23 +20,23 @@
 <div>
         <p>To add a new product, fill out the form:</p>
         <form method="post" action="/dispatcher" enctype="multipart/form-data">
-            <input type="text" placeholder="Name (Standart №1)" name="bag_name">
-            <input type="text" placeholder="Сategory: M, W, A (1, 2, 3)" name="bag_category">
-            <input type="text" placeholder="Price (56.00)" name="bag_price">
-           <p> <input type="text" placeholder="Description" name="bag_description" size="140"> </p>
+            <input class="form_admin_input" type="text" placeholder="Name (Standart №1)" name="bag_name">
+            <input class="form_admin_input" type="text" placeholder="Сategory: M, W, A (1, 2, 3)" name="bag_category">
+            <input class="form_admin_input" type="text" placeholder="Price (56.00)" name="bag_price">
+           <p> <input class="form_admin_input" type="text" placeholder="Description" name="bag_description" size="140"> </p>
            <p> Upload a main product photo:</p>
-           <p> <input type="file" name="file_main_photo_title"> </p>
+           <p> <input type="file" name="file_main_photo_title" accept=".jpg, .jpeg, .png"> </p>
 
            <p> Upload other product photos:</p>
-           <p><input type="file" name="file_name_1">
-           <input type="file" name="file_name_2">
-           <input type="file" name="file_name_3"></p>
-           <p><input type="file" name="file_name_4">
-           <input type="file" name="file_name_5">
-           <input type="file" name="file_name_6"></p>
-           <p><input type="file" name="file_name_7">
-           <input type="file" name="file_name_8">
-           <input type="file" name="file_name_9"></p>
+           <p><input type="file" name="file_name_1" accept=".jpg, .jpeg, .png">
+           <input type="file" name="file_name_2" accept=".jpg, .jpeg, .png">
+           <input type="file" name="file_name_3" accept=".jpg, .jpeg, .png"></p>
+           <p><input type="file" name="file_name_4" accept=".jpg, .jpeg, .png">
+           <input type="file" name="file_name_5" accept=".jpg, .jpeg, .png">
+           <input type="file" name="file_name_6" accept=".jpg, .jpeg, .png"></p>
+           <p><input type="file" name="file_name_7" accept=".jpg, .jpeg, .png">
+           <input type="file" name="file_name_8" accept=".jpg, .jpeg, .png">
+           <input type="file" name="file_name_9" accept=".jpg, .jpeg, .png"></p>
 
            <%--<p> Upload other product photos:
            <input type="file" name="file_names[]" multiple></p>--%>
@@ -73,27 +73,21 @@
         </form>
 </div>
 
-
 <div class="list_models1">
 <c:forEach var="anyName" items="${fullListOfProducts}">
-<li> ${anyName.getBagId()} ${anyName.getBagName()} ${anyName.getBagDescription()} ${anyName.getBagPrice()} ${anyName.getMainPhotoTitle()} ${anyName.getBagDateAdded()}</li>
+<li> ${anyName.getBagId()} ${anyName.getBagName()} ${anyName.getBagDescription()} ${anyName.getBagPrice()} </li>
+<img src="dispatcher?path=${anyName.getMainPhotoTitle()}&command=Display file" width="350" height="350">
 
 <div class="list_models1">
 <c:forEach var="someName" items="${anyName.getListPhoto()}">
-<li> ${someName} </li>
+
+<img src="dispatcher?path=${someName}&command=Display file" width="170" height="250">
 
 </c:forEach>
 </div>
 
 </c:forEach>
 </div>
-
-
-
-
-
-
-
 
 </body>
 </html>

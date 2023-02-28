@@ -1,12 +1,16 @@
 package app.controller.admin;
 
 import app.controller.Command;
+import app.model.dto.BagDto;
 import app.service.AdminService;
+import app.service.UserService;
 import app.service.impl.AdminServiceImpl;
+import app.service.impl.UserServiсeImpl;
 
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 @MultipartConfig()
 public class CreateNewEntryCommand implements Command {
@@ -16,8 +20,12 @@ public class CreateNewEntryCommand implements Command {
         AdminService adminService = new AdminServiceImpl();
         adminService.createBag(request);
 
+        UserService userService = new UserServiсeImpl();
+        List<BagDto> fullListOfProducts = userService.getAll();
 
 
-        request.setAttribute("jsp", "fullListOfProducts.jsp");
+        request.setAttribute("fullListOfProducts", fullListOfProducts);
+
+        request.setAttribute("jsp", "indexAdmin.jsp");
     }
 }

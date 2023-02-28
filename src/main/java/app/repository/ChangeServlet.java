@@ -33,6 +33,7 @@ public class ChangeServlet extends HttpServlet {
             }
 
             preparedStatement_del.executeUpdate();
+            
 
 
         } catch (SQLException e) {

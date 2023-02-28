@@ -10,29 +10,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="css/indexStyle.css" rel="stylesheet" type="text/css">
+<link href="css/user.css" rel="stylesheet" type="text/css">
 
 </head>
 
 <body>
-<div>
-        <p>To add a new product, fill out the form:</p>
-        <form method="post" action="/bag-logic-servlet" enctype="multipart/form-data">
-            <input type="text" placeholder="Name (Standart №1)" name="form_bag_name">
-            <input type="text" placeholder="Сategory: M, W, A (1, 2, 3)" name="bag_category">
-            <input type="text" placeholder="Price (56.00)" name="bag_price">
-            <input type="text" placeholder="Date (YYYY-MM-DD)" name="bag_date_added">
-           <p> <input type="text" placeholder="Description" name="bag_description" size="140"> </p>
-           <p> <input type="file" placeholder="Genre" name="file-name"> </p>
-            <input type="submit" name="command-file" value="Add product to database">
-        </form>
-</div>
 
-<div>
-        <p>Buttons for the user</p>
+
+
+<div class="list_mod">
         <form method="get" action="dispatcher">
-            <input type="submit" name="command" value="Full list of products">
+        <input  type="submit" name="command" value="Full list of products">
         </form>
+
 </div>
 
 <div>
@@ -64,23 +54,25 @@
 </div>--%>
 
 
-<div class="list_models1">
-<c:forEach var="anyName" items="${fullListOfProducts}">
-<li> ${anyName.getBagId()} ${anyName.getBagName()} ${anyName.getBagDescription()} ${anyName.getBagPrice()} </li>
-<img src="dispatcher?path=${anyName.getMainPhotoTitle()}&command=Display file" width="350" height="350">
 
-<div class="list_models1">
+<c:forEach var="anyName" items="${fullListOfProducts}">
+<div class="list_models">
+<p> <img src="dispatcher?path=${anyName.getMainPhotoTitle()}&command=Display file" width="350" height="350"> </p>
+<p> ${anyName.getBagName()} </p>
+<p> $${anyName.getBagPrice()} USD</p>
+
+
 <c:forEach var="someName" items="${anyName.getListPhoto()}">
 
 <img src="dispatcher?path=${someName}&command=Display file" width="170" height="250">
 
-
-
 </c:forEach>
-</div>
 
-</c:forEach>
 </div>
+</c:forEach>
+
+
+
 
 
 

@@ -1,6 +1,6 @@
 body {
     font-family: cursive;
-    background-color: LemonChiffon;
+
 }
 
 .text_centre {
@@ -32,4 +32,19 @@ body {
     padding-right: 10px;
     padding-bottom: 10px;
     padding-left: 20px;
+}
+
+.list_models: {
+
+
+}
+
+.form_admin_input {
+    color: green;
+
+}
+
+.form_admin_input:focus {
+    color: blue;
+
 }

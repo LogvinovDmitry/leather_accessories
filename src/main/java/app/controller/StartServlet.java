@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+import java.util.Timer;
 
 
 @WebServlet(urlPatterns = {"/start-servlet"})
@@ -26,6 +27,7 @@ public class StartServlet extends HttpServlet {
 
         UserService userService = new UserServiсeImpl();
         List<BagDto> fullListOfProducts = userService.getAll();
+
 
 
         req.setAttribute("fullListOfProducts", fullListOfProducts);

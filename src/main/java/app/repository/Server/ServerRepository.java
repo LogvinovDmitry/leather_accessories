@@ -36,6 +36,10 @@ public class ServerRepository {
             Part filePart = req.getPart("file_main_photo_title");
 
             String fileName = getSubmittedFileName(filePart); //photo_2022-12-05_11-38-23.jpg
+            if (fileName.equals("")) {
+                throw new RuntimeException("Can't submit form without main photo");
+            }
+
             String str = UUID.randomUUID().toString();
 
             String[] partsOfName = fileName.split("\\.");
@@ -93,7 +97,9 @@ public class ServerRepository {
 
 
                 String fileName = getSubmittedFileName(filePart); //photo_2022-12-05_11-38-23.jpg
-                if (!fileName.equals("")) {
+
+
+                if (fileName != null && !fileName.equals("")) {
 
                     String str = UUID.randomUUID().toString();
 
@@ -115,7 +121,13 @@ public class ServerRepository {
         } catch (IOException | ServletException e) {
             throw new RuntimeException("Couldn't save file", e);
         }
-        // System.out.println(listPhoto.size());
+
+
+        //System.out.println(listPhoto.size());
+        if (listPhoto.size() == 0) {
+            throw new RuntimeException("You need to upload at least one secondary photo");
+        }
+
         return listPhoto;
 
     }

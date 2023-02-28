@@ -1,0 +1,128 @@
+* {
+    margin: 0; /* Убрать внешние отступы, которые заданы браузером по контуру все страницы по умолчанию */
+	padding: 0;
+
+}
+
+body {
+   font-family: 'Montserrat', sans-serif;
+   width: 100%;
+   height: 100%;
+   text-transform: uppercase;
+}
+
+#wrapper {
+    display: flex; /*Если установить display: flex у контейнера, все дочерние элементы становятся flex элементами, выстроенными в ряд. Все они по вертикали примут размер самого высокого элемента, который станет определяющим вертикального размера. Если у flex контейнера задана высота, то все элементы растянутся до высоты контейнера, независимо от размера содержимого.*/
+    flex-direction: column;
+    height: 100%;
+}
+
+#content {
+    flex: 1 0 auto;
+}
+
+.overhead {
+
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: .2em;
+    color: #5a5a5a;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#header {
+
+    background-color: #fff;
+
+    padding-top: 40px;
+    padding-bottom: 20px;
+    padding-left: 17%;
+    padding-right: 15%;
+
+    margin-bottom: 20px;
+
+    border-bottom: 2px solid #ebebeb;
+    border-top: 2px solid #ebebeb;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+
+}
+
+.logo {
+    position: absolute;
+        top: 28px;
+        left: 60px;
+        }
+
+.curlicue {
+    position: absolute;
+        top: 35px;
+        left: 225px;
+        opacity: 0.4;
+}
+
+      .button_style {
+
+          display: flex;
+          font-family: 'Montserrat', sans-serif;
+          text-transform: uppercase;
+
+          font-weight: 500;
+          font-style: normal;
+
+          letter-spacing: .2em;
+
+          background-color: #fff;
+          border-radius: 10px;
+          border: 1px solid #cccccc;
+          color: #5a5a5a;
+          text-align: center;
+          font-size: 14px;
+
+          padding: 12px;
+          /* width: 180px; */
+
+          transition: all 0.6s;
+          cursor: pointer;
+
+text-decoration: none;
+          }
+
+
+      .button_style:hover {
+          background-color: #a9a4a4;
+          color: #fff;
+          opacity: 0.6;
+
+          }
+
+
+
+
+#main{
+    width: 50%; /* Ширина блока 50% ширины экрана */
+    margin-left: 10%; /* Отступ слева 10% экрана */
+    background: #E0AC7A; /* Указываем задний фон*/
+    border: 2px solid #BE5525; /* Обводка блока 2 пикселя */
+    padding: 20px 2.5%; /* Внутренние отступы: сверху и снизу 20 пикселей, по бокам по 2,5% */
+    float: left;
+
+
+}
+
+
+#footer{
+flex: 0 0 auto;
+    background-color: red;
+    border-top: 5px solid #59595a;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+

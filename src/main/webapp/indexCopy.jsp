@@ -4,6 +4,8 @@
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="java.util.List"%>
 <%@ page import="app.model.entity.Bag"%>
+<%@ page import="app.service.UserService"%>
+<%@ page import="app.service.impl.UserServiсeImpl"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -11,10 +13,12 @@
 <head>
 <meta charset="UTF-8">
 <link href="css/indexStyle.css" rel="stylesheet" type="text/css">
+<link href="css/test.css" rel="stylesheet" type="text/css">
 
 </head>
-
 <body>
+
+
 
 
 <div>
@@ -46,13 +50,16 @@
 </div>
 
 
+
+
 <div class="list_models1">
-<c:forEach var="anyName" items="${listOfBagsByCategory}">
+<c:forEach var="anyName" items="${fullListOfProducts}">
 <li> ${anyName.getBagId()} ${anyName.getBagName()} ${anyName.getBagDescription()} ${anyName.getBagPrice()} </li>
 <img src="dispatcher?path=${anyName.getMainPhotoTitle()}&command=Display file" width="350" height="350">
 
 <div class="list_models1">
 <c:forEach var="someName" items="${anyName.getListPhoto()}">
+
 <img src="dispatcher?path=${someName}&command=Display file" width="170" height="250">
 
 </c:forEach>
@@ -64,5 +71,16 @@
 
 
 
+
+
+
+
 </body>
 </html>
+
+
+
+
+
+
+

@@ -15,11 +15,11 @@ public class CommandHelper {
 
     CommandHelper() {
         //User command
-        commandsMap.put("Full list of products", new FullListOfProductsCommand());
+        commandsMap.put("all products", new FullListOfProductsCommand());
 
-        commandsMap.put("List of men's bags", new ListOfBagsByCategoryCommand());
-        commandsMap.put("List of lady's bag bags", new ListOfBagsByCategoryCommand());
-        commandsMap.put("Accessories", new ListOfBagsByCategoryCommand());
+        commandsMap.put("for men", new ListOfBagsByCategoryCommand());
+        commandsMap.put("for women", new ListOfBagsByCategoryCommand());
+        commandsMap.put("accessories", new ListOfBagsByCategoryCommand());
 
         commandsMap.put("Display file", new DisplayFileCommand());
 
