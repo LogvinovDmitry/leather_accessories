@@ -13,7 +13,7 @@
 </head>
 
 <body>
-
+<a href="http://www.vertex-academy.com">Наш сайт</a>
 
 <%= param %>
 

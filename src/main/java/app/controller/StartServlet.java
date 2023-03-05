@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 
@@ -29,8 +30,33 @@ public class StartServlet extends HttpServlet {
         List<BagDto> fullListOfProducts = userService.getAll();
 
 
+        List<BagDto> listForChangingPictures = new ArrayList<>();
+        while (listForChangingPictures.size() < 5) {
 
-        req.setAttribute("fullListOfProducts", fullListOfProducts);
+            int a = (int) (Math.random() * fullListOfProducts.size());
+
+            if (!listForChangingPictures.contains(fullListOfProducts.get(a))) {
+                listForChangingPictures.add(fullListOfProducts.get(a));
+            }
+
+        }
+
+
+
+        List<BagDto> listForYouInterested = new ArrayList<>();
+        while (listForYouInterested.size() < 9) {
+
+            int a = (int) (Math.random() * fullListOfProducts.size());
+
+            if (!listForYouInterested.contains(fullListOfProducts.get(a))) {
+                listForYouInterested.add(fullListOfProducts.get(a));
+            }
+
+        }
+
+
+        req.setAttribute("listForChangingPictures", listForChangingPictures);
+        req.setAttribute("listForYouInterested", listForYouInterested);
 
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("index.jsp");
         requestDispatcher.forward(req, resp);

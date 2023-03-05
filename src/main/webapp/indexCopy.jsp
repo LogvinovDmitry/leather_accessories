@@ -72,6 +72,10 @@
 
 
 
+<img src="dispatcher?path=file/logo/eeeeeeeeeeeee.png&command=Display file" width="350" height="350">
+        <img src="dispatcher?path=file/logo/odel.png&command=Display file" width="350" height="350">
+        <img src="dispatcher?path=file/logo/qqqqqqqqqqq.png&command=Display file" width="350" height="350">
+
 
 
 
