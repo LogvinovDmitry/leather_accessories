@@ -58,7 +58,7 @@ public class StartServlet extends HttpServlet {
         req.setAttribute("listForChangingPictures", listForChangingPictures);
         req.setAttribute("listForYouInterested", listForYouInterested);
 
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("index.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("indexGo.jsp");
         requestDispatcher.forward(req, resp);
     }
 
