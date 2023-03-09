@@ -1,6 +1,7 @@
 package app.controller;
 
 import app.controller.admin.CreateNewEntryCommand;
+import app.controller.user.BagByIdCommand;
 import app.controller.user.DisplayFileCommand;
 import app.controller.user.FullListOfProductsCommand;
 import app.controller.user.ListOfBagsByCategoryCommand;
@@ -22,6 +23,8 @@ public class CommandHelper {
         commandsMap.put("accessories", new ListOfBagsByCategoryCommand());
 
         commandsMap.put("Display file", new DisplayFileCommand());
+
+        commandsMap.put("Bag by id", new BagByIdCommand());
 
 
         //Admin command

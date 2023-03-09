@@ -69,9 +69,16 @@ public class UserServiсeImpl implements UserService {
         return listOfBagsByCategoryDto;
     }
 
-//    @Override
-//    public List<String> getListPhoto(int bagId) {
-//
-//        return userRepository.getListPhoto(bagId);
-//    }
+    @Override
+    public BagDto getBagById(int bagId) {
+
+        Bag bag = userRepository.getBagById(bagId);
+
+        List<BagPhoto> listBagPhoto = userRepository.getListBagPhoto(bagId);
+
+        BagDto bagDto = bagMapper.bagToDto(bag, listBagPhoto);
+
+
+        return bagDto;
+    }
 }

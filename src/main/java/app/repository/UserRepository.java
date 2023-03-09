@@ -11,5 +11,7 @@ public interface UserRepository {
     List<Bag> getListOfBagsByCategory(String category);
 
     List<BagPhoto> getListBagPhoto(int bagId);
+
+    Bag getBagById(int bagId);
     //Перечислены все имеющиеся методы
 }

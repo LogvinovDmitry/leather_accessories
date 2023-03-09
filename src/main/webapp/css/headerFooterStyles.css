@@ -12,7 +12,13 @@ header, footer {
     text-transform: uppercase;
 }
 
-#overhead {
+/*header {
+    position: fixed;
+}*/
+
+
+
+.overhead-text {
     font-size: 12px;
     display: flex;
     align-items: center;
@@ -22,7 +28,20 @@ header, footer {
     padding-bottom: 5px;
 }
 
-#header {
+.header-logo--owl {
+    position: absolute;
+        top: 27px;
+        left: 35px;
+    }
+
+.header-logo--curlicue {
+    position: absolute;
+        top: 35px;
+        left: 225px;
+        opacity: 0.4;
+}
+
+#header-buttons {
     padding-top: 40px;
     padding-bottom: 25px;
     padding-left: 17%;
@@ -39,20 +58,7 @@ header, footer {
     justify-content: space-between;
 }
 
-    .logo {
-        position: absolute;
-            top: 27px;
-            left: 35px;
-    }
-
-    .curlicue {
-        position: absolute;
-            top: 35px;
-            left: 225px;
-            opacity: 0.4;
-    }
-
-    .button_style {
+    .button__style {
         display: flex;
 
         font-family: 'Montserrat', sans-serif;
@@ -76,13 +82,13 @@ header, footer {
         text-decoration: none;
     }
 
-        .button_style:hover {
+        .button__style:hover {
             background-color: #a9a4a4;
             color: #fff;
             opacity: 0.6;
         }
 
-#footer {
+footer {
     flex: 0 0 auto;
 
     display: flex;
@@ -96,7 +102,7 @@ header, footer {
     border-top: 2px solid #ebebeb;
 }
 
-    .footer_left {
+    .footer-left {
         padding-left: 2%;
         padding-right: 3%;
         letter-spacing: 1;
@@ -104,13 +110,13 @@ header, footer {
         text-transform: none;
     }
 
-        .footer_left p {
+        .footer-left p {
             padding-bottom: 20px;
             text-transform: none;
 
         }
 
-    .footer_center {
+    .footer-center {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
@@ -118,7 +124,7 @@ header, footer {
         width: 33%;
     }
 
-        .footer_center p {
+        .footer-center p {
             width: 300px;
             padding-left: 11%;
             letter-spacing: 1;
@@ -126,13 +132,13 @@ header, footer {
 
         }
 
-        .footer_center img {
+        .footer-center img {
             opacity: 0.5;
             padding-left: 30px;
 
         }
 
-    .footer_right {
+    .footer-right {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -140,7 +146,7 @@ header, footer {
             width: 33%;
         }
 
-        .footer_right_p {
+        .footer-right_p {
             padding-top: 25px;
             letter-spacing: 1;
             text-transform: none;

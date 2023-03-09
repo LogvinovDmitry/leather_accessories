@@ -13,5 +13,7 @@ public interface UserService {
 
     List<BagDto> getListOfBagsByCategory(String category);
 
+    BagDto getBagById(int bagId);
+
 
 }
