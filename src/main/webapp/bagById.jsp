@@ -39,8 +39,11 @@
             <!--<p> ${bagDto.getBagId()} </p>-->
             <p class="inner-text__name"> ${bagDto.getBagName()} </p>
             <p class="inner-text__price"> $${bagDto.getBagPrice()} USD</p>
-            <p> Description </p>
-            <p class="inner-text__description"> ${bagDto.getBagDescription()} </p>
+            <p class="inner-text__description-title"> Description </p>
+
+            <div class="inner-text__description">
+            ${bagDto.getBagDescription()}
+            </div>
         </div>
 </div>
 <!--Закрываем тег основной части-->

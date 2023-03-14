@@ -78,6 +78,9 @@ public class UserServiсeImpl implements UserService {
 
         BagDto bagDto = bagMapper.bagToDto(bag, listBagPhoto);
 
+        String description = bagDto.getBagDescription(); //из БД прилетает описание товара с {}, которые мы ниже заменим на <>
+        String descrRep = description.replaceAll("\\{(/?)(li|ul|p)\\}", "<$1$2>");
+        bagDto.setBagDescription(descrRep);
 
         return bagDto;
     }

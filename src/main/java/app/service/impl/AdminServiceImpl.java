@@ -34,7 +34,9 @@ public class AdminServiceImpl implements AdminService {
 
         bagCreateDto.setBagName(request.getParameter("bag_name"));
         bagCreateDto.setBagCategory(Integer.parseInt(request.getParameter("bag_category")));
+
         bagCreateDto.setBagDescription(request.getParameter("bag_description"));
+
 
         String date = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
         bagCreateDto.setBagDateAdded(LocalDate.parse(date));
@@ -43,8 +45,6 @@ public class AdminServiceImpl implements AdminService {
 
         String imagePath = serverRepository.uploadFile(request);
         bagCreateDto.setMainPhotoTitle(imagePath);
-
-
 
         Bag bag = bagMapper.bagCreateDtoToBag(bagCreateDto);
 

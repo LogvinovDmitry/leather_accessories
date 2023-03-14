@@ -26,6 +26,6 @@ public class CreateNewEntryCommand implements Command {
 
         request.setAttribute("fullListOfProducts", fullListOfProducts);
 
-        request.setAttribute("jsp", "indexAdmin.jsp");
+        request.setAttribute("jsp", "createNewEntryAdmin.jsp");
     }
 }

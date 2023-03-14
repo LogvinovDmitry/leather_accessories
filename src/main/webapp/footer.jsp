@@ -4,10 +4,8 @@
 
     <div class="footer-left">
         <p>ABOUT THE SHOP:</p>
-        <p>A small workshop "Smart-quiz" is located in a small town in the south of Ukraine.
-        We create exclusively handmade products from high quality materials.
-        Each product is made individually for you.</p>
-        <p>Hurry up to buy a piece hard, but beloved work and talent of the master.</p>
+        <p>Our workshop "Smart-quiz" is located in Zaporozhye City in the south of Ukraine. We create exclusively handmade accessories using only genuine organic leather and at an affordable price.  Every product is made personally for you.</p>
+        <p>We are happy to create for you the accessory according to your taste, desires, preferences...</p>
     </div>
 
     <div class="footer-center">
