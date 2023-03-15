@@ -33,7 +33,8 @@ public class AdminServiceImpl implements AdminService {
         BagCreateDto bagCreateDto = new BagCreateDto();
 
         bagCreateDto.setBagName(request.getParameter("bag_name"));
-        bagCreateDto.setBagCategory(Integer.parseInt(request.getParameter("bag_category")));
+        bagCreateDto.setBagCategory(Integer.parseInt(request.getParameter("bag_category"))); //1 или 2 или 3
+
 
         bagCreateDto.setBagDescription(request.getParameter("bag_description"));
 

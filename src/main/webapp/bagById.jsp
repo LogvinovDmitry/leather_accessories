@@ -29,7 +29,7 @@
 
 <div id="inner">
         <div class="inner-photo">
-            <a href="dispatcher?bagId=${anyName.getBagId()}&command=Bag by id"><img src="dispatcher?path=${bagDto.getMainPhotoTitle()}&command=Display file" width="560" height="414"></a>
+            <img src="dispatcher?path=${bagDto.getMainPhotoTitle()}&command=Display file" width="560" height="414">
 
             <c:forEach var="someName" items="${bagDto.getListPhoto()}">
                 <img src="dispatcher?path=${someName}&command=Display file" width="560" height="414">

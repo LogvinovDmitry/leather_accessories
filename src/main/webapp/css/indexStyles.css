@@ -7,7 +7,7 @@ main {
     font-family: 'Montserrat', sans-serif;
     letter-spacing: .2em;
     color: #5a5a5a;
-
+    text-transform: uppercase;
 
 }
 
@@ -107,9 +107,11 @@ main {
 
     .inner-text__name {
         letter-spacing: .2em;
-        color: #5a5a5a;
+        color: #000000;
         padding-top: 20px;
         text-transform: uppercase;
+        font-style: normal;
+        font-size: 20px;
     }
 
     .inner-text__price {
@@ -133,6 +135,7 @@ main {
         letter-spacing: .1em;
         color: #5a5a5a;
         line-height: 23px;
+        text-transform: none;
     }
 
     .inner-text__description p:first-child {
