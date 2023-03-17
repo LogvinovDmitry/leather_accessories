@@ -28,8 +28,6 @@
 <div id="you-interested">you might be interested...</div>
 
 <!--Случайные товары, которые могут заинтересовать-->
-
-
 <div id="goods">
     <c:forEach var="anyName" items="${listForYouInterested}">
         <div class="goods--one-item">

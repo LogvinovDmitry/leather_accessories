@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="css/indexStyles.css" rel="stylesheet" type="text/css">
+<link href="css/bagByIdStyles.css" rel="stylesheet" type="text/css">
 <link href="css/headerFooterStyles.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -27,7 +27,6 @@
 
 <!--Один конкретный выбранный товар по id-->
 
-<div id="inner">
         <div class="inner-photo">
             <img src="dispatcher?path=${bagDto.getMainPhotoTitle()}&command=Display file" width="560" height="414">
 
@@ -45,7 +44,7 @@
             ${bagDto.getBagDescription()}
             </div>
         </div>
-</div>
+
 <!--Закрываем тег основной части-->
 </main>
 
