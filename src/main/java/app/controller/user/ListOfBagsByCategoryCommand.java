@@ -2,9 +2,8 @@ package app.controller.user;
 
 import app.controller.Command;
 import app.model.dto.BagDto;
-import app.model.entity.Bag;
 import app.service.UserService;
-import app.service.impl.UserServiсeImpl;
+import app.service.impl.UserServiceImpl;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +15,7 @@ public class ListOfBagsByCategoryCommand implements Command {
 
         String category = request.getParameter("category");  //Accessories, Lady's bag, Men's bag
 
-        UserService userService = new UserServiсeImpl();
+        UserService userService = new UserServiceImpl();
         List<BagDto> listOfBagsByCategory = userService.getListOfBagsByCategory(category);
 
         request.setAttribute("listOfBagsByCategory", listOfBagsByCategory);

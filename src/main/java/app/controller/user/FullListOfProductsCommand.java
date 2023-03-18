@@ -2,10 +2,8 @@ package app.controller.user;
 
 import app.controller.Command;
 import app.model.dto.BagDto;
-import app.model.entity.Bag;
-import app.model.entity.BagPhoto;
 import app.service.UserService;
-import app.service.impl.UserServiсeImpl;
+import app.service.impl.UserServiceImpl;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,7 +17,7 @@ public class FullListOfProductsCommand implements Command {
 //Положить в атрибут полный список продукции, который придет от сервиса
 
 
-        UserService userService = new UserServiсeImpl();
+        UserService userService = new UserServiceImpl();
         List<BagDto> fullListOfProducts = userService.getAll();
 
         request.setAttribute("fullListOfProducts", fullListOfProducts);

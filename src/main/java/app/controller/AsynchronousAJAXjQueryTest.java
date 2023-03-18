@@ -1,9 +1,8 @@
 package app.controller;
 
 import app.model.dto.BagDto;
-import app.model.entity.Bag;
 import app.service.UserService;
-import app.service.impl.UserServiсeImpl;
+import app.service.impl.UserServiceImpl;
 import com.google.gson.Gson;
 
 import javax.servlet.ServletException;
@@ -23,7 +22,7 @@ public class AsynchronousAJAXjQueryTest extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        UserService userService = new UserServiсeImpl();
+        UserService userService = new UserServiceImpl();
         List<BagDto> fullListOfProducts = userService.getAll();
 
         resp.setContentType("application/json");
