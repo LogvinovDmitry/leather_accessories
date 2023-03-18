@@ -1,0 +1,25 @@
+version: '3.5'
+services:
+  site:
+    image: leather-accessories:latest
+    restart: always
+    container_name: leather-accessories-server
+#    volumes:
+#      - "D:/java/leather_accessories_dima/file:/usr/local/tomcat/webapps/ROOT/file"
+    environment:
+      DATABASE_URL: "jdbc:mysql://database:3306/leather_accessories_schema"
+      DATABASE_USER: "squser"
+      DATABASE_PASSWORD: "pass1234"
+    ports:
+      - "80:8080"
+  database:
+    image: mysql:8.0
+    restart: always
+    container_name: leather-accessories-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: "1234321"
+      MYSQL_USER: "squser"
+      MYSQL_PASSWORD: "pass1234"
+      MYSQL_DATABASE: "leather_accessories_schema"
+    ports:
+      - "3306:3306"

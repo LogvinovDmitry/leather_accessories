@@ -5,7 +5,7 @@ import app.model.dto.BagDto;
 import app.service.AdminService;
 import app.service.UserService;
 import app.service.impl.AdminServiceImpl;
-import app.service.impl.UserServiсeImpl;
+import app.service.impl.UserServiceImpl;
 
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +20,7 @@ public class CreateNewEntryCommand implements Command {
         AdminService adminService = new AdminServiceImpl();
         adminService.createBag(request);
 
-        UserService userService = new UserServiсeImpl();
+        UserService userService = new UserServiceImpl();
         List<BagDto> fullListOfProducts = userService.getAll();
 
 

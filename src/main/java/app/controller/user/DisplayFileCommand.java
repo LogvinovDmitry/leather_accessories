@@ -9,8 +9,10 @@ import java.io.*;
 public class DisplayFileCommand implements Command {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) {
+        String baseFilePath = request.getServletContext().getRealPath("/"); // Путь до папки, в которой лежит папка 'file' с картинками
+//        System.out.println("baseFilePath = " + baseFilePath);
 
-        File file = new File(request.getParameter("path")); //Получаем фаил, что бы дальше с ним работать (request.getParameter("path"); //Путь по которому находится запрашиваемый
+        File file = new File(baseFilePath + request.getParameter("path")); //Получаем фаил, что бы дальше с ним работать (request.getParameter("path"); //Путь по которому находится запрашиваемый
                                                               // фаил: file/619484b4-b89b-4094-ba8b-e1da87f39862photo_2022-12-05_11-38-23.jpg)
 
         String contentType = request.getSession().getServletContext().getMimeType(file.getName()); //image/jpeg  (file.getName() - 619484b4-b89b-4094-ba8b-e1da87f39862photo_2022-12-05_11-38-23.jpg)
@@ -36,7 +38,7 @@ public class DisplayFileCommand implements Command {
             }
 
         } catch (IOException e) {
-            throw new RuntimeException("Couldn't read/write file.");
+            throw new RuntimeException("Couldn't read/write file: " + e.getMessage());
         }
     }
 }

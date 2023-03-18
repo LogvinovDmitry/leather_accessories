@@ -18,8 +18,8 @@ import java.util.UUID;
 
 public class ServerRepository {
 
-    final private String PATH_TO_STORE_OF_IMAGES = "D:\\Projects\\leather_accessories\\file\\mainPhotoTitle\\";
-    final private String PATH_TO_STORE_OF_OTHER_IMAGES = "D:\\Projects\\leather_accessories\\file\\otherImages\\";
+    private static final String PATH_TO_STORE_OF_IMAGES = "file\\mainPhotoTitle\\";
+    private static final String PATH_TO_STORE_OF_OTHER_IMAGES = "file\\otherImages\\";
 
     private static String getSubmittedFileName(Part part) {
         for (String cd : part.getHeader("content-disposition").split(";")) {
@@ -32,6 +32,8 @@ public class ServerRepository {
     }
 
     public String uploadFile(HttpServletRequest req) {
+        String baseFilePath = req.getServletContext().getRealPath("/"); // Путь до папки, в которой лежит папка 'file' с картинками
+//        System.out.println("baseFilePath = " + baseFilePath);
         try {
             Part filePart = req.getPart("file_main_photo_title");
 
@@ -46,7 +48,7 @@ public class ServerRepository {
             String mime = partsOfName[partsOfName.length - 1];
 
 
-            File file = new File(PATH_TO_STORE_OF_IMAGES + str + "." + mime);
+            File file = new File(baseFilePath + File.separator + PATH_TO_STORE_OF_IMAGES + str + "." + mime);
 
             try (InputStream inputStream = filePart.getInputStream()) {
                 Files.copy(inputStream, file.toPath());
@@ -76,6 +78,8 @@ public class ServerRepository {
     }
 
     public List<String> uploadFiles(HttpServletRequest req) {
+        String baseFilePath = req.getServletContext().getRealPath("/"); // Путь до папки, в которой лежит папка 'file' с картинками
+//        System.out.println("baseFilePath = " + baseFilePath);
         List<String> listPhoto = new ArrayList<>();
 
         try {
@@ -107,7 +111,7 @@ public class ServerRepository {
                     String mime = partsOfName[partsOfName.length - 1];
 
 
-                    File file = new File(PATH_TO_STORE_OF_OTHER_IMAGES + str + "." + mime);
+                    File file = new File(baseFilePath + File.separator + PATH_TO_STORE_OF_OTHER_IMAGES + str + "." + mime);
 
                     try (InputStream inputStream = filePart.getInputStream()) {
                         Files.copy(inputStream, file.toPath());

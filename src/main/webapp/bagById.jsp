@@ -5,7 +5,7 @@
 <%@ page import="java.util.List"%>
 <%@ page import="app.model.entity.Bag"%>
 <%@ page import="app.service.UserService"%>
-<%@ page import="app.service.impl.UserServiсeImpl"%>
+<%@ page import="app.service.impl.UserServiceImpl"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 

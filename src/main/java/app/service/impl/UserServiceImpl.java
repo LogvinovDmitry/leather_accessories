@@ -12,7 +12,7 @@ import app.service.UserService;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserServiсeImpl implements UserService {
+public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;
 
@@ -23,7 +23,7 @@ public class UserServiсeImpl implements UserService {
     // параметром репозиторий. В данном случае это безсмысленно и можно было бы назначить
     // так: private UserRepository userRepository = new UserRepositoryImpl();
 
-    public UserServiсeImpl() {
+    public UserServiceImpl() {
 
         userRepository = new UserRepositoryImpl();
     }
