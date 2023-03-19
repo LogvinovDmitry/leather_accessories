@@ -105,6 +105,9 @@
           <configuration>
             <port>8080</port>
             <path>/</path>
+            <systemProperties>
+              <isLocalRun>true</isLocalRun>
+            </systemProperties>
           </configuration>
         </plugin>
 

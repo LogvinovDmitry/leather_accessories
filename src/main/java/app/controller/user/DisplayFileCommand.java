@@ -1,6 +1,7 @@
 package app.controller.user;
 
 import app.controller.Command;
+import app.util.Utils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,7 +10,7 @@ import java.io.*;
 public class DisplayFileCommand implements Command {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) {
-        String baseFilePath = request.getServletContext().getRealPath("/"); // Путь до папки, в которой лежит папка 'file' с картинками
+        String baseFilePath = Utils.getBasePath(request);
 //        System.out.println("baseFilePath = " + baseFilePath);
 
         File file = new File(baseFilePath + request.getParameter("path")); //Получаем фаил, что бы дальше с ним работать (request.getParameter("path"); //Путь по которому находится запрашиваемый

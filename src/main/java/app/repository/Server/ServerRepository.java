@@ -1,5 +1,7 @@
 package app.repository.Server;
 
+import app.util.Utils;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
@@ -32,13 +34,13 @@ public class ServerRepository {
     }
 
     public String uploadFile(HttpServletRequest req) {
-        String baseFilePath = req.getServletContext().getRealPath("/"); // Путь до папки, в которой лежит папка 'file' с картинками
+        String baseFilePath = Utils.getBasePath(req);
 //        System.out.println("baseFilePath = " + baseFilePath);
         try {
             Part filePart = req.getPart("file_main_photo_title");
 
             String fileName = getSubmittedFileName(filePart); //photo_2022-12-05_11-38-23.jpg
-            if (fileName.equals("")) {
+            if (fileName == null || fileName.isEmpty()) {
                 throw new RuntimeException("Can't submit form without main photo");
             }
 
@@ -78,7 +80,7 @@ public class ServerRepository {
     }
 
     public List<String> uploadFiles(HttpServletRequest req) {
-        String baseFilePath = req.getServletContext().getRealPath("/"); // Путь до папки, в которой лежит папка 'file' с картинками
+        String baseFilePath = Utils.getBasePath(req);
 //        System.out.println("baseFilePath = " + baseFilePath);
         List<String> listPhoto = new ArrayList<>();
 
