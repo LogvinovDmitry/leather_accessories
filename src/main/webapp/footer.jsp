@@ -9,10 +9,14 @@
     </div>
 
     <div class="footer-center">
-        <p> follow us: </p>
-        <a target="_blank" href="https://www.instagram.com/"><img src="dispatcher?path=file/icon_inst_fb_ytube/inst.png&command=Display file" width="70" ></a>
-        <a target="_blank" href="https://www.facebook.com/logvinov1990/"><img src="dispatcher?path=file/icon_inst_fb_ytube/facebook.png&command=Display file" width="50" ></a>
-        <a target="_blank" href="https://youtu.be/0igihKnT844"><img src="dispatcher?path=file/icon_inst_fb_ytube/youtube.png&command=Display file" width="70" ></a>
+        <div>
+            <p>  follow us: </p>
+        </div>
+        <div>
+            <a target="_blank" href="https://www.instagram.com/"><img src="dispatcher?path=file/icon_inst_fb_ytube/inst.png&command=Display file" width="70" ></a>
+            <a target="_blank" href="https://www.facebook.com/logvinov1990/"><img  class="img-center" src="dispatcher?path=file/icon_inst_fb_ytube/facebook.png&command=Display file" width="50" ></a>
+            <a target="_blank" href="https://youtu.be/0igihKnT844"><img src="dispatcher?path=file/icon_inst_fb_ytube/youtube.png&command=Display file" width="70" ></a>
+        </div>
     </div>
 
     <div class="footer-right">

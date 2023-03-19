@@ -47,5 +47,10 @@
             </div>
         </div>
     </div>
+
+    <div class="basket">
+            <img src="dispatcher?path=file/shopping_icon/shopping_icon-icons.png&command=Display file" width="60">
+            <p>(0)</p>
+    </div>
 </div>
 </header>
