@@ -1,6 +1,7 @@
 * {
     margin: 0; /* Убрать внешние отступы, которые заданы браузером по контуру все страницы по умолчанию */
 	padding: 0;
+
 }
 
 main {
@@ -8,21 +9,30 @@ main {
     letter-spacing: .2em;
     color: #5a5a5a;
     text-transform: uppercase;
+    display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
 
 }
 
+main #you-interested {
+margin-right: auto;
+}
+
 #you-interested {
-    padding-top: 40px;
+    padding-top: 20px;
     padding-bottom: 10px;
     padding-left: 6%;
     font-size: 12px;
+
 }
 
 #goods {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: stretch;
+    justify-content: center;
 
     padding-bottom: 10px;
     padding-left: 5%;
@@ -80,74 +90,5 @@ main {
 .imgContainer img:nth-child(4) { animation-delay: 12s; }
 .imgContainer img:nth-child(5) { animation-delay: 16s; }
 
-#inner {
-    display: flex;
-    /* align-items: center; */
-    /* justify-content: center; */
-
-    padding-right: 7%;
-    padding-left: 7%;
-
-
-}
-
-.inner-photo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-right: 7%;
-}
-
-.inner-photo img {
-    padding-bottom: 4%;
-}
-
-
-
-    .inner-text__name {
-        letter-spacing: .2em;
-        color: #000000;
-        padding-top: 20px;
-        text-transform: uppercase;
-        font-style: normal;
-        font-size: 20px;
-    }
-
-    .inner-text__price {
-        padding-top: 15px;
-        padding-bottom: 40px;
-        letter-spacing: .1em;
-        color: #9f9f9f;
-    }
-
-    .inner-text__description-title {
-        border-top: 2px solid #ebebeb;
-        padding-top: 20px;
-        padding-bottom: 15px;
-        letter-spacing: .1em;
-        color: #5a5a5a;
-        width: 400px;
-        text-transform: uppercase;
-    }
-
-    .inner-text__description {
-        letter-spacing: .1em;
-        color: #5a5a5a;
-        line-height: 23px;
-        text-transform: none;
-    }
-
-    .inner-text__description p:first-child {
-        padding-bottom: 50px;
-    }
-
-    .inner-text__description p:last-child {
-        padding-top: 60px;
-    }
-
-    .inner-text__description ul {
-        padding-left: 30px;
-    }
 
 

@@ -28,7 +28,7 @@ public class StartServlet extends HttpServlet {
 
 
         List<BagDto> listForChangingPictures = new ArrayList<>();
-        while (listForChangingPictures.size() < 5) {
+        while (listForChangingPictures.size() < 6) {
 
             int a = (int) (Math.random() * fullListOfProducts.size());
 
