@@ -12,12 +12,6 @@ header, footer {
     text-transform: uppercase;
 }
 
-/*header {
-    position: fixed;
-}*/
-
-
-
 .overhead-text {
     font-size: 12px;
     display: flex;
@@ -28,31 +22,9 @@ header, footer {
     padding-bottom: 5px;
 }
 
-.header-logo--owl {
-    position: absolute;
-        top: 27px;
-        left: 35px;
-    }
-
-.header-logo--curlicue {
-    position: absolute;
-        top: 35px;
-        left: 225px;
-        opacity: 0.4;
-}
-
 #header-buttons {
-    padding-top: 40px;
-    padding-bottom: 25px;
-    padding-left: 17%;
-    padding-right: 15%;
-
-    margin-bottom: 20px;
-
     background-color: #fff;
-    border-bottom: 2px solid #ebebeb;
-    border-top: 2px solid #ebebeb;
-
+    flex-wrap: wrap;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -83,10 +55,59 @@ header, footer {
     }
 
         .button__style:hover {
+
             background-color: #a9a4a4;
             color: #fff;
             opacity: 0.6;
         }
+
+.curlicue {
+    display: flex;
+    width: 100%;
+    height: 20px;
+    /*background: url(curlicue1.png);*/
+    background: url(../images/curlicue/curlicue1.png);
+    background-size: 100% 100%;
+    opacity: 0.4;
+    margin-bottom: 8px;
+}
+
+.inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-top: 2px solid #ebebeb;
+    border-bottom: 2px solid #ebebeb;
+    padding-left: 3%;
+    padding-right: 3%;
+    margin-bottom: 20px;
+}
+
+.header-logo--owl {
+    padding-right: 3%;
+}
+
+.curlicue-buttons {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+.basket {
+    display: flex;
+    align-items: center;
+    padding-left: 5%;
+    opacity: 0.7;
+    font-size: 20px;
+    letter-spacing: 0;
+    color: #161616;
+}
+
+.basket p {
+     padding-top: 15px;
+}
+
 
 footer {
     flex: 0 0 auto;
@@ -118,24 +139,27 @@ footer {
 
     .footer-center {
         display: flex;
-        flex-wrap: wrap;
-        align-items: center;
+       flex-direction: column;
+
         letter-spacing: 1;
         width: 33%;
     }
 
         .footer-center p {
-            width: 300px;
-            padding-left: 11%;
             letter-spacing: 1;
             padding-bottom: 20px;
+            padding-left: 10%;
+
 
         }
 
         .footer-center img {
             opacity: 0.5;
-            padding-left: 30px;
+            padding-left: 6%;
+        }
 
+        .img-center {
+        padding-bottom: 10px;
         }
 
     .footer-right {
@@ -151,3 +175,8 @@ footer {
             letter-spacing: 1;
             text-transform: none;
         }
+
+
+
+
+

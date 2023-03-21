@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link href="css/indexStyles.css" rel="stylesheet" type="text/css">
-<link href="css/headerFooterStylesTest.css" rel="stylesheet" type="text/css">
+<link href="css/headerFooterStyles.css" rel="stylesheet" type="text/css">
 <link href="css/slick.css" rel="stylesheet" type="text/css">
 <link href="css/slick-theme.css" rel="stylesheet" type="text/css">
 </head>
@@ -14,7 +14,7 @@
 <body>
 
 <!--Шапка сайта-->
-<jsp:include page="headerTest.jsp"/>
+<jsp:include page="header.jsp"/>
 
 
 <!--Основная часть-->

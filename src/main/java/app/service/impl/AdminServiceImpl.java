@@ -17,6 +17,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -54,6 +55,9 @@ public class AdminServiceImpl implements AdminService {
 
         String imageFullPath = serverRepository.uploadFile(request);
 
+        //Используем метод obrezatLishniujuChastPutiKartinki для того, что бы наши пути к файлам
+        //стали универсальными и работали на любом устройстве, включая внешний сервер. (первая часть пути,
+        //разная для каждого устройства, будет отсекаться, а вторая одинаковая - сохраняться)
         String partOfImageSize = obrezatLishniujuChastPutiKartinki(request, imageFullPath);
 
         bagCreateDto.setMainPhotoTitle(partOfImageSize);
@@ -63,9 +67,13 @@ public class AdminServiceImpl implements AdminService {
         adminRepository.createBag(bag);
 
 
-        List<String> listPhoto = serverRepository.uploadFiles(request);
-        // TODO: Нужно лбрезать лишнюю часть пути У КАЖДОЙ картинки в списке, и в setListPhoto передавать уже правильные пути
-        // Можно использовать метод obrezatLishniujuChastPutiKartinki
+        List<String> listPhotoFullPath = serverRepository.uploadFiles(request);
+        List<String> listPhoto = new ArrayList<>();
+        for (String imageFullPathToList : listPhotoFullPath) {
+            String partOfImageSizeToList = obrezatLishniujuChastPutiKartinki(request, imageFullPathToList);
+            listPhoto.add(partOfImageSizeToList);
+        }
+
         bagCreateDto.setListPhoto(listPhoto);
 
         int bagId = bag.getBagId();
@@ -96,7 +104,7 @@ public class AdminServiceImpl implements AdminService {
         // сохранять надо только эту часть - file\shopping_icon\some-icon.png
 
         // baseDirectoryPath == D:\java\leather_accessories_dima\
-        final String baseDirectoryPath = Utils.getBasePath(request);
+        final String baseDirectoryPath = Utils.getBasePath(request); //Путь к папке, где должны быть файлы
 
         final Path basePath = Paths.get(baseDirectoryPath).normalize();
 
