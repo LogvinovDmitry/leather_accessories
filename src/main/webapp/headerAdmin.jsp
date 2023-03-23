@@ -46,6 +46,9 @@
             <div>
                 <a target="_blank" class="button__style" href="https://youtu.be/0igihKnT844">youtube</a>
             </div>
+            <div>
+                <a class="button__style" href="/createNewEntryAdmin.jsp">Create new entry</a>
+            </div>
         </div>
     </div>
 

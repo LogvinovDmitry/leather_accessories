@@ -4,6 +4,7 @@ main {
 	font-family: 'Montserrat', sans-serif;
     color: #5a5a5a;
     text-transform: uppercase;
+
 }
 
 
@@ -75,7 +76,22 @@ li {
 }
 
 .element-padding {
-padding-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.element-padding-first_input {
+    margin-right: 10px;
+    margin-left: 60px;
+}
+
+.element-padding-second_input {
+    margin-right: 10px;
+    margin-left: 30px;
+}
+
+.element-padding-third_input {
+    margin-right: 10px;
+    margin-left: 30px;
 }
 
 .inp-padding input {

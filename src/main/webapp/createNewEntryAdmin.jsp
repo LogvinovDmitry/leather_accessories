@@ -21,12 +21,14 @@
     <p class="element-padding">To add a new product, fill out the form:</p>
 
     <form method="post" action="/dispatcher" enctype="multipart/form-data">
+
         <input type="text" placeholder="Name (Standart №1)" name="bag_name">
         <input type="text" placeholder="Price (56.00)" name="bag_price">
         <!--<input class="form_admin_input" type="text" placeholder="Сategory: M, W, A (1, 2, 3)" name="bag_category">-->
-        <input type="radio" value="1" name="bag_category"/>for men
-        <input type="radio" value="2" name="bag_category"/>for women
-        <input type="radio" value="3" name="bag_category"/>accessories
+
+        <input class="element-padding-first_input" type="radio" value="1" name="bag_category"/>for men
+        <input class="element-padding-second_input" type="radio" value="2" name="bag_category"/>for women
+        <input class="element-padding-third_input" type="radio" value="3" name="bag_category"/>accessories
 
         <div class="description">
             <p> <textarea rows="30" cols="70" class="form_admin_input" placeholder="Description" name="bag_description"></textarea></p>

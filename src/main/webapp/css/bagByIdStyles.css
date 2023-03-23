@@ -3,7 +3,7 @@
 	padding: 0;
 }
 
-main {
+.one-bag {
     font-family: 'Montserrat', sans-serif;
     letter-spacing: .2em;
     color: #5a5a5a;
@@ -11,6 +11,7 @@ main {
     display: flex;
     padding-right: 7%;
     padding-left: 7%;
+
 }
 
 #inner {
@@ -24,10 +25,12 @@ main {
 
 .inner-photo {
     display: flex;
-    flex-direction: column;
+    /*flex-direction: column;*/
     align-items: center;
     justify-content: center;
     padding-right: 7%;
+    width: 50%;
+    flex-wrap: wrap;
 }
 
 .inner-photo img {
