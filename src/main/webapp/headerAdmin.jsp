@@ -18,7 +18,7 @@
         <div id="header-buttons">
 
             <div>
-                <a class="button__style" href="/start-servlet">home</a>
+                <a class="button__style" href="/start-servlet-admin">home</a>
             </div>
             <div>
                 <form method="get" action="dispatcher">
@@ -47,7 +47,7 @@
                 <a target="_blank" class="button__style" href="https://youtu.be/0igihKnT844">youtube</a>
             </div>
             <div>
-                <a class="button__style" href="/createNewEntryAdmin.jsp">Create new entry</a>
+                <a class="create-entry-admin" href="/createNewEntryAdmin.jsp">Create new entry</a>
             </div>
         </div>
     </div>

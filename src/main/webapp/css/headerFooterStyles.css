@@ -50,12 +50,12 @@ header, footer {
 
         transition: all 0.6s;
         cursor: pointer;
-
         text-decoration: none;
     }
 
-        .button__style:hover {
 
+
+        .button__style:hover {
             background-color: #a9a4a4;
             color: #fff;
             opacity: 0.6;
@@ -138,7 +138,7 @@ footer {
         }
 
     .footer-center {
-        display: flex;
+       display: flex;
        flex-direction: column;
 
         letter-spacing: 1;
@@ -177,6 +177,39 @@ footer {
         }
 
 
+/*buttons for admin*/
+.create-entry-admin {
+    display: flex;
+
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 14px;
+    letter-spacing: .2em;
+    color: #5a5a5a;
+    text-align: center;
+
+    background-color: #9388f5;
+    border-radius: 10px;
+    border: 1px solid #cccccc;
+
+    padding: 12px;
+
+    transition: all 0.6s;
+    cursor: pointer;
+    text-decoration: none;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+
+}
+
+.create-entry-admin:hover {
+    background-color: #09930e;
+    color: #fff;
+    opacity: 0.6;
+}
 
 
 

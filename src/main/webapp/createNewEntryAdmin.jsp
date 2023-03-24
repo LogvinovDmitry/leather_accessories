@@ -14,7 +14,7 @@
 <body>
 
 <!--Шапка сайта-->
-<jsp:include page="header.jsp"/>
+<jsp:include page="headerAdmin.jsp"/>
 
 <!--Основная часть-->
 <main>
