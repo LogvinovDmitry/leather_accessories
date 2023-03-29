@@ -83,19 +83,6 @@ public class AdminServiceImpl implements AdminService {
             adminRepository.createBagPhoto(bagPhoto);
         }
 
-
-//        BagDto bagDto = new BagDto();
-//
-//        List<String> listPhoto = new ArrayList<>();
-//        listPhoto.add(request.getParameter("file_names"));
-//
-//        bagDto.setListPhoto(listPhoto);
-
-//        adminRepository.create(Bag b);
-//
-//        for () {
-//        adminRepository.create(BagPhoto bf);
-//    }
     }
 
     private static String obrezatLishniujuChastPutiKartinki(HttpServletRequest request, String imageFullPath) {
@@ -114,6 +101,11 @@ public class AdminServiceImpl implements AdminService {
         // "D:\java\leather_accessories_dima\file\shopping_icon\some-icon.png"    ->    "file\shopping_icon\some-icon.png"
         String partOfImageSize = basePath.relativize(imagePath).toString();
         return partOfImageSize.replace('\\', '/');
+    }
+
+    @Override
+    public void removeBag(int bagId) {
+        adminRepository.removeBag(bagId);
     }
 }
 

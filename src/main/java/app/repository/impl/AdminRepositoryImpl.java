@@ -5,16 +5,15 @@ import app.model.entity.BagPhoto;
 import app.repository.AdminRepository;
 import app.util.ConnectionLeatherAccessoriesSchema;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
+import java.sql.*;
 
 public class AdminRepositoryImpl implements AdminRepository {
 
     private static final String INSERT_NEW_BAG = "INSERT INTO leather_accessories_schema.bag_information VALUES (NULL, ?, ?, ?, ?, ?, ?)";
     private static final String INSERT_NEW_BAG_PHOTO = "INSERT INTO leather_accessories_schema.bag_photo VALUES (NULL, ?, ?)";
+
+    private static final String DEL_ENTRY_IN_BAG_PHOTO = "DELETE FROM `leather_accessories_schema`.`bag_photo` WHERE (`bag_id` = ?)";
+    private static final String DEL_ENTRY_IN_BAG_INF = "DELETE FROM `leather_accessories_schema`.`bag_information` WHERE (`bag_id` = ?)";
 
     ConnectionLeatherAccessoriesSchema conLeather = new ConnectionLeatherAccessoriesSchema();
 
@@ -85,4 +84,26 @@ public class AdminRepositoryImpl implements AdminRepository {
         preparedStatement.executeUpdate();
         return preparedStatement;
     }
+
+    @Override
+    public void removeBag(int bagId) {
+        Connection con = conLeather.getConnection();
+
+        try {
+// Рабочий вариант №1: (Однако по хорошему в БД надо было отметить в bagId каскадное удаление.. тогда запрос был бы один. Кстати такое вроде возможно сделать только в МайСкюл)
+            PreparedStatement preparedStatement = con.prepareStatement(DEL_ENTRY_IN_BAG_PHOTO);
+            preparedStatement.setInt(1, bagId);
+            preparedStatement.executeUpdate();
+
+            PreparedStatement preparedStatement1 = con.prepareStatement(DEL_ENTRY_IN_BAG_INF);
+            preparedStatement1.setInt(1, bagId);
+            preparedStatement1.executeUpdate();
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }

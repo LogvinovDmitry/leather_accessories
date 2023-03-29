@@ -4,4 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 
 public interface AdminService {
     void createBag(HttpServletRequest request);
+
+    void removeBag(int bagId);
+
+
 }

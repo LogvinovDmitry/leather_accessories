@@ -36,10 +36,20 @@
     <c:forEach var="anyName" items="${listForYouInterested}">
         <div class="goods--one-item">
             <a href="dispatcher?bagId=${anyName.getBagId()}&command=Bag by id"><img src="dispatcher?path=${anyName.getMainPhotoTitle()}&command=Display file" width="380" height="280"></a>
-            <!-- <p> ${anyName.getBagId()} </p> -->
-            <p class="one-item__name"> ${anyName.getBagName()} </p>
+            <p> ${anyName.getBagId()} </p>
+            <a class="one-item__name" href="dispatcher?bagId=${anyName.getBagId()}&command=Bag by id"><p > ${anyName.getBagName()} </p></a>
             <!-- <p> ${anyName.getBagDescription()} </p> -->
             <p class="one-item__price">$${anyName.getBagPrice()} USD</p>
+
+            <div>
+                <form method="post" action="dispatcher">
+                    <input type="hidden" id="inputBagId" name="bagId" value=${anyName.getBagId()}>
+                    <input type="hidden" id="inputMainPhotoTitle" name="mainPhotoTitle" value=${anyName.getMainPhotoTitle()}>
+                    <input type="hidden" id="inputListPhoto" name="listPhoto" value=${anyName.getListPhoto()}>
+                    <input class="remove-entry-admin" type="submit" name="command" value="Remove entry">
+                </form>
+            </div>
+
         </div>
     </c:forEach>
 </div>

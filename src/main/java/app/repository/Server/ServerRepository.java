@@ -1,5 +1,8 @@
 package app.repository.Server;
 
+import app.model.dto.BagDto;
+import app.service.UserService;
+import app.service.impl.UserServiceImpl;
 import app.util.Utils;
 
 import javax.servlet.ServletException;
@@ -128,14 +131,25 @@ public class ServerRepository {
             throw new RuntimeException("Couldn't save file", e);
         }
 
-
         //System.out.println(listPhoto.size());
         if (listPhoto.size() == 0) {
             throw new RuntimeException("You need to upload at least one secondary photo");
         }
-
         return listPhoto;
+    }
 
+    public void removeFile(BagDto bagDto, String baseFilePath) {
+
+        String mainPhotoTitle = bagDto.getMainPhotoTitle();
+
+        File fileMainPhoto = new File(baseFilePath + File.separator + mainPhotoTitle);
+        fileMainPhoto.delete();
+
+        List<String> listPhoto = bagDto.getListPhoto();
+        for (String pathPhoto : listPhoto) {
+            File otherImage = new File(baseFilePath + File.separator + pathPhoto);
+            otherImage.delete();
+        }
     }
 
 }

@@ -1,6 +1,7 @@
 package app.controller;
 
 import app.controller.admin.CreateNewEntryCommand;
+import app.controller.admin.RemoveEntryCommand;
 import app.controller.user.BagByIdCommand;
 import app.controller.user.DisplayFileCommand;
 import app.controller.user.FullListOfProductsCommand;
@@ -29,6 +30,7 @@ public class CommandHelper {
 
         //Admin command
         commandsMap.put("Create new entry", new CreateNewEntryCommand());
+        commandsMap.put("Remove entry", new RemoveEntryCommand());
 
     }
 

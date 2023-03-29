@@ -8,4 +8,6 @@ import java.util.List;
 public interface AdminRepository {
     void createBag(Bag bag);
     void createBagPhoto(BagPhoto bagPhoto);
+
+    void removeBag(int bagId);
 }
