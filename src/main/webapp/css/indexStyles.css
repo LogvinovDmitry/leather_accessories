@@ -17,7 +17,7 @@ main {
 }
 
 main #you-interested {
-margin-right: auto;
+    margin-right: auto;
 }
 
 #you-interested {
@@ -25,7 +25,6 @@ margin-right: auto;
     padding-bottom: 10px;
     padding-left: 6%;
     font-size: 12px;
-
 }
 
 #goods {
@@ -50,13 +49,18 @@ margin-right: auto;
 
     }
 
+    .one-item__id {
+        text-transform: none;
+        letter-spacing: 0;
+        color: #2bd516;
+        padding-top: 5px;
+    }
+
     .one-item__name {
         text-decoration: none;
         letter-spacing: .2em;
         color: #5a5a5a;
         padding-top: 10px;
-
-
     }
 
     .one-item__price {
@@ -81,7 +85,7 @@ display: flex;
     color: #5a5a5a;
     text-align: center;
 
-    background-color: #9388f5;
+    background-color: #99f1ac;
     border-radius: 10px;
     border: 1px solid #cccccc;
 
@@ -100,3 +104,24 @@ display: flex;
     opacity: 0.6;
 }
 
+
+
+#admin-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#admin-photo {
+display: flex;
+
+    width: 374px;
+    height: 600px;
+    background: url(../images/adminImg/Doors_of_Durin.jpg);
+    background-size: 100% 100%;
+
+flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}

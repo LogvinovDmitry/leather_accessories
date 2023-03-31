@@ -12,6 +12,7 @@ import app.util.Utils;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.Collections;
 import java.util.List;
 
@@ -31,14 +32,9 @@ public class RemoveEntryCommand implements Command {
 
 
         ServerRepository serverRepository = new ServerRepository();
-//        String mainPhotoTitle = request.getParameter("mainPhotoTitle");
-//        List<String> listPhoto = (request.getParameter("listPhoto"));
         String baseFilePath = Utils.getBasePath(request);
         serverRepository.removeFile(bagDto, baseFilePath);
 
-
-
-        //UserService userService = new UserServiceImpl();
         List<BagDto> fullListOfProducts = userService.getAll();
 
 

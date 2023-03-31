@@ -59,7 +59,7 @@ li {
 .create-entry {
     font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
-    background-color: #9388f5;
+    background-color: #99f1ac;
     border-radius: 10px;
     border: 1px solid #cccccc;
     padding: 12px;
@@ -95,5 +95,5 @@ li {
 }
 
 .inp-padding input {
-padding-bottom: 10px;
+    padding-bottom: 10px;
 }

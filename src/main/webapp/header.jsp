@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <header>
 <!--Блок над шапкой: сроки выполнения рабоот, логотип, узор-->
@@ -46,6 +46,15 @@
             <div>
                 <a target="_blank" class="button__style" href="https://youtu.be/0igihKnT844">youtube</a>
             </div>
+
+
+            <c:if test="${sessionScope.isAdmin == true}">
+                <div>
+                    <a class="create-entry-admin" href="/createNewEntryAdmin.jsp">Create new entry</a>
+                </div>
+            </c:if>
+
+
         </div>
     </div>
 
