@@ -74,7 +74,7 @@ main #you-interested {
 /* Конопки для админа  */
 
 .remove-entry-admin {
-display: flex;
+    display: flex;
 
     font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
@@ -113,15 +113,65 @@ display: flex;
 }
 
 #admin-photo {
-display: flex;
+    display: flex;
 
     width: 374px;
     height: 600px;
     background: url(../images/adminImg/Doors_of_Durin.jpg);
     background-size: 100% 100%;
 
-flex-direction: column;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.enter_button-admin {
+    display: flex;
     justify-content: center;
     align-items: center;
 
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 14px;
+    letter-spacing: .2em;
+    color: #5a5a5a;
+    text-align: center;
+
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid #cccccc;
+
+    padding: 8px;
+
+    transition: all 0.6s;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 160px;
+}
+
+        .enter_button-admin:hover {
+            background-color: #a9a4a4;
+            color: #fff;
+            opacity: 0.6;
+        }
+
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.password_button-admin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 90px;
+    height: 20px;
+    text-align: center;
+
+    font-size: 24px;
 }

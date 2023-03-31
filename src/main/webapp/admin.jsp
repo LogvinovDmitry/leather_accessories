@@ -13,12 +13,12 @@
 <!--Основная часть-->
 
 <div id="admin-photo">
-    <form method="get" action="dispatcher">
+    <form class="admin-form" method="get" action="dispatcher">
     <div>
-        <input type="password" placeholder="********" name="password">
+        <input class="password_button-admin" type="password" placeholder="∗∗∗∗∗∗" name="password">
         </div>
         <div>
-        <input type="submit" value="Submit">
+        <input class="enter_button-admin" type="submit" value="Enter">
         </div>
     </form>
 </div>
