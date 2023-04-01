@@ -30,7 +30,8 @@ public class MyFilter implements Filter {
                     HttpSession session = ((HttpServletRequest) servletRequest).getSession();
                     session.setAttribute("isAdmin", isAdmin);
                 }
-
+                // filterChain.doFilter - вызываем следующий фильтр в цепочке В ТОМ ЧИСЛЕ И СИСТЕМНЫЕ!
+                // Его нужно прописывать всегда, т.к. если не прописать системные фильтры не запустятся и приложение не заработает
                 filterChain.doFilter(servletRequest, servletResponse);
             }
         } else {
