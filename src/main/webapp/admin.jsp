@@ -18,7 +18,7 @@
         <input class="password_button-admin" type="password" placeholder="∗∗∗∗∗∗" name="password">
         </div>
         <div>
-        <input class="enter_button-admin" type="submit" value="Enter">
+        <input class="enter_button-admin" type="submit" name="command" value="Enter">
         </div>
     </form>
 </div>

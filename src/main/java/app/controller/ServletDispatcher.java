@@ -1,5 +1,7 @@
 package app.controller;
 
+import app.controller.admin.RedirectCommand;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -22,7 +24,19 @@ public class ServletDispatcher extends HttpServlet {
         command.execute(req, resp);
 
 
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher((String) req.getAttribute("jsp"));
+        RequestDispatcher requestDispatcher;
+        // В данном случае command = new RedirectCommand;
+        // Оператор instanceof проверяет является ли объект comand объектом класса RedirectCommand
+        // Обрати внимание на тип переменной comand (он родительский, поэтому мы делаем даункаст на строке №32)
+        if (command instanceof RedirectCommand) {
+            String newAddress = ((RedirectCommand) command).getNewAddress();
+            requestDispatcher = req.getRequestDispatcher(newAddress);
+
+        } else {
+            requestDispatcher = req.getRequestDispatcher((String) req.getAttribute("jsp"));
+        }
+
+
         if (requestDispatcher != null) {
             requestDispatcher.forward(req, resp);
         }

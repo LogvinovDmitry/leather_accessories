@@ -25,9 +25,7 @@ public class StartServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 
-        boolean isAdmin = false;
-        HttpSession session = req.getSession();
-        session.setAttribute("isAdmin", isAdmin);
+
 
         UserService userService = new UserServiceImpl();
         List<BagDto> fullListOfProducts = userService.getAll();
