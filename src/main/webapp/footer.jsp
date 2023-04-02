@@ -22,6 +22,8 @@
     <div class="footer-right">
         <p> You can also leave your feedback and suggestions here: </p>
         <p class="footer-right_p"> builder141990@gmail.com </p>
+        <p class="footer-right_admin"><a class="button__style_admin" href="/admin.jsp">Admin</a></p>
+
     </div>
 
 </footer>

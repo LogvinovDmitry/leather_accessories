@@ -1,6 +1,7 @@
 package app.controller;
 
 import app.controller.admin.CreateNewEntryCommand;
+import app.controller.admin.ExitAdminCommand;
 import app.controller.admin.RedirectCommand;
 import app.controller.admin.RemoveEntryCommand;
 import app.controller.user.BagByIdCommand;
@@ -32,6 +33,7 @@ public class CommandHelper {
         //Admin command
         commandsMap.put("Create new entry", new CreateNewEntryCommand());
         commandsMap.put("Remove entry", new RemoveEntryCommand());
+        commandsMap.put("Exit admin", new ExitAdminCommand());
         commandsMap.put("Enter", new RedirectCommand("/start-servlet"));
 
     }

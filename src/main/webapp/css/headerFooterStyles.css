@@ -164,8 +164,9 @@ footer {
 
     .footer-right {
             display: flex;
+            flex-direction: column;
             flex-wrap: wrap;
-            align-items: center;
+
             letter-spacing: 1;
             width: 33%;
         }
@@ -175,6 +176,48 @@ footer {
             letter-spacing: 1;
             text-transform: none;
         }
+
+        .footer-right_admin {
+            display: flex;
+            align-items: right;
+            justify-content: right;
+            letter-spacing: 1;
+            text-transform: none;
+            padding-top: 15px;
+        }
+
+.button__style_admin {
+        display: flex;
+
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 10px;
+        letter-spacing: .2em;
+        color: #5a5a5a;
+        text-align: center;
+
+        background-color: #fff;
+        border-radius: 10px;
+        border: 1px solid #cccccc;
+
+        padding: 8px;
+
+        transition: all 0.6s;
+        cursor: pointer;
+        text-decoration: none;
+        opacity: 0.0;
+    }
+
+        .button__style_admin:hover {
+            background-color: #a9a4a4;
+            color: #fff;
+            opacity: 0.8;
+        }
+
+
+
 
 
 /*buttons for admin*/
