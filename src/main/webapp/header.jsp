@@ -66,7 +66,7 @@
     </div>
 
     <div class="basket">
-            <img src="images/shopping_icon/shopping_icon-icons.png" width="60">
+            <a href="/basket.jsp"><img src="images/shopping_icon/shopping_icon-icons.png" width="60"></a>
             <p>(0)</p>
     </div>
 </div>

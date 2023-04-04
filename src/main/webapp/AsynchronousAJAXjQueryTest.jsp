@@ -7,8 +7,7 @@
 <head>
 <meta charset="UTF-8">
 
-<script src="https://code.jquery.com/jquery-1.10.2.js"
-	type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-1.10.2.js" type="text/javascript"></script>
 <script src="js/app-ajax.js" type="text/javascript"></script>
 
 </head>

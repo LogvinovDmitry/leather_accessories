@@ -41,10 +41,25 @@
             <p class="inner-text__name"> ${bagDto.getBagName()} </p>
             <p class="inner-text__price"> $${bagDto.getBagPrice()} USD</p>
             <p class="inner-text__description-title"> Description </p>
-
             <div class="inner-text__description">
             ${bagDto.getBagDescription()}
             </div>
+
+
+            <div class="add-to-cart_padding">
+                <form method="get" action="dispatcher">
+                <input type="hidden" id="addToCart" name="bagId" value=${bagDto.getBagId()}>
+                <input class="button__style_add-to-cart" type="submit" name="command" value="Add to Cart">
+                </form>
+            </div>
+            <div>
+                <form method="get" action="dispatcher">
+                <input type="hidden" id="buyNow" name="bagId" value=${bagDto.getBagId()}>
+                <input class="button__style_buy-now" type="submit" name="command" value="Buy now">
+                </form>
+            </div>
+
+
         </div>
 </div>
 
