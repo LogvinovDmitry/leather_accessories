@@ -1,0 +1,198 @@
+.title{
+    display: flex;
+
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 24px;
+    letter-spacing: .2em;
+    color: #5a5a5a;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 70px;
+}
+
+.table_headers {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: .2em;
+    color: #5a5a5a;
+    text-transform: uppercase;
+    font-size: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: left;
+
+    margin-right: 7%;
+    margin-left: 7%;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #cccccc;
+    margin-bottom: 20px;
+}
+
+.product{
+padding-left: 200px;
+padding-right: 60px;
+}
+.quantity{
+margin-left: 12%;
+}
+.remove{
+margin-left: 12%;
+}
+.total-prise{
+margin-left: 12%;
+}
+
+
+
+.one-bag_line {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: .2em;
+    color: #5a5a5a;
+    text-transform: uppercase;
+
+    display: flex;
+    align-items: center;
+    justify-content: left;
+
+    padding-right: 7%;
+    padding-left: 7%;
+    padding-bottom: 20px;
+}
+
+.second-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .inner-text__name_line {
+        padding-left: 15px;
+        letter-spacing: .2em;
+        color: #000000;
+        text-transform: uppercase;
+        font-style: normal;
+        font-size: 20px;
+    }
+
+    .inner-text__price_line {
+        padding-top: 10px;
+        padding-left: 15px;
+        letter-spacing: .1em;
+        color: #9f9f9f;
+    }
+
+.price_margin {
+    margin-left: 10%;
+}
+
+    .inner-text__price_line1 {
+        letter-spacing: .1em;
+        color: #9f9f9f;
+    }
+
+.logo-plus_minus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 1px solid #cccccc;
+    margin-left: 10%;
+}
+
+.logo-plus_minus img {
+    cursor: pointer;
+    opacity: 0.4;
+    transition: all 0.6s;
+}
+
+.logo-plus_minus p {
+    font-size: 20px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.total-text {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: #000000;
+    font-size: 14px;
+}
+
+.total {
+    margin-right: 7%;
+    margin-left: 7%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10%;
+    border-top: 1px solid #cccccc;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+
+.message-text {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: .1em;
+    color: #5a5a5a;
+    font-size: 20px;
+    text-indent: 30px;
+}
+
+.message {
+    padding-right: 10%;
+    padding-left: 10%;
+    padding-bottom: 20px;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 100px;
+    opacity: 0.6;
+}
+.icon-img {
+    padding-left: 3%;
+}
+
+
+
+    /* Это стилизация для конкретного примера, вы можете стилизировать под свой макет */
+    .change-photos {
+      width: 25px;
+      opacity: 0.5;
+      margin-left: 10%;
+    }
+    .change-photos .change-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Сразу скрываем вторую картинку */
+    .change-photos .change-photo:nth-of-type(2) {
+      display: none;
+    }
+
+    /* При наведении курсора на родительский класс change-photos первую картинку скрываем, а вторую показываем */
+
+    .change-photos:hover .change-photo:nth-of-type(1) {
+      display: none;
+    }
+
+    .change-photos:hover .change-photo:nth-of-type(2) {
+      display: block;
+    }
+
+    .change-photos:hover {
+      cursor: pointer;
+    }

@@ -4,10 +4,7 @@ import app.controller.admin.CreateNewEntryCommand;
 import app.controller.admin.ExitAdminCommand;
 import app.controller.admin.RedirectCommand;
 import app.controller.admin.RemoveEntryCommand;
-import app.controller.user.BagByIdCommand;
-import app.controller.user.DisplayFileCommand;
-import app.controller.user.FullListOfProductsCommand;
-import app.controller.user.ListOfBagsByCategoryCommand;
+import app.controller.user.*;
 import app.exceptions.UnsupportedCommandException;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,6 +25,7 @@ public class CommandHelper {
         commandsMap.put("Display file", new DisplayFileCommand());
 
         commandsMap.put("Bag by id", new BagByIdCommand());
+        commandsMap.put("Buy now", new BuyNowCommand());
 
 
         //Admin command
