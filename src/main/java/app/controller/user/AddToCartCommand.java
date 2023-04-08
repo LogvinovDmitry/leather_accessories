@@ -10,14 +10,29 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BuyNowCommand implements Command {
+public class AddToCartCommand implements Command {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) {
 
-
-//Положить в атрибут полный список продукции, который придет от сервиса
-
         int bagId = Integer.parseInt(request.getParameter("bagId"));
+
+        Object oldItems = request.getSession().getAttribute("items");
+        if (oldItems == null) {
+            ArrayList<Integer> items = new ArrayList<>();
+            items.add(bagId);
+            int size = items.size();
+            request.getSession().setAttribute("items", items);
+            request.getSession().setAttribute("size", size);
+        } else if (oldItems instanceof List) {
+            ArrayList<Integer> items = (ArrayList<Integer>) oldItems;
+            items.add(bagId);
+            int size = items.size();
+            request.getSession().setAttribute("items", items);
+            request.getSession().setAttribute("size", size);
+        }
+
+
+
         UserService userService = new UserServiceImpl();
         BagDto bagDto = userService.getBagById(bagId);
 
@@ -33,7 +48,9 @@ public class BuyNowCommand implements Command {
         }
 
         request.setAttribute("listForYouInterested", listForYouInterested);
+
         request.setAttribute("bagDto", bagDto);
-        request.setAttribute("jsp", "basket.jsp");
+        request.setAttribute("jsp", "bagById.jsp");
+
     }
 }

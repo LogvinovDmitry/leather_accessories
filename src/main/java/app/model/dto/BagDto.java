@@ -2,11 +2,12 @@ package app.model.dto;
 
 import app.model.entity.BagPhoto;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
-public class BagDto {
-
+public class BagDto implements Serializable {
+    private static final long serialVersionUID = 1L;
     private Integer bagId;
     private String bagName;
     private String bagDescription;

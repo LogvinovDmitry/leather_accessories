@@ -25,7 +25,9 @@ public class CommandHelper {
         commandsMap.put("Display file", new DisplayFileCommand());
 
         commandsMap.put("Bag by id", new BagByIdCommand());
-        commandsMap.put("Buy now", new BuyNowCommand());
+        commandsMap.put("Add to Cart", new AddToCartCommand());
+        commandsMap.put("Delete entry from cart", new DeleteEntryFromCartCommand());
+        commandsMap.put("Basket", new BasketCommand());
 
 
         //Admin command

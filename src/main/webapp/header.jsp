@@ -66,8 +66,8 @@
     </div>
 
     <div class="basket">
-            <a href="/basket.jsp"><img src="images/shopping_icon/shopping_icon-icons.png" width="60"></a>
-            <p>(0)</p>
+            <a href="dispatcher?command=Basket"><img src="images/shopping_icon/shopping_icon-icons.png" width="60"></a>
+            <p>(${sessionScope.size})</p>
     </div>
 </div>
 </header>

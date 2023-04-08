@@ -24,7 +24,15 @@ public class StartServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-
+        Object oldItems = req.getSession().getAttribute("items");
+        if (oldItems == null) {
+            int size = 0;
+            req.getSession().setAttribute("size", size);
+        } else if (oldItems instanceof List) {
+            ArrayList<Integer> items = (ArrayList<Integer>) oldItems;
+            int size = items.size();
+            req.getSession().setAttribute("size", size);
+        }
 
 
         UserService userService = new UserServiceImpl();
