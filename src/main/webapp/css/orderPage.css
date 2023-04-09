@@ -26,19 +26,13 @@
 
 
 /* For bottom "go to order page" */
-    .order_page {
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    padding-bottom: 180px;
-    }
+
 
 
     .button__style_order_page-text {
         width: 350px;
 
         display: flex;
-
 
         font-family: 'Montserrat', sans-serif;
         text-transform: uppercase;
@@ -67,15 +61,37 @@
             }
 
 .create-order {
-  font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     letter-spacing: .2em;
     color: #5a5a5a;
     text-transform: uppercase;
     display: flex;
-        align-items: center;
-        justify-content: center;
-
-
+    align-items: center;
+    justify-content: center;
 
 }
 
+.fields {
+    padding-right: 60px;
+}
+
+.fields input {
+    font-size: 16px;
+}
+
+.fields-pudding {
+    padding-top: 20px;
+}
+
+.orderNumber {
+    text-decoration-line: underline;
+    font-weight: bold;
+}
+
+.button-order {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 25px;
+    padding-bottom: 40px;
+}

@@ -21,19 +21,20 @@
 <div class="create-order">
     <div class="fields">
         <p>your order number:</p>
-        <p>${sessionScope.orderNumber}</p>
-        <p>your full name:</p>
-        <input type="text" placeholder="Elvis Presley" name="you_name">
-        <p>your address:</p>
-        <input type="text" placeholder="314 Robinson Lane, Wilmington, DE 19805, USA" name="your_address" size=50>
-        <p>your phone:</p>
-        <input type="text" placeholder="+Х ХХХ ХХХ-ХХ-ХХ" name="your_phone">
-        <p>your social network:</p>
-        <input type="text" placeholder="https://www.facebook.com/..." name="your_phone">
+        <p class="orderNumber">${sessionScope.orderNumber}</p>
+        <p class="fields-pudding">your full name:</p>
+        <input type="text" placeholder="Elvis Presley" name="you_name" size=40>
+        <p class="fields-pudding">your phone:</p>
+        <input type="text" placeholder="+Х ХХХ ХХХ-ХХ-ХХ" name="your_phone" size=40>
+        <p class="fields-pudding">your social network:</p>
+        <input type="text" placeholder="https://www.facebook.com/..." name="your_phone" size=70>
+        <p class="fields-pudding">your address:</p>
+        <input type="text" placeholder="314 Robinson Lane, Wilmington, DE 19805, USA" name="your_address" size=70>
+
     </div>
     <div class="comment">
         <p>your comment</p>
-        <p> <textarea rows="30" cols="70" class="form_admin_input" placeholder="Your comment" name="bag_description"></textarea></p>
+        <p> <textarea rows="17" cols="70" class="form_admin_input" placeholder="Your comment" name="bag_description"></textarea></p>
     </div>
 </div>
 
@@ -45,7 +46,7 @@
 
 
 <div class="message">
-    <p class="message-text"> Thank you for the order! Contact our manager to clarify the payment and order details!  Please note, that in comments you can change the color of the leather and threads in the product, the type and size of buttons, fasteners, clips, rivets, etc. </p>
+    <p class="message-text"> Thank you for the order! Contact our manager to clarify the payment and order details!  Please note, that in comments you can change the color of the leather and threads in the product, the type and size of buttons, fasteners, clips, rivets, etc. (The price does not include the shipping cost. We will clarify it for your address). </p>
 </div>
 
 <div class="icon">

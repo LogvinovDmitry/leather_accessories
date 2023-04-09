@@ -1,4 +1,4 @@
-package app.controller.admin;
+package app.controller.user;
 
 import app.controller.Command;
 import app.model.dto.BagDto;
