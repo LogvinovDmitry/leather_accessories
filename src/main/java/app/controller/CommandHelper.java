@@ -1,9 +1,6 @@
 package app.controller;
 
-import app.controller.admin.CreateNewEntryCommand;
-import app.controller.admin.ExitAdminCommand;
-import app.controller.admin.RedirectCommand;
-import app.controller.admin.RemoveEntryCommand;
+import app.controller.admin.*;
 import app.controller.user.*;
 import app.exceptions.UnsupportedCommandException;
 
@@ -34,6 +31,7 @@ public class CommandHelper {
         commandsMap.put("Create new entry", new CreateNewEntryCommand());
         commandsMap.put("Remove entry", new RemoveEntryCommand());
         commandsMap.put("Exit admin", new ExitAdminCommand());
+        commandsMap.put("Order page", new OrderPageCommand());
         commandsMap.put("Enter", new RedirectCommand("/start-servlet"));
 
     }

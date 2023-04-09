@@ -19,12 +19,27 @@
 
 <form method="post" action="/dispatcher" enctype="multipart/form-data">
 <div class="create-order">
-    <p>your name</p>
-    <input type="text" placeholder="Agata" name="you_name">
-    <p>your phone</p>
-    <input type="text" placeholder="+Х ХХХ ХХХ-ХХ-ХХ" name="your_phone">
+    <div class="fields">
+        <p>your order number:</p>
+        <p>${sessionScope.orderNumber}</p>
+        <p>your full name:</p>
+        <input type="text" placeholder="Elvis Presley" name="you_name">
+        <p>your address:</p>
+        <input type="text" placeholder="314 Robinson Lane, Wilmington, DE 19805, USA" name="your_address" size=50>
+        <p>your phone:</p>
+        <input type="text" placeholder="+Х ХХХ ХХХ-ХХ-ХХ" name="your_phone">
+        <p>your social network:</p>
+        <input type="text" placeholder="https://www.facebook.com/..." name="your_phone">
+    </div>
+    <div class="comment">
+        <p>your comment</p>
+        <p> <textarea rows="30" cols="70" class="form_admin_input" placeholder="Your comment" name="bag_description"></textarea></p>
+    </div>
 </div>
+
+<div class="button-order">
     <input class="button__style_order_page-text" type="submit" name="command" value="Create new order">
+</div>
 
 </form>
 

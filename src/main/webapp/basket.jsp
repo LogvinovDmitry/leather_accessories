@@ -73,7 +73,7 @@
 </div>
 
 <div class="order_page">
-    <a class="button__style_order_page-text" href="orderPage.jsp">go to order page</a>
+    <a class="button__style_order_page-text" href="dispatcher?&command=Order page">go to order page</a>
 </div>
 
 
