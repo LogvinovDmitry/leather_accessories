@@ -22,19 +22,19 @@
     <div class="fields">
         <p>your order number:</p>
         <p class="orderNumber">${sessionScope.orderNumber}</p>
-        <p class="fields-pudding">your full name:</p>
-        <input type="text" placeholder="Elvis Presley" name="you_name" size=40>
-        <p class="fields-pudding">your phone:</p>
-        <input type="text" placeholder="+Х ХХХ ХХХ-ХХ-ХХ" name="your_phone" size=40>
-        <p class="fields-pudding">your social network:</p>
-        <input type="text" placeholder="https://www.facebook.com/..." name="your_phone" size=70>
-        <p class="fields-pudding">your address:</p>
-        <input type="text" placeholder="314 Robinson Lane, Wilmington, DE 19805, USA" name="your_address" size=70>
+        <p class="fields-pudding">full name:</p>
+        <input type="text" placeholder="James Smith" name="name" size=40>
+        <p class="fields-pudding">phone:</p>
+        <input type="text" placeholder="+Х ХХХ ХХХ-ХХ-ХХ" name="phone" size=40>
+        <p class="fields-pudding">social network:</p>
+        <input type="text" placeholder="https://www.facebook.com/..." name="network" size=70>
+        <p class="fields-pudding">address:</p>
+        <input type="text" placeholder="314 Robinson Lane, Wilmington, DE 19805, USA" name="address" size=70>
 
     </div>
     <div class="comment">
-        <p>your comment</p>
-        <p> <textarea rows="17" cols="70" class="form_admin_input" placeholder="Your comment" name="bag_description"></textarea></p>
+        <p>comment</p>
+        <p> <textarea rows="17" cols="70" class="form_admin_input" placeholder="Comment" name="comment"></textarea></p>
     </div>
 </div>
 

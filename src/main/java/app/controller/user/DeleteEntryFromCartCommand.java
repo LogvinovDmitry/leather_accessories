@@ -28,7 +28,7 @@ public class DeleteEntryFromCartCommand implements Command {
         request.setAttribute("listForYouInterested", listForYouInterested);
 
 
-        Map<BagDto, Integer> listBagDtoById = new HashMap<>();
+        Map<BagDto, Integer> listBagDtoById = new LinkedHashMap<>();
 
         int bagId = Integer.parseInt(request.getParameter("bagId"));
 
@@ -63,7 +63,7 @@ public class DeleteEntryFromCartCommand implements Command {
 
             double totalPrise = 0;
             for (BagDto bagDto : listBagDtoById.keySet()) {
-                totalPrise = totalPrise + bagDto.getBagPrice();
+                totalPrise = totalPrise + (bagDto.getBagPrice())*listBagDtoById.get(bagDto);
 
             }
             request.getSession().setAttribute("totalPrise", totalPrise);

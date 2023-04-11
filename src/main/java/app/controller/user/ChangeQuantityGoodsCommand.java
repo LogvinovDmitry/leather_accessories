@@ -24,27 +24,29 @@ public class ChangeQuantityGoodsCommand implements Command {
                 listForYouInterested.add(fullListOfProducts.get(a));
             }
         }
-
         request.setAttribute("listForYouInterested", listForYouInterested);
 
 
-//        Map listBagDtoById = (HashMap) request.getSession().getAttribute("listBagDtoById");
-//        BagDto bagDto = (BagDto) request.getSession().getAttribute("bagDto");
+
         int bagId = Integer.parseInt(request.getParameter("bagId"));
 
-        Map<BagDto, Integer> listBagDtoById = new HashMap<>();
+        Map<BagDto, Integer> listBagDtoById = new LinkedHashMap<>();
 
-        Map<Integer, Integer> items = (HashMap<Integer, Integer>) request.getSession().getAttribute("items");
+        Map<Integer, Integer> items = (LinkedHashMap<Integer, Integer>) request.getSession().getAttribute("items");
 
 
-        //String remove = request.getParameter("quantity"); //remove
 
         if (request.getParameter("quantity").equals("add")) {
             Integer quantity = items.get(bagId) + 1;
             items.put(bagId, quantity);
             request.getSession().setAttribute("items", items);
-        } else if (request.getParameter("quantity").equals("remove")){
+        } else if (request.getParameter("quantity").equals("remove")) {
+
             Integer quantity = items.get(bagId) - 1;
+            if (quantity == 0) {
+                quantity = quantity + 1;
+            }
+
             items.put(bagId, quantity);
             request.getSession().setAttribute("items", items);
         }
@@ -56,6 +58,13 @@ public class ChangeQuantityGoodsCommand implements Command {
 
             listBagDtoById.put(bagDto, quantityNew);
         }
+
+        double totalPrise = 0;
+        for (BagDto bagDto : listBagDtoById.keySet()) {
+            totalPrise = totalPrise + (bagDto.getBagPrice())*listBagDtoById.get(bagDto);
+
+        }
+        request.getSession().setAttribute("totalPrise", totalPrise);
 
 
         request.getSession().setAttribute("listBagDtoById", listBagDtoById);

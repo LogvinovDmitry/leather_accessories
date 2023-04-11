@@ -5,11 +5,11 @@ import app.controller.user.*;
 import app.exceptions.UnsupportedCommandException;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class CommandHelper {
-    private Map<String, Command> commandsMap = new HashMap<>();
+    private Map<String, Command> commandsMap = new LinkedHashMap<>();
 
     CommandHelper() {
         //User command
@@ -27,6 +27,7 @@ public class CommandHelper {
         commandsMap.put("Buy now", new BuyNowCommand());
         commandsMap.put("Change quantity", new ChangeQuantityGoodsCommand());
         commandsMap.put("Basket", new BasketCommand());
+        commandsMap.put("Create new order", new CreateNewOrderCommand());
 
 
         //Admin command

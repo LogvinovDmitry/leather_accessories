@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.security.SecureRandom;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -56,7 +56,7 @@ public class BuyNowCommand implements Command {
 //            request.setAttribute("jsp", "orderPage.jsp");
 //        }
 
-        Map<Integer, Integer> items = new HashMap<>();
+        Map<Integer, Integer> items = new LinkedHashMap<>();
         items.put(bagId, 1);
         int size = items.size();
         request.getSession().setAttribute("items", items);

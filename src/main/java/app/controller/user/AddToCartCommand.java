@@ -8,7 +8,7 @@ import app.service.impl.UserServiceImpl;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -39,13 +39,13 @@ public class AddToCartCommand implements Command {
         Object oldItems = request.getSession().getAttribute("items");
 
         if (oldItems == null) {
-            Map<Integer, Integer> items = new HashMap<>();
+            Map<Integer, Integer> items = new LinkedHashMap<>();
             items.put(bagId, 1);
             int size = items.size();
             request.getSession().setAttribute("items", items);
             request.getSession().setAttribute("size", size);
         } else if (oldItems instanceof Map) {
-            Map<Integer, Integer> items = (HashMap) oldItems;
+            Map<Integer, Integer> items = (LinkedHashMap) oldItems;
             if (items.containsKey(bagId)) {
 
                 request.setAttribute("jsp", "bagById.jsp");

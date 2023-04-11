@@ -84,8 +84,10 @@
 }
 
 .orderNumber {
+    text-transform: none;
     text-decoration-line: underline;
     font-weight: bold;
+
 }
 
 .button-order {
@@ -94,4 +96,47 @@
     justify-content: center;
     padding-top: 25px;
     padding-bottom: 40px;
+}
+
+
+
+.message-after-oder {
+    padding-right: 10%;
+    padding-left: 10%;
+    padding-bottom: 20px;
+    padding-top: 60px;
+
+}
+
+.message-after-oder-centre {
+    padding-right: 10%;
+    padding-left: 10%;
+    padding-bottom: 20px;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.inner-after-order-page {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: .2em;
+    color: #5a5a5a;
+    text-transform: uppercase;
+}
+
+#you-interested-after {
+    padding-top: 70px;
+    padding-bottom: 10px;
+    padding-left: 6%;
+    font-size: 12px;
+}
+
+mark {
+    background-color: rgba(0, 0, 0, 0);
+    color: blue;
+    text-decoration-line: underline;
+    font-weight: bold;
 }
