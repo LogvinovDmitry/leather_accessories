@@ -34,18 +34,18 @@
 <div class="one-bag_line">
     <div class="second-inner">
         <div>
-            <img src="dispatcher?path=${anyName.getMainPhotoTitle()}&command=Display file" width="210" height="155">
+            <img src="dispatcher?path=${anyName.key.getMainPhotoTitle()}&command=Display file" width="210" height="155">
         </div>
         <div>
-            <p class="inner-text__name_line"> ${anyName.getBagName()} </p>
-            <p class="inner-text__price_line"> $${anyName.getBagPrice()} USD</p>
+            <p class="inner-text__name_line"> ${anyName.key.getBagName()} </p>
+            <p class="inner-text__price_line"> $${anyName.key.getBagPrice()} USD</p>
         </div>
     </div>
 
     <div class="logo-plus_minus">
-        <img src="images/shopping_icon/plus.png" width="15">
-        <p> 1 </p>
-        <img src="images/shopping_icon/minus.png" width="15">
+        <a href="dispatcher?bagId=${anyName.key.getBagId()}&quantity=remove&command=Change quantity"><img src="images/shopping_icon/minus.png" width="15"></a>
+            <p> ${anyName.value} </p>
+        <a href="dispatcher?bagId=${anyName.key.getBagId()}&quantity=add&command=Change quantity"><img src="images/shopping_icon/plus.png" width="15"></a>
     </div>
 
     <div class="change-photos">
@@ -53,13 +53,13 @@
         <img src="images/shopping_icon/trash-can.png" width="30">
       </div>
       <div class="change-photo">
-        <a href="dispatcher?bagId=${anyName.getBagId()}&command=Delete entry from cart"><img src="images/shopping_icon/trash-can-red.png" width="30"></a>
+        <a href="dispatcher?bagId=${anyName.key.getBagId()}&command=Delete entry from cart"><img src="images/shopping_icon/trash-can-red.png" width="30"></a>
       </div>
     </div>
 
 
     <div class="price_margin">
-        <p class="inner-text__price_line1"> $${anyName.getBagPrice()} USD </p>
+        <p class="inner-text__price_line1"> $${anyName.key.getBagPrice()} USD </p>
     </div>
 
 </div>

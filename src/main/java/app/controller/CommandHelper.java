@@ -25,6 +25,7 @@ public class CommandHelper {
         commandsMap.put("Add to Cart", new AddToCartCommand());
         commandsMap.put("Delete entry from cart", new DeleteEntryFromCartCommand());
         commandsMap.put("Buy now", new BuyNowCommand());
+        commandsMap.put("Change quantity", new ChangeQuantityGoodsCommand());
         commandsMap.put("Basket", new BasketCommand());
 
 

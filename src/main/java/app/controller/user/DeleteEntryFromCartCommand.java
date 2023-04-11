@@ -7,9 +7,7 @@ import app.service.impl.UserServiceImpl;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class DeleteEntryFromCartCommand implements Command {
     @Override
@@ -30,17 +28,17 @@ public class DeleteEntryFromCartCommand implements Command {
         request.setAttribute("listForYouInterested", listForYouInterested);
 
 
-        ArrayList<BagDto> listBagDtoById = new ArrayList<>();
+        Map<BagDto, Integer> listBagDtoById = new HashMap<>();
 
         int bagId = Integer.parseInt(request.getParameter("bagId"));
 
 
         Object oldItems = request.getSession().getAttribute("items");
 
-        ArrayList<Integer> items = (ArrayList<Integer>) oldItems;
+        Map<Integer, Integer> items = (Map) oldItems;
         //items.remove(bagId);
 
-        Iterator<Integer> itemsIterator = items.iterator();//создаем итератор
+        Iterator<Integer> itemsIterator = items.keySet().iterator();//создаем итератор
         while (itemsIterator.hasNext()) {//до тех пор, пока в списке есть элементы
 
             int nextItems = itemsIterator.next();//получаем следующий элемент
@@ -51,20 +49,20 @@ public class DeleteEntryFromCartCommand implements Command {
 
         int size = items.size();
         if (size == 0) {
-            items = null;
-            request.getSession().setAttribute("items", items);
+            request.getSession().setAttribute("items", null);
             request.getSession().setAttribute("size", size);
             request.setAttribute("jsp", "emptyBasket.jsp");
 
         } else {
 
-            for (Integer item : items) {
+            for (Integer item : items.keySet()) {
                 BagDto bagDto = userService.getBagById(item);
-                listBagDtoById.add(bagDto);
+                Integer quantity = items.get(item);
+                listBagDtoById.put(bagDto, quantity);
             }
 
             double totalPrise = 0;
-            for (BagDto bagDto : listBagDtoById) {
+            for (BagDto bagDto : listBagDtoById.keySet()) {
                 totalPrise = totalPrise + bagDto.getBagPrice();
 
             }

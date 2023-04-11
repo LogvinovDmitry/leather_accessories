@@ -8,12 +8,14 @@ import app.service.impl.AdminServiceImpl;
 import app.service.impl.UserServiceImpl;
 
 import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.security.SecureRandom;
 import java.util.List;
 
-
+@WebServlet(urlPatterns = {"/order-page"})
+@MultipartConfig
 public class OrderPageCommand implements Command {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) {

@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 
 @WebServlet(urlPatterns = {"/start-servlet"})
@@ -28,8 +29,8 @@ public class StartServlet extends HttpServlet {
         if (oldItems == null) {
             int size = 0;
             req.getSession().setAttribute("size", size);
-        } else if (oldItems instanceof List) {
-            ArrayList<Integer> items = (ArrayList<Integer>) oldItems;
+        } else if (oldItems instanceof Map) {
+            Map<Integer, Integer> items = (Map) oldItems;
             int size = items.size();
             req.getSession().setAttribute("size", size);
         }

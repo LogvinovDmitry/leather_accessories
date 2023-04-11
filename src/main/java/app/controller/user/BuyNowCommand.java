@@ -7,8 +7,11 @@ import app.service.impl.UserServiceImpl;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.security.SecureRandom;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class BuyNowCommand implements Command {
     @Override
@@ -53,20 +56,45 @@ public class BuyNowCommand implements Command {
 //            request.setAttribute("jsp", "orderPage.jsp");
 //        }
 
-        ArrayList<Integer> items = new ArrayList<>();
-        items.add(bagId);
+        Map<Integer, Integer> items = new HashMap<>();
+        items.put(bagId, 1);
         int size = items.size();
         request.getSession().setAttribute("items", items);
         request.getSession().setAttribute("size", size);
 
 
-        for (Integer item : items) {
+        for (Integer item : items.keySet()) {
             BagDto bagDto = userService.getBagById(item);
             listBagDtoById.add(bagDto);
         }
         request.getSession().setAttribute("listBagDtoById", listBagDtoById);
-        request.setAttribute("jsp", "orderPage.jsp");
 
+
+        if (request.getSession().getAttribute("orderNumber") == null) {
+            int len = 5;
+            // Диапазон ASCII – буквенно-цифровой (0-9, a-z, A-Z)
+            final String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+            SecureRandom random = new SecureRandom();
+            StringBuilder sb = new StringBuilder();
+
+            // каждая итерация цикла случайным образом выбирает символ из заданного
+            // диапазон ASCII и добавляет его к экземпляру `StringBuilder`
+
+            for (int i = 0; i < len; i++) {
+                int randomIndex = random.nextInt(chars.length());
+                sb.append(chars.charAt(randomIndex));
+            }
+            String orderNumber = sb.toString();
+
+            request.getSession().setAttribute("orderNumber", orderNumber);
+
+
+            request.setAttribute("jsp", "orderPage.jsp");
+        }
+        else {
+            request.setAttribute("jsp", "orderPage.jsp");
+        }
 
     }
 }

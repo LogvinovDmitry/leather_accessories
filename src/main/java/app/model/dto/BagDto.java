@@ -17,6 +17,7 @@ public class BagDto implements Serializable {
     private List<String> listPhoto;
 
 
+
     public Integer getBagId() {
         return bagId;
     }

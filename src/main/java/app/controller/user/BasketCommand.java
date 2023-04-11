@@ -8,7 +8,9 @@ import app.service.impl.UserServiceImpl;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class BasketCommand implements Command {
     @Override
@@ -30,20 +32,22 @@ public class BasketCommand implements Command {
         request.setAttribute("listForYouInterested", listForYouInterested);
 
 
-        ArrayList<BagDto> listBagDtoById = new ArrayList<>();
+        Map<BagDto, Integer> listBagDtoById = new HashMap<>();
 
         Object oldItems = request.getSession().getAttribute("items");
         if (oldItems == null) {
             request.setAttribute("jsp", "emptyBasket.jsp");
         } else {
-            ArrayList<Integer> items = (ArrayList<Integer>) request.getSession().getAttribute("items");
-            for (Integer item : items) {
+            Map<Integer, Integer> items = (HashMap<Integer, Integer>) request.getSession().getAttribute("items");
+            for (Integer item : items.keySet()) {
                 BagDto bagDto = userService.getBagById(item);
-                listBagDtoById.add(bagDto);
+                Integer quantity = items.get(item);
+
+                listBagDtoById.put(bagDto, quantity);
             }
 
             double totalPrise = 0;
-            for (BagDto bagDto : listBagDtoById) {
+            for (BagDto bagDto : listBagDtoById.keySet()) {
                 totalPrise = totalPrise + bagDto.getBagPrice();
 
             }
