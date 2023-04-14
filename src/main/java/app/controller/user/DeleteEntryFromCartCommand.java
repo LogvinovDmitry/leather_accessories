@@ -67,7 +67,7 @@ public class DeleteEntryFromCartCommand implements Command {
 
             }
             request.getSession().setAttribute("totalPrise", totalPrise);
-            request.getSession().setAttribute("listBagDtoById", listBagDtoById);
+            request.setAttribute("listBagDtoById", listBagDtoById);
             request.getSession().setAttribute("items", items);
             request.getSession().setAttribute("size", size);
 

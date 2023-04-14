@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.security.SecureRandom;
 import java.util.List;
 
-@WebServlet(urlPatterns = {"/order-page"})
+//@WebServlet(urlPatterns = {"/order-page"})
 @MultipartConfig
 public class OrderPageCommand implements Command {
     @Override

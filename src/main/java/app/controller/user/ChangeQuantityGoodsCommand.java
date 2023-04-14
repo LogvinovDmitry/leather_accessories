@@ -67,7 +67,7 @@ public class ChangeQuantityGoodsCommand implements Command {
         request.getSession().setAttribute("totalPrise", totalPrise);
 
 
-        request.getSession().setAttribute("listBagDtoById", listBagDtoById);
+        request.setAttribute("listBagDtoById", listBagDtoById);
 
         request.setAttribute("jsp", "basket.jsp");
 

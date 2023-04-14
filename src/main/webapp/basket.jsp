@@ -29,7 +29,7 @@
     <p class="total-prise"> total</p>
 </div>
 
-<c:forEach var="anyName" items="${sessionScope.listBagDtoById}">
+<c:forEach var="anyName" items="${listBagDtoById}">
 
 <div class="one-bag_line">
     <div class="second-inner">

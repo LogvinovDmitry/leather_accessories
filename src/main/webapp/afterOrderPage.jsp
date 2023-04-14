@@ -21,12 +21,12 @@
 
 
 <div class="message-after-oder">
-    <p class="message-text">YOUR ORDER NUMBER: <mark>${sessionScope.orderNumberOld}</mark></p>
+    <p class="message-text">YOUR ORDER NUMBER: <mark>${orderNumberOld}</mark></p>
 </div>
 
 <div class="message-after-oder-centre">
     <p class="message-text">Thank you for the order!</p>
-    <p class="message-text">Thank you for the order! You can also write to us on social networks or expect feedback from the manager.</p>
+    <p class="message-text">You can also get in touch with us in social media or wait the feedback from our manager. He will contact you asap.</p>
 </div>
 
 <div class="icon">

@@ -32,17 +32,17 @@ public class CreateNewOrderCommand implements Command {
         }
         request.setAttribute("listForYouInterested", listForYouInterested);
 
+        userService.createNewOrder(request);
+
+
+        request.getSession().removeAttribute("items");
+        //request.getSession().setAttribute("items", null);
         int size = 0;
-        request.getSession().setAttribute("items", null);
         request.getSession().setAttribute("size", size);
 
         String orderNumberOld = (String) request.getSession().getAttribute("orderNumber");
-        request.getSession().setAttribute("orderNumberOld", orderNumberOld);
-
-        request.getSession().setAttribute("orderNumber", null);
-
-
-        //userService.createNewOrder(request);
+        request.setAttribute("orderNumberOld", orderNumberOld);
+        request.getSession().removeAttribute("orderNumber");
 
         request.setAttribute("jsp", "afterOrderPage.jsp");
     }

@@ -20,41 +20,8 @@ public class BuyNowCommand implements Command {
         int bagId = Integer.parseInt(request.getParameter("bagId"));
 
         UserService userService = new UserServiceImpl();
-        ArrayList<BagDto> listBagDtoById = new ArrayList<>();
-//
-//
-//        Object oldItems = request.getSession().getAttribute("items");
-//        if (oldItems == null) {
-//            ArrayList<Integer> items = new ArrayList<>();
-//            items.add(bagId);
-//            int size = items.size();
-//            request.getSession().setAttribute("items", items);
-//            request.getSession().setAttribute("size", size);
-//
-//
-//            for (Integer item : items) {
-//                BagDto bagDto = userService.getBagById(item);
-//                listBagDtoById.add(bagDto);
-//            }
-//            request.getSession().setAttribute("listBagDtoById", listBagDtoById);
-//            request.setAttribute("jsp", "orderPage.jsp");
-//
-//        } else {
-//            ArrayList<Integer> items = (ArrayList<Integer>) request.getSession().getAttribute("items");
-//            items.clear();
-//            items.add(bagId);
-//            int size = items.size();
-//            request.getSession().setAttribute("items", items);
-//            request.getSession().setAttribute("size", size);
-//
-//
-//            for (Integer item : items) {
-//                BagDto bagDto = userService.getBagById(item);
-//                listBagDtoById.add(bagDto);
-//            }
-//            request.getSession().setAttribute("listBagDtoById", listBagDtoById);
-//            request.setAttribute("jsp", "orderPage.jsp");
-//        }
+        //ArrayList<BagDto> listBagDtoById = new ArrayList<>();
+        Map<BagDto, Integer> listBagDtoById = new LinkedHashMap<>();
 
         Map<Integer, Integer> items = new LinkedHashMap<>();
         items.put(bagId, 1);
@@ -65,9 +32,9 @@ public class BuyNowCommand implements Command {
 
         for (Integer item : items.keySet()) {
             BagDto bagDto = userService.getBagById(item);
-            listBagDtoById.add(bagDto);
+            listBagDtoById.put(bagDto, 1);
         }
-        request.getSession().setAttribute("listBagDtoById", listBagDtoById);
+        request.setAttribute("listBagDtoById", listBagDtoById);
 
 
         if (request.getSession().getAttribute("orderNumber") == null) {

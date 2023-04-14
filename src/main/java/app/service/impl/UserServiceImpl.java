@@ -3,14 +3,18 @@ package app.service.impl;
 
 import app.model.dto.BagDto;
 import app.model.entity.Bag;
+import app.model.entity.Client;
 import app.model.entity.BagPhoto;
 import app.model.mapper.BagMapper;
 import app.repository.UserRepository;
 import app.repository.impl.UserRepositoryImpl;
 import app.service.UserService;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 public class UserServiceImpl implements UserService {
 
@@ -83,5 +87,53 @@ public class UserServiceImpl implements UserService {
         bagDto.setBagDescription(descrRep);
 
         return bagDto;
+    }
+
+
+    @Override
+    public void createNewOrder(HttpServletRequest request) {
+
+
+        Client client = new Client();
+
+        client.setClientName(request.getParameter("name"));
+        client.setClientPhone(request.getParameter("phone"));
+        client.setClientNetwork(request.getParameter("network"));
+        client.setClientAddress(request.getParameter("address"));
+        client.setClientComment(request.getParameter("comment"));
+
+        String orderNumber = (String) request.getSession().getAttribute("orderNumber");
+        client.setClientNumber(orderNumber);
+
+//Вариант №1
+        String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDateTime dateTime = LocalDateTime.parse(date, format);
+        client.setClientDateAdded(dateTime);
+
+
+
+//Вариант №2 - поробовать проконает в бд или нет.
+//        LocalDateTime date = LocalDateTime.now();
+//        client.setClientDateAdded(date);
+
+        userRepository.createNewClient(client);
+
+
+
+        Map<Integer, Integer> items = (LinkedHashMap<Integer, Integer>) request.getSession().getAttribute("items");
+
+        userRepository.createNewOrder(items);
+
+
+
+//
+//        for (Integer item : items.keySet()) {
+//            BagDto bagDto = userService.getBagById(item);
+//            Integer quantity = items.get(item);
+//
+//            listBagDtoById.put(bagDto, quantity);
+//        }
+
     }
 }
