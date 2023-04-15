@@ -1,136 +1,106 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <html>
 <head>
- <title>Список заказов</title>
- <style>
-  body {
-   margin: 0;
-   padding: 0;
-  }
+    <title>Отображение заказов</title>
+    <style>
+      /* Стили для таблицы */
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
 
-  .container {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   margin-top: 50px;
-   border: 2px solid black;
-   padding: 20px 7%;
-  }
+      th, td {
+        text-align: left;
+        padding: 8px;
+      }
 
-  .order {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   border: 1px solid black;
-   padding: 20px;
-   margin-bottom: 20px;
-   width: 100%;
-  }
+      th {
+        background-color: #f2f2f2;
+      }
 
-  .order-info {
-   display: flex;
-   flex-direction: row;
-   justify-content: space-between;
-   width: 100%;
-   margin-bottom: 20px;
-  }
+      /* Стили для фото товара */
+      .product-image {
+        width: 190px;
+        height: 140px;
+        object-fit: cover;
+        margin-right: 10px;
+        float: left;
+      }
 
-  .order-info div:first-child {
-   display: flex;
-   flex-direction: column;
-   align-items: flex-end;
-   width: 50%;
-   margin-right: 10%;
-  }
+      /* Стили для текста */
+      body {
+        font-family: 'Montserrat', sans-serif;
+      }
 
-  .order-info h3 {
-   margin: 0;
-   margin-bottom: 10px;
-  }
+      h2, ul, th, td {
+        text-transform: uppercase;
+        color: #9f9f9f;
+      }
 
-  .order-items {
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   width: 100%;
-  }
+      ul li, tbody td {
+        text-transform: none;
+        color: #5a5a5a;
+      }
 
-  .order-item {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   margin-right: 20px;
-  }
+      .client-fields {
+        display: flex;
+        flex-direction: column;
+      }
 
-  .order-item img {
-   width: 380px;
-   height: 280px;
-   margin-bottom: 10px;
-  }
+      .client-fields li {
+        flex: 1 1 50%;
+      }
 
-  .order-item h4 {
-   margin: 0;
-   margin-bottom: 5px;
-  }
-
-  .order-item p {
-   margin: 0;
-   line-height: 1.5;
-  }
- </style>
-</head>
-<body>
- <div class="container">
-  <div class="order">
-   <div class="order-info">
+      .client-fields li:before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: inline-block;
+        width: 150px;
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Отображение заказов</h1>
     <div>
-     <p><u>Имя:</u> Иванов Иван</p>
-     <p><u>Телефон:</u> +7 999 123 45 67</p>
-     <p><u>Адрес доставки:</u> г. Москва, ул. Пушкина, д. 10, кв. 5</p>
-     <p><u>Соцсеть:</u> vk.com/ivanov</p>
-     <p><u>Комментарий:</u> Без соли</p>
+      <h2>Поля клиента</h2>
+      <ul class="client-fields">
+        <li data-label="Имя:">Иван</li>
+        <li data-label="Телефон:">+7 (123) 456-78-90</li>
+        <li data-label="Адрес доставки:">ул. Пушкина, д. 10, кв. 5</li>
+        <li data-label="Соцсеть:">vk.com/ivanov</li>
+        <li data-label="Комментарий:">Безопасно оставить у соседей</li>
+      </ul>
     </div>
     <div>
-     <h3>Заказ</h3>
-     <div class="order-items">
-      <div class="order-item">
-       <img src="photo.jpg">
-       <h4>ID товара:</h4>
-       <p>123</p>
-       <h4>Название товара:</h4>
-       <p>Товар 1</p>
-       <h4>Количество:</h4>
-       <p>2</p>
-      </div>
-      <div class="order-item">
-       <img src="photo.jpg">
-       <h4>ID товара:</h4>
-       <p>456</p>
-       <h4>Название товара:</h4>
-       <p>Товар 2</p>
-       <h4>Количество:</h4>
-       <p>1</p>
-      </div>
-     </div>
-     <p><u>Номер заказа:</u> 12345</p>
-     <p><u>Дата заказа:</u> 01.01.2022</p>
+      <h2>Заказы</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Фото товара</th>
+            <th>Номер заказа</th>
+            <th>Дата заказа</th>
+            <th>ID товара</th>
+            <th>Количество товара</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><img src="path/to/product-image.jpg" alt="Фото товара" class="product-image"></td>
+            <td>1</td>
+            <td>01.01.2022</td>
+            <td>123</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td><img src="path/to/product-image.jpg" alt="Фото товара" class="product-image"></td>
+            <td>2</td>
+            <td>02.01.2022</td>
+            <td>456</td>
+            <td>1</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-   </div>
-  </div>
-  <div class="order">
-   <div class="order-info">
-    <div>
-     <p><u>Имя:</u> Петров Петр</p>
-     <p><u>Телефон:</u> +7 999 765 43 21</p>
-     <p><u>Адрес доставки:</u> г. Санкт-Петербург, ул. Лермонтова, д. 5, кв. 10</p>
-     <p><u>Соцсеть:</u> instagram.com/petrov</p>
-     <p><u>Комментарий:</u> Без лука</p>
-    </div>
-    <div>
-     <h3>Заказ</h3>
-     <div class="order-items">
-      <div class="order-item">
-       <img src="photo.jpg">
-       </div>
-</body>
+  </body>
 </html>

@@ -3,6 +3,7 @@ package app.repository;
 import app.model.entity.Bag;
 import app.model.entity.BagPhoto;
 import app.model.entity.Client;
+import app.model.entity.Order;
 
 import java.util.List;
 import java.util.Map;
@@ -19,6 +20,6 @@ public interface UserRepository {
 
     void createNewClient(Client client);
 
-    void createNewOrder(Map<Integer, Integer> items);
+    void createNewOrder(Order order);
     //Перечислены все имеющиеся методы
 }

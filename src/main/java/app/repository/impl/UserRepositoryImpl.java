@@ -3,6 +3,7 @@ package app.repository.impl;
 import app.model.entity.Bag;
 import app.model.entity.BagPhoto;
 import app.model.entity.Client;
+import app.model.entity.Order;
 import app.util.ConnectionLeatherAccessoriesSchema;
 import app.repository.UserRepository;
 
@@ -25,6 +26,7 @@ public class UserRepositoryImpl implements UserRepository {
     private static final String GET_PHOTO = "SELECT photo_id, bag_id, photo_title FROM leather_accessories_schema.bag_photo WHERE bag_id = ?";
 
     private static final String INSERT_NEW_CLIENT = "INSERT INTO leather_accessories_schema.client VALUES (NULL, ?, ?, ?, ?, ?, ?, ?)";
+    private static final String INSERT_NEW_ORDER = "INSERT INTO leather_accessories_schema.order VALUES (NULL, ?, ?, ?)";
 
 
     ConnectionLeatherAccessoriesSchema conLeather = new ConnectionLeatherAccessoriesSchema();
@@ -179,20 +181,33 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public void createNewOrder(Map<Integer, Integer> items) {
+    public void createNewOrder(Order order) {
         Connection con = conLeather.getConnection();
 
-        try (PreparedStatement preparedStatement = getCreateStatementForOrder(con, items);
+        try (PreparedStatement preparedStatement = getCreateStatementForOrder(con, order);
              ResultSet resultSet = preparedStatement.getGeneratedKeys()) {
 
             if (resultSet.next()) {
                 int generatedId = resultSet.getInt(1);
-
+                order.setOrderId(generatedId);
                 //client.setClientId(generatedId);
             }
 
         } catch (SQLException e) {
-            throw new RuntimeException("Failed to put new client in table 'Client'", e);
+            throw new RuntimeException("Failed to put new order in table 'Order'", e);
         }
     }
+
+    private PreparedStatement getCreateStatementForOrder(Connection con, Order order) throws SQLException {
+
+        PreparedStatement preparedStatement = con.prepareStatement(INSERT_NEW_ORDER, PreparedStatement.RETURN_GENERATED_KEYS); //в запросе необходимо ставить флаг RETURN_GENERATED_KEYS что бы потом была возможность вернуть сгенерированые поля: ResultSet resultSet = preparedStatement.getGeneratedKeys()
+
+        preparedStatement.setInt(1, order.getOrderBagId());
+        preparedStatement.setInt(2, order.getOrderQuantity());
+        preparedStatement.setInt(3, order.getOrderClientId());
+
+        preparedStatement.executeUpdate();
+        return preparedStatement;
+    }
+
 }
