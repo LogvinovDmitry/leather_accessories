@@ -64,7 +64,7 @@ public class ChangeQuantityGoodsCommand implements Command {
             totalPrise = totalPrise + (bagDto.getBagPrice())*listBagDtoById.get(bagDto);
 
         }
-        request.getSession().setAttribute("totalPrise", totalPrise);
+        request.setAttribute("totalPrise", totalPrise);
 
 
         request.setAttribute("listBagDtoById", listBagDtoById);

@@ -44,32 +44,44 @@
 
 <div class="inner-table">
       <table>
+        <col style="width:200px">
+        <col style="width:90px">
+        <col style="width:190px">
+        <col style="width:90px">
+        <col style="width:50px">
+        <col style="width:90px">
         <thead>
           <tr>
             <th>photo</th>
-            <th>product ID</th>
+            <th>item ID</th>
             <th>name</th>
-            <th>quantity</th>
+            <th>price</th>
+            <th>am</th>
+            <th>total</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td><img src="path/to/product-image.jpg" alt="Фото товара" class="product-image"></td>
             <td>123</td>
-            <td>jjferjierjffevfvfvvevewi</td>
+            <td class="name">jjferjierjffevfvfvvevewi</td>
+            <td>23.76$</td>
             <td>2</td>
+            <td>34.67$</td>
           </tr>
           <tr>
             <td><img src="path/to/product-image.jpg" alt="Фото товара" class="product-image"></td>
             <td>456</td>
-            <td>rgnhmg,</td>
+            <td class="name">rgnhmg,</td>
+            <td>45.87$</td>
             <td>1</td>
+            <td>45.67$</td>
           </tr>
           <tr>
-            <td><img src="path/to/product-image.jpg" alt="Фото товара" class="product-image"></td>
-            <td>456</td>
-            <td>asdgbnh</td>
-            <td>1</td>
+          <td></td>
+          <td></td>
+            <td colspan="3" class="total-price-text">total order price:</td>
+            <td class="total-price">34.67$</td>
           </tr>
         </tbody>
       </table>

@@ -69,7 +69,7 @@
 </c:forEach>
 
 <div class="total">
-    <p class="total-text"> total: $${sessionScope.totalPrise} USD</p>
+    <p class="total-text"> total: $${totalPrise} USD</p>
 </div>
 
 <div class="order_page">
