@@ -16,7 +16,7 @@ main {
 
     justify-content: center;
     border-bottom: 2px solid #ebebeb;
-    margin-bottom: 20px;
+    margin-bottom: 80px;
 }
 
 
@@ -81,10 +81,11 @@ word-break: break-all;
       .total-price-text {
        text-align: left;
        background-color: #f2f2f2;
+           color: #9f9f9f;
       }
 
       .total-price {
-
+    color: #9f9f9f;
        background-color: #f2f2f2;
       }
 
@@ -99,13 +100,13 @@ word-break: break-all;
 
 th, td {
     font-weight: 500;
-    letter-spacing: .1em;
+
     color: #9f9f9f;
 }
 
 tbody td {
+    color: #000000;
 
-    color: #5a5a5a;
 }
 
 .delete-order {

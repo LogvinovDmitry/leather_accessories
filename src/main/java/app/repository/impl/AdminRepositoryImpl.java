@@ -2,10 +2,15 @@ package app.repository.impl;
 
 import app.model.entity.Bag;
 import app.model.entity.BagPhoto;
+import app.model.entity.Client;
 import app.repository.AdminRepository;
 import app.util.ConnectionLeatherAccessoriesSchema;
 
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AdminRepositoryImpl implements AdminRepository {
 
@@ -14,6 +19,8 @@ public class AdminRepositoryImpl implements AdminRepository {
 
     private static final String DEL_ENTRY_IN_BAG_PHOTO = "DELETE FROM `leather_accessories_schema`.`bag_photo` WHERE (`bag_id` = ?)";
     private static final String DEL_ENTRY_IN_BAG_INF = "DELETE FROM `leather_accessories_schema`.`bag_information` WHERE (`bag_id` = ?)";
+
+    private static final String GET_ALL_CLIENTS = "SELECT client_id, client_name, client_phone, client_network, client_address, client_comment, client_number, client_date_added FROM leather_accessories_schema.client";
 
     ConnectionLeatherAccessoriesSchema conLeather = new ConnectionLeatherAccessoriesSchema();
 
@@ -106,4 +113,35 @@ public class AdminRepositoryImpl implements AdminRepository {
     }
 
 
+    @Override
+    public List<Client> getListAllClients() {
+
+        List<Client> listAllClients = new ArrayList<>();
+
+        Connection con = conLeather.getConnection();
+
+        try (PreparedStatement preparedStatement = con.prepareStatement(GET_ALL_CLIENTS);
+             ResultSet resultSet = preparedStatement.executeQuery()) {
+
+            while (resultSet.next()) {
+                Client client = new Client();
+
+                client.setClientId(resultSet.getInt("client_id"));
+                client.setClientName(resultSet.getString("client_name"));
+                client.setClientPhone(resultSet.getString("client_phone"));
+                client.setClientNetwork(resultSet.getString("client_network"));
+                client.setClientAddress(resultSet.getString("client_address"));
+                client.setClientComment(resultSet.getString("client_comment"));
+                client.setClientNumber(resultSet.getString("client_number"));
+                client.setClientDateAdded((LocalDateTime) resultSet.getObject("client_date_added"));
+
+                listAllClients.add(client);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return listAllClients;
+    }
 }

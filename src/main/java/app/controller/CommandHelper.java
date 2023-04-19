@@ -35,6 +35,7 @@ public class CommandHelper {
         commandsMap.put("Remove entry", new RemoveEntryCommand());
         commandsMap.put("Exit admin", new ExitAdminCommand());
         commandsMap.put("Order page", new OrderPageCommand());
+        commandsMap.put("Orders", new OrderPageAdminCommand());
         commandsMap.put("Enter", new RedirectCommand("/start-servlet"));
 
     }

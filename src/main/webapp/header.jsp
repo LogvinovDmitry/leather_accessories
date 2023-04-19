@@ -57,6 +57,14 @@
             <c:if test="${sessionScope.isAdmin == true}">
                 <div>
                     <form method="get" action="dispatcher">
+                    <input class="create-entry-admin" type="submit" name="command" value="Orders">
+                </form>
+                </div>
+            </c:if>
+
+            <c:if test="${sessionScope.isAdmin == true}">
+                <div>
+                    <form method="get" action="dispatcher">
                     <input class="create-entry-admin" type="submit" name="command" value="Exit admin">
                 </form>
                 </div>
