@@ -81,12 +81,14 @@ word-break: break-all;
       .total-price-text {
        text-align: left;
        background-color: #f2f2f2;
-           color: #9f9f9f;
+           color: green;
+           font-weight: 600;
       }
 
       .total-price {
-    color: #9f9f9f;
+    color: green;
        background-color: #f2f2f2;
+       font-weight: 600;
       }
 
 /* Стили для фото товара */

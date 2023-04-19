@@ -67,12 +67,12 @@
 
           <c:forEach var="orderTable" items="${order.value}">
               <tr>
-                <td><img src="path/to/product-image.jpg" alt="Фото товара" class="product-image"></td>
+                <td><img src="dispatcher?path=${orderTable.getMainPhotoTitle()}&command=Display file" alt="Фото товара" class="product-image"></td>
                 <td>${orderTable.getBagId()}</td>
                 <td class="name">${orderTable.getBagName()}</td>
                 <td>${orderTable.getBagPrice()}$</td>
                 <td>${orderTable.getOrderQuantity()}</td>
-                <td>34.67$</td>
+                <td>${orderTable.getTotal()}$</td>
               </tr>
           </c:forEach>
 
@@ -82,7 +82,7 @@
           <td></td>
           <td></td>
             <td colspan="2" class="total-price-text">total price:</td>
-            <td class="total-price">34.67$</td>
+            <td class="total-price">${order.key.getTotalPrise()}$</td>
           </tr>
         </tbody>
       </table>

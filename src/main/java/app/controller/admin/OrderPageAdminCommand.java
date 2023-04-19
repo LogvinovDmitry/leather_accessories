@@ -85,7 +85,7 @@ public class OrderPageAdminCommand implements Command {
 //
 
         AdminService adminService = new AdminServiceImpl();
-        Map<Client, ArrayList<OrderDto>> allOrderData = adminService.getAllOrderData();
+        Map<Client, List<OrderDto>> allOrderData = adminService.getAllOrderData();
 
         request.setAttribute("allOrderData", allOrderData);
         request.setAttribute("jsp", "orderPageAdmin.jsp");

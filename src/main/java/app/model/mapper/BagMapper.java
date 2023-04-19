@@ -2,8 +2,10 @@ package app.model.mapper;
 
 import app.model.dto.BagCreateDto;
 import app.model.dto.BagDto;
+import app.model.dto.OrderDto;
 import app.model.entity.Bag;
 import app.model.entity.BagPhoto;
+import app.model.entity.Order;
 import app.repository.UserRepository;
 import app.repository.impl.UserRepositoryImpl;
 
@@ -58,18 +60,41 @@ public class BagMapper {
 
         for (String strList : listPhoto) {
 
-        BagPhoto bagPhoto = new BagPhoto();
+            BagPhoto bagPhoto = new BagPhoto();
 
-        bagPhoto.setBagId(bagId);
-        bagPhoto.setPhotoTitle(strList);
-        listBagPhoto.add(bagPhoto);
+            bagPhoto.setBagId(bagId);
+            bagPhoto.setPhotoTitle(strList);
+            listBagPhoto.add(bagPhoto);
         }
         return listBagPhoto;
     }
 
-//
-//    public Bag bagFromRequest(HttpServletRequest request){
-//
-//    }
+    public List<OrderDto> listOrderForClientToDto(List<Order> listOrderForClient) {
+
+        List<OrderDto> listOrderForClientDto = new ArrayList<>();
+
+        UserRepository userRepository = new UserRepositoryImpl();
+
+        for (Order order : listOrderForClient) {
+
+            OrderDto orderDto = new OrderDto();
+            orderDto.setBagId(order.getOrderBagId());
+            orderDto.setOrderQuantity(order.getOrderQuantity());
+
+            Bag bagById = userRepository.getBagById(order.getOrderBagId());
+            orderDto.setBagName(bagById.getBagName());
+            orderDto.setBagPrice(bagById.getBagPrice());
+            orderDto.setMainPhotoTitle(bagById.getMainPhotoTitle());
+
+            double total = bagById.getBagPrice()*order.getOrderQuantity();
+            //double total = 25.36;
+            orderDto.setTotal(total);
+
+            listOrderForClientDto.add(orderDto);
+        }
+
+
+        return listOrderForClientDto;
+    }
 
 }

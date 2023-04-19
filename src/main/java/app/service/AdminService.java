@@ -5,6 +5,7 @@ import app.model.entity.Client;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public interface AdminService {
@@ -12,5 +13,5 @@ public interface AdminService {
 
     void removeBag(int bagId);
 
-    Map<Client, ArrayList<OrderDto>> getAllOrderData();
+    Map<Client, List<OrderDto>> getAllOrderData();
 }

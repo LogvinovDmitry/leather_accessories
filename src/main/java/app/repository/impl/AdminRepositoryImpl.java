@@ -3,6 +3,7 @@ package app.repository.impl;
 import app.model.entity.Bag;
 import app.model.entity.BagPhoto;
 import app.model.entity.Client;
+import app.model.entity.Order;
 import app.repository.AdminRepository;
 import app.util.ConnectionLeatherAccessoriesSchema;
 
@@ -21,6 +22,7 @@ public class AdminRepositoryImpl implements AdminRepository {
     private static final String DEL_ENTRY_IN_BAG_INF = "DELETE FROM `leather_accessories_schema`.`bag_information` WHERE (`bag_id` = ?)";
 
     private static final String GET_ALL_CLIENTS = "SELECT client_id, client_name, client_phone, client_network, client_address, client_comment, client_number, client_date_added FROM leather_accessories_schema.client";
+    private static final String GET_ORDER_FOR_CLIENTS = "SELECT order_id, order_bag_id, order_quantity, order_client_id FROM leather_accessories_schema.order WHERE order_client_id = ?";
 
     ConnectionLeatherAccessoriesSchema conLeather = new ConnectionLeatherAccessoriesSchema();
 
@@ -143,5 +145,33 @@ public class AdminRepositoryImpl implements AdminRepository {
         }
 
         return listAllClients;
+    }
+
+    @Override
+    public List<Order> getListOrderForClient(int clientId) {
+        List<Order> listOrderForClient = new ArrayList<>();
+
+        Connection con = conLeather.getConnection();
+
+        try (PreparedStatement preparedStatement = con.prepareStatement(GET_ORDER_FOR_CLIENTS)) {
+             preparedStatement.setInt(1, clientId);
+             ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Order order = new Order();
+
+                order.setOrderId(resultSet.getInt("order_id"));
+                order.setOrderBagId(resultSet.getInt("order_bag_id"));
+                order.setOrderQuantity(resultSet.getInt("order_quantity"));
+                order.setOrderClientId(resultSet.getInt("order_client_id"));
+//
+                listOrderForClient.add(order);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return listOrderForClient;
     }
 }

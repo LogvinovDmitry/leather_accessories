@@ -15,6 +15,8 @@ public class Client {
     private String clientNumber;
     private LocalDateTime clientDateAdded;
 
+    private Double totalPrise;
+
     public Integer getClientId() {
         return clientId;
     }
@@ -77,5 +79,13 @@ public class Client {
 
     public void setClientDateAdded(LocalDateTime clientDateAdded) {
         this.clientDateAdded = clientDateAdded;
+    }
+
+    public Double getTotalPrise() {
+        return totalPrise;
+    }
+
+    public void setTotalPrise(Double totalPrise) {
+        this.totalPrise = totalPrise;
     }
 }

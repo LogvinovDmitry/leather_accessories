@@ -5,6 +5,7 @@ import app.model.dto.OrderDto;
 import app.model.entity.Bag;
 import app.model.entity.BagPhoto;
 import app.model.entity.Client;
+import app.model.entity.Order;
 import app.model.mapper.BagMapper;
 import app.repository.AdminRepository;
 import app.repository.Server.ServerRepository;
@@ -19,10 +20,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class AdminServiceImpl implements AdminService {
     private AdminRepository adminRepository;
@@ -113,73 +111,35 @@ public class AdminServiceImpl implements AdminService {
 
 
     @Override
-    public Map<Client, ArrayList<OrderDto>> getAllOrderData() {
+    public Map<Client, List<OrderDto>> getAllOrderData() {
+
+        Map<Client, List<OrderDto>> allOrderData = new LinkedHashMap<>();
 
         List<Client> listAllClients = adminRepository.getListAllClients();
-     
+
+
+        for (Client client : listAllClients) {
+
+            List<Order> listOrderForClient = adminRepository.getListOrderForClient(client.getClientId());
+
+            List<OrderDto> listOrderForClientToDto = bagMapper.listOrderForClientToDto(listOrderForClient);
 
 
 
-//        Client client_1 = new Client();
-//        LocalDateTime date = LocalDateTime.now();
-//        client_1.setClientDateAdded(date);
-//        client_1.setClientNumber("rtrt54");
-//        client_1.setClientName("Shnj Sdgbthbrt");
-//
-//
-//
-//        Client client_2 = new Client();
-//        LocalDateTime date1 = LocalDateTime.now();
-//        client_2.setClientDateAdded(date1);
-//        client_2.setClientNumber("trtrtr99");
-//        client_2.setClientName("Wwwww Eeeee");
-//
-//
-//        ArrayList<OrderDto> arrayList_1 = new ArrayList<>();
-//
-//
-//        OrderDto orderDto_1 = new OrderDto();
-//        orderDto_1.setBagId(344);
-//        orderDto_1.setBagName("fgfffg");
-//        orderDto_1.setBagPrice(25.36);
-//        orderDto_1.setOrderQuantity(2);
-//
-//        OrderDto orderDto_2 = new OrderDto();
-//        orderDto_2.setBagId(456);
-//        orderDto_2.setBagName("thgfd");
-//        orderDto_2.setBagPrice(25.36);
-//        orderDto_2.setOrderQuantity(4);
-//
-//        arrayList_1.add(orderDto_1);
-//        arrayList_1.add(orderDto_2);
-//
-//
-//
-//        ArrayList<OrderDto> arrayList_2 = new ArrayList<>();
-//
-//
-//        OrderDto orderDto_3 = new OrderDto();
-//        orderDto_1.setBagId(344);
-//        orderDto_1.setBagName("fgfffg");
-//        orderDto_1.setBagPrice(25.36);
-//        orderDto_1.setOrderQuantity(2);
-//
-//        OrderDto orderDto_4 = new OrderDto();
-//        orderDto_2.setBagId(456);
-//        orderDto_2.setBagName("thgfd");
-//        orderDto_2.setBagPrice(25.36);
-//        orderDto_2.setOrderQuantity(4);
-//
-//        arrayList_2.add(orderDto_3);
-//        arrayList_2.add(orderDto_4);
-//
-//
-//        Map<Client, ArrayList<OrderDto>> allOrderData = new LinkedHashMap<>();
-//        allOrderData.put(client_1, arrayList_1);
-//        allOrderData.put(client_2, arrayList_2);
 
-        //return allOrderData;
-        return null;
+            double totalPrise = 0;
+            for (OrderDto orderDto : listOrderForClientToDto) {
+                totalPrise = totalPrise + orderDto.getTotal();
+
+            }
+            client.setTotalPrise(totalPrise);
+
+
+
+            allOrderData.put(client, listOrderForClientToDto);
+        }
+
+        return allOrderData;
 
     }
 }
