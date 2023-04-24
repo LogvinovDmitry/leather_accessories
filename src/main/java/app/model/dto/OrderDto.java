@@ -5,12 +5,22 @@ import java.util.List;
 
 public class OrderDto {
 
+    private Integer orderId;
     private Integer bagId;
     private String bagName;
     private Double bagPrice;
     private String mainPhotoTitle;
     private Integer orderQuantity;
     private Double total;
+
+
+    public Integer getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Integer orderId) {
+        this.orderId = orderId;
+    }
 
     public Integer getBagId() {
         return bagId;

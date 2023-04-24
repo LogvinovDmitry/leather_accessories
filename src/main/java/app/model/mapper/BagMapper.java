@@ -78,6 +78,7 @@ public class BagMapper {
         for (Order order : listOrderForClient) {
 
             OrderDto orderDto = new OrderDto();
+            orderDto.setOrderId(order.getOrderId());
             orderDto.setBagId(order.getOrderBagId());
             orderDto.setOrderQuantity(order.getOrderQuantity());
 
@@ -87,7 +88,6 @@ public class BagMapper {
             orderDto.setMainPhotoTitle(bagById.getMainPhotoTitle());
 
             double total = bagById.getBagPrice()*order.getOrderQuantity();
-            //double total = 25.36;
             orderDto.setTotal(total);
 
             listOrderForClientDto.add(orderDto);

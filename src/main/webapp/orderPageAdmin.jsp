@@ -23,23 +23,27 @@
     <p class="orders-text"> orders </p>
 </div>
 
-
+<c:set var = "count" scope = "page" value = "${0}"/>
 
 <c:forEach var="order" items="${allOrderData}">
+
+<c:set var="count" scope="page" value="${count + 1}" />
+
 <div class="inner-order">
     <div class="client-fields">
-        <p class="fields-pudding">orderNumber: <mark>${order.key.getClientNumber()}</mark></p>
-        <p class="fields-pudding">date added: <mark>${order.key.getClientDateAdded()}</mark></p>
-        <p class="fields-pudding">full name: <mark>${order.key.getClientName()}</mark></p>
-        <p class="fields-pudding">phone: <mark>${order.key.getClientPhone()}</mark></p>
-        <p class="fields-pudding">social network: <mark>${order.key.getClientNetwork()}</mark></p>
-        <p class="fields-pudding">address: <mark>${order.key.getClientAddress()}</mark></p>
-        <p class="fields-pudding">comment: <mark>${order.key.getClientComment()}</mark></p>
+        <p class="count-value">№ <c:out value = "${count}" /></p>
+        <p>orderNumber: <mark>${order.key.getClientNumber()}</mark></p>
+        <p>date added: <mark>${order.key.getClientDateAdded()}</mark></p>
+        <p>full name: <mark>${order.key.getClientName()}</mark></p>
+        <p>phone: <mark>${order.key.getClientPhone()}</mark></p>
+        <p>social network: <mark>${order.key.getClientNetwork()}</mark></p>
+        <p>address: <mark>${order.key.getClientAddress()}</mark></p>
+        <p>comment: <mark>${order.key.getClientComment()}</mark></p>
 
         <form method="post" action="/dispatcher" enctype="multipart/form-data">
             <div class="inp-padding">
-                <input type="hidden" id="delete-order-hidden" name="category" value="Lady's bag">
-                <input class="delete-order" type="submit" name="command" value="delete order">
+                <input type="hidden" id="delete-order-hidden" name="clientId" value="${order.key.getClientId()}">
+                <input class="delete-order" type="submit" name="command" value="Remove order">
             </div>
         </form>
     </div>

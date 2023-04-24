@@ -10,6 +10,7 @@ import app.util.ConnectionLeatherAccessoriesSchema;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +24,10 @@ public class AdminRepositoryImpl implements AdminRepository {
 
     private static final String GET_ALL_CLIENTS = "SELECT client_id, client_name, client_phone, client_network, client_address, client_comment, client_number, client_date_added FROM leather_accessories_schema.client";
     private static final String GET_ORDER_FOR_CLIENTS = "SELECT order_id, order_bag_id, order_quantity, order_client_id FROM leather_accessories_schema.order WHERE order_client_id = ?";
+
+    private static final String DEL_ORDER = "DELETE FROM `leather_accessories_schema`.`order` WHERE (`order_client_id` = ?)";
+    private static final String DEL_CLIENT = "DELETE FROM `leather_accessories_schema`.`client` WHERE (`client_id` = ?)";
+
 
     ConnectionLeatherAccessoriesSchema conLeather = new ConnectionLeatherAccessoriesSchema();
 
@@ -135,7 +140,18 @@ public class AdminRepositoryImpl implements AdminRepository {
                 client.setClientAddress(resultSet.getString("client_address"));
                 client.setClientComment(resultSet.getString("client_comment"));
                 client.setClientNumber(resultSet.getString("client_number"));
+
                 client.setClientDateAdded((LocalDateTime) resultSet.getObject("client_date_added"));
+
+
+
+               // LocalDateTime client_date_added = (LocalDateTime) resultSet.getObject("client_date_added");
+//                String dateStr = client_date_added.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+//                DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+//                LocalDateTime dateTime = LocalDateTime.parse(dateStr, format);
+//                client.setClientDateAdded(dateTime);
+
+                //String format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm").format(client_date_added);
 
                 listAllClients.add(client);
             }
@@ -164,7 +180,7 @@ public class AdminRepositoryImpl implements AdminRepository {
                 order.setOrderBagId(resultSet.getInt("order_bag_id"));
                 order.setOrderQuantity(resultSet.getInt("order_quantity"));
                 order.setOrderClientId(resultSet.getInt("order_client_id"));
-//
+
                 listOrderForClient.add(order);
             }
 
@@ -173,5 +189,26 @@ public class AdminRepositoryImpl implements AdminRepository {
         }
 
         return listOrderForClient;
+    }
+
+
+    @Override
+    public void removeOrder(int clientId) {
+        Connection con = conLeather.getConnection();
+
+        try {
+// Рабочий вариант №1: (Однако по хорошему в БД надо было отметить в bagId каскадное удаление.. тогда запрос был бы один. Кстати такое вроде возможно сделать только в МайСкюл)
+            PreparedStatement preparedStatement = con.prepareStatement(DEL_ORDER);
+            preparedStatement.setInt(1, clientId);
+            preparedStatement.executeUpdate();
+
+            PreparedStatement preparedStatement1 = con.prepareStatement(DEL_CLIENT);
+            preparedStatement1.setInt(1, clientId);
+            preparedStatement1.executeUpdate();
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

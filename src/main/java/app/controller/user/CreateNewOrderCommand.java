@@ -10,6 +10,7 @@ import app.service.impl.UserServiceImpl;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -31,6 +32,8 @@ public class CreateNewOrderCommand implements Command {
             }
         }
         request.setAttribute("listForYouInterested", listForYouInterested);
+
+
 
         userService.createNewOrder(request);
 

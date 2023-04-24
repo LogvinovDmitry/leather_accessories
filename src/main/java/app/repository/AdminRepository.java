@@ -16,4 +16,5 @@ public interface AdminRepository {
 
    List<Client> getListAllClients();
    List<Order> getListOrderForClient(int clientId);
+   void removeOrder(int clientId);
 }

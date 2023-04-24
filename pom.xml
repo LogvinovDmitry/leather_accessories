@@ -108,6 +108,7 @@
             <systemProperties>
               <isLocalRun>true</isLocalRun>
             </systemProperties>
+            <charset>utf-8</charset>
           </configuration>
         </plugin>
 

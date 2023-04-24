@@ -16,6 +16,16 @@ public class MyFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+        //Важно! Установка кодировки.
+        //Была проблема: при отправки формы русские буквы становились кракозябрами.
+        //Устанавливать кодировку для реквеста необходимо ДО того момента как с ним
+        //происходят манипуляции (вытягивание параметров и прочее).
+        //т.к. после хотя бы одной манипуляции весь реквест будет распарсен внутренней, неизвестной кодировкой.
+        //В данном проекте первое место, где встречается реквест это в этом классе,
+        //поэтому тут мы вручную и устанавливаем нужную кодировку UTF-8
+        servletRequest.setCharacterEncoding("UTF-8");
+
+
 
         String password = servletRequest.getParameter("password");
 
