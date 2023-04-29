@@ -141,26 +141,9 @@ public class AdminRepositoryImpl implements AdminRepository {
                 client.setClientComment(resultSet.getString("client_comment"));
                 client.setClientNumber(resultSet.getString("client_number"));
 
-                //client.setClientDateAdded((LocalDateTime) resultSet.getObject("client_date_added"));
-
-
-client.setClientDateAdded1(resultSet.getTimestamp("client_date_added"));
-
-
-//                LocalDate client_date_added = (LocalDate) resultSet.getObject("client_date_added");
-//                String dateStr = client_date_added.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-//                DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-//                LocalDate client_date_added12 = LocalDate.parse(dateStr, format);
-//                client.setClientDateAdded2(client_date_added12);
-
-
-                // LocalDateTime client_date_added = (LocalDateTime) resultSet.getObject("client_date_added");
-//                String dateStr = client_date_added.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
-//                DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-//                LocalDateTime dateTime = LocalDateTime.parse(dateStr, format);
-//                client.setClientDateAdded(dateTime);
-
-                //String format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm").format(client_date_added);
+                LocalDateTime client_date_added = (LocalDateTime) resultSet.getObject("client_date_added");
+                String dateStr = client_date_added.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+                client.setClientDateAddedStr(dateStr);
 
                 listAllClients.add(client);
             }

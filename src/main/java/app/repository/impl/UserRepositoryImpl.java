@@ -174,7 +174,7 @@ public class UserRepositoryImpl implements UserRepository {
         preparedStatement.setString(4, client.getClientAddress());
         preparedStatement.setString(5, client.getClientComment());
         preparedStatement.setString(6, client.getClientNumber());
-        preparedStatement.setObject(7, client.getClientDateAdded1());
+        preparedStatement.setObject(7, client.getClientDateAdded());
 
         preparedStatement.executeUpdate();
         return preparedStatement;

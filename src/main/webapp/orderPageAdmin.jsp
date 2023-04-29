@@ -33,7 +33,7 @@
     <div class="client-fields">
         <p class="count-value">№ <c:out value = "${count}" /></p>
         <p>orderNumber: <mark>${order.key.getClientNumber()}</mark></p>
-        <p>date added: <mark>${order.key.getClientDateAdded1()}</mark></p>
+        <p>date added: <mark>${order.key.getClientDateAddedStr()}</mark></p>
         <p>full name: <mark>${order.key.getClientName()}</mark></p>
         <p>phone: <mark>${order.key.getClientPhone()}</mark></p>
         <p>social network: <mark>${order.key.getClientNetwork()}</mark></p>

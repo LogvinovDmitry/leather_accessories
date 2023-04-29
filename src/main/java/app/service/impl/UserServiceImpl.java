@@ -119,10 +119,7 @@ public class UserServiceImpl implements UserService {
 
 
 //Вариант №2 - проиходит тоже самое, что и в Варианте №1, но переменная date = 2023-04-15T15:36:12.897; (в самой базе выглядит, после добавления, так же выглядит вот так: 2023-04-15 15:36:13)
-        //LocalDateTime date = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES);
-
-        String date = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-        client.setClientDateAdded1(Timestamp.valueOf(date));
+        client.setClientDateAdded(LocalDateTime.now());
 
         userRepository.createNewClient(client);
 

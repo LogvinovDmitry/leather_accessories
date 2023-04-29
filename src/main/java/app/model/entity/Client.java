@@ -15,24 +15,20 @@ public class Client {
     private String clientAddress;
     private String clientComment;
     private String clientNumber;
+
+    private String clientDateAddedStr;
+
     private LocalDateTime clientDateAdded;
-    private Timestamp clientDateAdded1;
-    private LocalDate clientDateAdded2;
+//    private Timestamp clientDateAdded1;
+//    private LocalDate clientDateAdded2;
 
-    public LocalDate getClientDateAdded2() {
-        return clientDateAdded2;
+
+    public String getClientDateAddedStr() {
+        return clientDateAddedStr;
     }
 
-    public void setClientDateAdded2(LocalDate clientDateAdded2) {
-        this.clientDateAdded2 = clientDateAdded2;
-    }
-
-    public Timestamp getClientDateAdded1() {
-        return clientDateAdded1;
-    }
-
-    public void setClientDateAdded1(Timestamp clientDateAdded1) {
-        this.clientDateAdded1 = clientDateAdded1;
+    public void setClientDateAddedStr(String clientDateAddedStr) {
+        this.clientDateAddedStr = clientDateAddedStr;
     }
 
     private Double totalPrise;
