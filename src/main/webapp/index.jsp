@@ -21,10 +21,10 @@
 <main>
 
 <!--Меняющиеся картинки-->
-<div class="your-class" style="width: 700px; height: 600px">
+<div class="your-class" style="width: 700px; height: 516px">
     <c:forEach var="anyName" items="${listForChangingPictures}">
         <div>
-            <a href="dispatcher?bagId=${anyName.getBagId()}&command=Bag by id"><img src="dispatcher?path=${anyName.getMainPhotoTitle()}&command=Display file" width="700" height="600"></a>
+            <a href="dispatcher?bagId=${anyName.getBagId()}&command=Bag by id"><img src="dispatcher?path=${anyName.getMainPhotoTitle()}&command=Display file" width="700" height="516"></a>
         </div>
     </c:forEach>
 </div>

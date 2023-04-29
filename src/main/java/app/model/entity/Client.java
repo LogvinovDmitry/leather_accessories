@@ -3,6 +3,8 @@ package app.model.entity;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.sql.Timestamp;
+
 
 public class Client {
 
@@ -14,6 +16,24 @@ public class Client {
     private String clientComment;
     private String clientNumber;
     private LocalDateTime clientDateAdded;
+    private Timestamp clientDateAdded1;
+    private LocalDate clientDateAdded2;
+
+    public LocalDate getClientDateAdded2() {
+        return clientDateAdded2;
+    }
+
+    public void setClientDateAdded2(LocalDate clientDateAdded2) {
+        this.clientDateAdded2 = clientDateAdded2;
+    }
+
+    public Timestamp getClientDateAdded1() {
+        return clientDateAdded1;
+    }
+
+    public void setClientDateAdded1(Timestamp clientDateAdded1) {
+        this.clientDateAdded1 = clientDateAdded1;
+    }
 
     private Double totalPrise;
 

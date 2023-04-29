@@ -12,9 +12,11 @@ import app.repository.impl.UserRepositoryImpl;
 import app.service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 public class UserServiceImpl implements UserService {
@@ -117,8 +119,10 @@ public class UserServiceImpl implements UserService {
 
 
 //Вариант №2 - проиходит тоже самое, что и в Варианте №1, но переменная date = 2023-04-15T15:36:12.897; (в самой базе выглядит, после добавления, так же выглядит вот так: 2023-04-15 15:36:13)
-        LocalDateTime date = LocalDateTime.now();
-        client.setClientDateAdded(date);
+        //LocalDateTime date = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES);
+
+        String date = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        client.setClientDateAdded1(Timestamp.valueOf(date));
 
         userRepository.createNewClient(client);
 
