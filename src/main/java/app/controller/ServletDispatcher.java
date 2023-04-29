@@ -48,10 +48,11 @@ public class ServletDispatcher extends HttpServlet {
         CommandHelper commandHelper = new CommandHelper();
         Command command = commandHelper.chooseCommand(req);
         command.execute(req, resp);
-
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher((String) req.getAttribute("jsp"));
-        requestDispatcher.forward(req, resp);
-
+        Object jspName = req.getAttribute("jsp");
+        if (jspName  != null) {
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher((String) jspName);
+            requestDispatcher.forward(req, resp);
+        }
     }
 }
 

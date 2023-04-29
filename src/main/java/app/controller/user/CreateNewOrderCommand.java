@@ -7,9 +7,12 @@ import app.service.UserService;
 import app.service.impl.AdminServiceImpl;
 import app.service.impl.UserServiceImpl;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +22,16 @@ import java.util.Map;
 public class CreateNewOrderCommand implements Command {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) {
+
+        Object items = request.getSession().getAttribute("items");
+        if (items == null) {
+            try {
+                response.sendRedirect("/start-servlet");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return;
+        }
 
         UserService userService = new UserServiceImpl();
         List<BagDto> fullListOfProducts = userService.getAll();
