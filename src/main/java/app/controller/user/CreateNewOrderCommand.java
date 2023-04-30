@@ -36,7 +36,7 @@ public class CreateNewOrderCommand implements Command {
         UserService userService = new UserServiceImpl();
         List<BagDto> fullListOfProducts = userService.getAll();
         List<BagDto> listForYouInterested = new ArrayList<>();
-        while (listForYouInterested.size() < 6) {
+        while (listForYouInterested.size() < 6 && listForYouInterested.size() < fullListOfProducts.size()) {
 
             int a = (int) (Math.random() * fullListOfProducts.size());
 

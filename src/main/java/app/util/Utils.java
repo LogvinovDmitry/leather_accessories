@@ -1,6 +1,7 @@
 package app.util;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 
 public class Utils {
 
@@ -11,5 +12,10 @@ public class Utils {
         } else {
             return realPath + "..\\..\\..\\";
         }
+    }
+
+    public static String replaceSlashesToSystem(String path) {
+        return path.replace("/", File.separator)
+                .replace("\\", File.separator);
     }
 }

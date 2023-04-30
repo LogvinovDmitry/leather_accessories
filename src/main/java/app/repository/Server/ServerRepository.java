@@ -52,14 +52,20 @@ public class ServerRepository {
             String[] partsOfName = fileName.split("\\.");
             String mime = partsOfName[partsOfName.length - 1];
 
+            File file = new File(
+                    Utils.replaceSlashesToSystem(baseFilePath + File.separator + PATH_TO_STORE_OF_IMAGES + str + "." + mime)
+            );
 
-            File file = new File(baseFilePath + File.separator + PATH_TO_STORE_OF_IMAGES + str + "." + mime);
+            final File parentDirectory = file.getParentFile();
+            if (!parentDirectory.exists() && !parentDirectory.mkdirs()) {
+                // Папка не существует и не удалось её создать
+                System.err.println("Directory '" + parentDirectory + "' does not exist and I can't create it!");
+            }
 
             try (InputStream inputStream = filePart.getInputStream()) {
                 Files.copy(inputStream, file.toPath());
                 return file.toString().replaceAll("\\\\", "/"); // C:/photo_for_leather_accessories/72f12e40-c4d9-48ff-9821-b92b09e4213c.jpg
             }
-
 
             //При появлении иключения в консоль выведется сообщение и метод продолжит выполняться (и продолжает выполнятся с вся программа).
             //А метод должен заканчиваться ретерном. Поэтому в начале необходимо назначить переменную как нулл в блоке
@@ -116,7 +122,15 @@ public class ServerRepository {
                     String mime = partsOfName[partsOfName.length - 1];
 
 
-                    File file = new File(baseFilePath + File.separator + PATH_TO_STORE_OF_OTHER_IMAGES + str + "." + mime);
+                    File file = new File(
+                            Utils.replaceSlashesToSystem(baseFilePath + File.separator + PATH_TO_STORE_OF_OTHER_IMAGES + str + "." + mime)
+                    );
+
+                    final File parentDirectory = file.getParentFile();
+                    if (!parentDirectory.exists() && !parentDirectory.mkdirs()) {
+                        // Папка не существует и не удалось её создать
+                        System.err.println("Directory '" + parentDirectory + "' does not exist and I can't create it!");
+                    }
 
                     try (InputStream inputStream = filePart.getInputStream()) {
                         Files.copy(inputStream, file.toPath());

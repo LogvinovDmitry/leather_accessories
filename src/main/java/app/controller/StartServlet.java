@@ -41,29 +41,24 @@ public class StartServlet extends HttpServlet {
 
 
         List<BagDto> listForChangingPictures = new ArrayList<>();
-        while (listForChangingPictures.size() < 6) {
+        while (listForChangingPictures.size() < 6 && listForChangingPictures.size() < fullListOfProducts.size()) {
 
             int a = (int) (Math.random() * fullListOfProducts.size());
 
             if (!listForChangingPictures.contains(fullListOfProducts.get(a))) {
                 listForChangingPictures.add(fullListOfProducts.get(a));
             }
-
         }
 
-
-
         List<BagDto> listForYouInterested = new ArrayList<>();
-        while (listForYouInterested.size() < 9) {
+        while (listForYouInterested.size() < 9 && listForYouInterested.size() < fullListOfProducts.size()) {
 
             int a = (int) (Math.random() * fullListOfProducts.size());
 
             if (!listForYouInterested.contains(fullListOfProducts.get(a))) {
                 listForYouInterested.add(fullListOfProducts.get(a));
             }
-
         }
-
 
         req.setAttribute("listForChangingPictures", listForChangingPictures);
         req.setAttribute("listForYouInterested", listForYouInterested);
