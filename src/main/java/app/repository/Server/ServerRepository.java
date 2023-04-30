@@ -64,7 +64,7 @@ public class ServerRepository {
 
             try (InputStream inputStream = filePart.getInputStream()) {
                 Files.copy(inputStream, file.toPath());
-                return file.toString().replaceAll("\\\\", "/"); // C:/photo_for_leather_accessories/72f12e40-c4d9-48ff-9821-b92b09e4213c.jpg
+                return Utils.makeUrlSlashesFromSystem(file.toString()); // C:/photo_for_leather_accessories/72f12e40-c4d9-48ff-9821-b92b09e4213c.jpg
             }
 
             //При появлении иключения в консоль выведется сообщение и метод продолжит выполняться (и продолжает выполнятся с вся программа).
@@ -134,7 +134,7 @@ public class ServerRepository {
 
                     try (InputStream inputStream = filePart.getInputStream()) {
                         Files.copy(inputStream, file.toPath());
-                        String imagePath = file.toString().replaceAll("\\\\", "/");
+                        String imagePath = Utils.makeUrlSlashesFromSystem(file.toString());
                         listPhoto.add(imagePath);
 
 

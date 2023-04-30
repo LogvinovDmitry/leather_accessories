@@ -18,4 +18,8 @@ public class Utils {
         return path.replace("/", File.separator)
                 .replace("\\", File.separator);
     }
+
+    public static String makeUrlSlashesFromSystem(String pathWithSystemSlashes) {
+        return pathWithSystemSlashes.replaceAll("\\\\", "/");
+    }
 }
