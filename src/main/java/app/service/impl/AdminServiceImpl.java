@@ -83,7 +83,6 @@ public class AdminServiceImpl implements AdminService {
         for (BagPhoto bagPhoto : listBagPhoto) {
             adminRepository.createBagPhoto(bagPhoto);
         }
-
     }
 
     private static String obrezatLishniujuChastPutiKartinki(HttpServletRequest request, String imageFullPath) {
@@ -117,15 +116,11 @@ public class AdminServiceImpl implements AdminService {
 
         List<Client> listAllClients = adminRepository.getListAllClients();
 
-
         for (Client client : listAllClients) {
 
             List<Order> listOrderForClient = adminRepository.getListOrderForClient(client.getClientId());
 
             List<OrderDto> listOrderForClientToDto = bagMapper.listOrderForClientToDto(listOrderForClient);
-
-
-
 
             double totalPrise = 0;
             for (OrderDto orderDto : listOrderForClientToDto) {
@@ -134,13 +129,10 @@ public class AdminServiceImpl implements AdminService {
             }
             client.setTotalPrise(totalPrise);
 
-
-
             allOrderData.put(client, listOrderForClientToDto);
         }
 
         return allOrderData;
-
     }
 
     @Override
