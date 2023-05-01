@@ -21,25 +21,35 @@ public class RemoveEntryCommand implements Command {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) {
 
-        int bagId = Integer.parseInt(request.getParameter("bagId"));
-        UserService userService = new UserServiceImpl();
-        BagDto bagDto = userService.getBagById(bagId);
-
-
         AdminService adminService = new AdminServiceImpl();
-        adminService.removeBag(bagId);
 
 
+        int bagId = Integer.parseInt(request.getParameter("bagId"));
 
-        ServerRepository serverRepository = new ServerRepository();
-        String baseFilePath = Utils.getBasePath(request);
-        serverRepository.removeFile(bagDto, baseFilePath);
+        List<Integer> listOrderBagId = adminService.getListOrderBagId();
+        if (listOrderBagId.contains(bagId)) {
+            request.setAttribute("jsp", "errorPageTest.jsp");
+        } else {
 
-        List<BagDto> fullListOfProducts = userService.getAll();
+
+            UserService userService = new UserServiceImpl();
+            BagDto bagDto = userService.getBagById(bagId);
 
 
-        request.setAttribute("fullListOfProducts", fullListOfProducts);
+            //AdminService adminService = new AdminServiceImpl();
+            adminService.removeBag(bagId);
 
-        request.setAttribute("jsp", "fullListOfProducts.jsp");
+
+            ServerRepository serverRepository = new ServerRepository();
+            String baseFilePath = Utils.getBasePath(request);
+            serverRepository.removeFile(bagDto, baseFilePath);
+
+            List<BagDto> fullListOfProducts = userService.getAll();
+
+
+            request.setAttribute("fullListOfProducts", fullListOfProducts);
+
+            request.setAttribute("jsp", "fullListOfProducts.jsp");
+        }
     }
 }

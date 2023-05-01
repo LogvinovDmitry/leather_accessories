@@ -139,5 +139,10 @@ public class AdminServiceImpl implements AdminService {
     public void removeOrder(int clientId) {
         adminRepository.removeOrder(clientId);
     }
+
+    @Override
+    public List<Integer> getListOrderBagId() {
+       return adminRepository.getListOrderBagId();
+    }
 }
 

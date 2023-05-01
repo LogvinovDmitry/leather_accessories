@@ -15,4 +15,7 @@ public interface AdminService {
 
     Map<Client, List<OrderDto>> getAllOrderData();
     void removeOrder(int clientId);
+
+    List<Integer> getListOrderBagId();
+
 }

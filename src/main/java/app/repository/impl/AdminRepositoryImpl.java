@@ -28,6 +28,8 @@ public class AdminRepositoryImpl implements AdminRepository {
     private static final String DEL_ORDER = "DELETE FROM `leather_accessories_schema`.`order` WHERE (`order_client_id` = ?)";
     private static final String DEL_CLIENT = "DELETE FROM `leather_accessories_schema`.`client` WHERE (`client_id` = ?)";
 
+    private static final String GET_ORDER_BAG_ID = "SELECT order_bag_id FROM leather_accessories_schema.order";
+
 
     ConnectionLeatherAccessoriesSchema conLeather = new ConnectionLeatherAccessoriesSchema();
 
@@ -162,8 +164,8 @@ public class AdminRepositoryImpl implements AdminRepository {
         Connection con = conLeather.getConnection();
 
         try (PreparedStatement preparedStatement = con.prepareStatement(GET_ORDER_FOR_CLIENTS)) {
-             preparedStatement.setInt(1, clientId);
-             ResultSet resultSet = preparedStatement.executeQuery();
+            preparedStatement.setInt(1, clientId);
+            ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
                 Order order = new Order();
@@ -203,4 +205,31 @@ public class AdminRepositoryImpl implements AdminRepository {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public List<Integer> getListOrderBagId() {
+        List<Integer> listOrderBagId = new ArrayList<>();
+
+        Connection con = conLeather.getConnection();
+
+        try (PreparedStatement preparedStatement = con.prepareStatement(GET_ORDER_BAG_ID)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                listOrderBagId.add(resultSet.getInt("order_bag_id"));
+
+//                order.setOrderBagId(resultSet.getInt("order_bag_id"));
+//                order.setOrderQuantity(resultSet.getInt("order_quantity"));
+//                order.setOrderClientId(resultSet.getInt("order_client_id"));
+//
+//                listOrderForClient.add(order);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return listOrderBagId;
+    }
+
 }
