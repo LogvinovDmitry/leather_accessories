@@ -10,7 +10,7 @@
 <div class="inner">
 
     <div class="header-logo--owl">
-        <img src="images/logo/odel.png" width="160">
+        <img src="images/logo/otottototot.png" width="110">
     </div>
 
     <div class="curlicue-buttons">
