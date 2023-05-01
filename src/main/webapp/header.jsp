@@ -3,7 +3,8 @@
 
 <header>
 <!--Блок над шапкой: сроки выполнения рабоот, логотип, узор-->
-<p class="overhead-text"> lead times on new orders are 6-8 weeks</p>
+<p class="overhead-text"> lead times on new orders are 4-6 weeks</p>
+<p class="overhead-text2"> you can choose the color of leather and threads of any product</p>
 
 <!--Меню с кнопками-->
 <div class="inner">

@@ -19,6 +19,15 @@ header, footer {
     justify-content: center;
 
     padding-top: 5px;
+    padding-bottom: 3px;
+}
+.overhead-text2 {
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
     padding-bottom: 5px;
 }
 

@@ -181,9 +181,11 @@ main #you-interested {
         text-transform: none;
         letter-spacing: .1em;
 
+        padding-top: 15px;
         padding-bottom: 10px;
         padding-left: 10%;
         padding-right: 10%;
 
         font-size: 24px;
+        text-indent: 30px;
 }

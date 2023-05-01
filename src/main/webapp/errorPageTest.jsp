@@ -21,11 +21,11 @@
 <main>
 
 <div class="header-logo--owl">
-        <img src="images/logo/odel.png" width="160">
-    </div>
+    <img src="images/logo/errorImg1.png" width="330px">
+</div>
 
 <div>
-<p class="error-text"> It is not possible to delete the product because it is contained in the order list. Delete orders that contain this product first. After that, you can delete the toar itself. </p>
+    <p class="error-text"> It is not possible to delete the product because it is contained in the order list. Delete orders that contain this product first. </p>
 </div>
 
 <!--Закрываем тег основной части-->
