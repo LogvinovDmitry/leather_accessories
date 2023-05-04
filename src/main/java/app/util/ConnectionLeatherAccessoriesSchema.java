@@ -54,7 +54,7 @@ public class ConnectionLeatherAccessoriesSchema {
 
     public ConnectionLeatherAccessoriesSchema() {
         try {
-            if (connection == null) {
+            if (connection == null || connection.isClosed()) {
                 connection = DriverManager.getConnection(URL, NAME_USER, PASSWORD);
 
                 DatabaseMetaData dbm = connection.getMetaData();
