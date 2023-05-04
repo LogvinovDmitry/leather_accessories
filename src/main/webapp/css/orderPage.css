@@ -1,9 +1,18 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
 .message-text {
     font-family: 'Montserrat', sans-serif;
     letter-spacing: .1em;
     color: #5a5a5a;
     font-size: 20px;
     text-indent: 30px;
+    text-align: justify;
 }
 
 .message {
@@ -129,7 +138,7 @@
 #you-interested-after {
     padding-top: 70px;
     padding-bottom: 10px;
-    padding-left: 6%;
+    padding-left: 10%;
     font-size: 12px;
 }
 
@@ -138,4 +147,9 @@ mark {
     color: blue;
     text-decoration-line: underline;
     font-weight: bold;
+}
+
+.comment{
+    display: flex;
+    flex-direction: column;
 }

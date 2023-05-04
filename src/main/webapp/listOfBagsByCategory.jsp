@@ -22,7 +22,7 @@
 <div id="goods">
     <c:forEach var="anyName" items="${listOfBagsByCategory}">
         <div class="goods--one-item">
-            <a href="dispatcher?bagId=${anyName.getBagId()}&command=Bag by id"><img src="dispatcher?path=${anyName.getMainPhotoTitle()}&command=Display file" width="380" height="280"></a>
+            <a href="dispatcher?bagId=${anyName.getBagId()}&command=Bag by id"><img src="dispatcher?path=${anyName.getMainPhotoTitle()}&command=Display file" width="350" height="258"></a>
 
             <c:if test="${sessionScope.isAdmin == true}">
                 <p class="one-item__id"> Item ID: ${anyName.getBagId()} </p>

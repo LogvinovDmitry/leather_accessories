@@ -23,10 +23,13 @@ main {
     color: #9f9f9f;
     margin-right: 50px;
     width: 440px;
+    flex-wrap: wrap;
 }
 
 .client-fields p {
     margin-bottom: 20px;
+    text-align: justify;
+    flex-wrap: wrap;
 }
 
 .title {

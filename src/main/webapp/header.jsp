@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <header>
+
 <!--Блок над шапкой: сроки выполнения рабоот, логотип, узор-->
 <p class="overhead-text"> lead times on new orders are 4-6 weeks</p>
 <p class="overhead-text2"> you can choose the color of leather and threads of any product</p>

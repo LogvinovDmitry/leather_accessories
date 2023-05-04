@@ -17,7 +17,7 @@
 <!--Шапка сайта-->
 <jsp:include page="header.jsp"/>
 
-
+<div class="wrapper">
 <form method="post" action="/dispatcher" enctype="multipart/form-data">
 <div class="create-order">
     <div class="fields">
@@ -28,14 +28,14 @@
         <p class="fields-pudding">phone:</p>
         <input type="text" placeholder="+Х ХХХ ХХХ-ХХ-ХХ" name="phone" size=40>
         <p class="fields-pudding">social network:</p>
-        <input type="text" placeholder="https://www.facebook.com/..." name="network" size=70>
+        <textarea rows="3" cols="47" placeholder="https://www.facebook.com/..." name="network"></textarea>
         <p class="fields-pudding">address:</p>
-        <input type="text" placeholder="314 Robinson Lane, Wilmington, DE 19805, USA" name="address" size=70>
+        <textarea rows="5" cols="47" placeholder="314 Robinson Lane, Wilmington, DE 19805, USA" name="address"></textarea>
 
     </div>
     <div class="comment">
         <p>comment</p>
-        <p> <textarea rows="17" cols="70" class="form_admin_input" placeholder="Comment" name="comment"></textarea></p>
+        <p> <textarea rows="22" cols="40" class="form_admin_input" placeholder="Comment" name="comment"></textarea></p>
     </div>
 </div>
 
@@ -44,7 +44,7 @@
 </div>
 
 </form>
-
+</div>
 
 <div class="message">
     <p class="message-text"> Thank you for the order! Contact our manager to clarify the payment and order details!  Please note, that in comments you can change the color of the leather and threads in the product, the type and size of buttons, fasteners, clips, rivets, etc. (The price does not include the shipping cost. We will clarify it for your address). </p>
