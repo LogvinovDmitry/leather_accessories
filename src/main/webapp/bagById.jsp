@@ -45,7 +45,6 @@
             ${bagDto.getBagDescription()}
             </div>
 
-
             <div class="add-to-cart_padding">
                 <form method="get" action="dispatcher">
                 <input type="hidden" id="addToCart" name="bagId" value=${bagDto.getBagId()}>

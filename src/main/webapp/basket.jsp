@@ -76,7 +76,6 @@
     <a class="button__style_order_page-text" href="dispatcher?&command=Order page">go to order page</a>
 </div>
 
-
 <main>
 <div id="you-interested">you might be interested...</div>
 <div id="goods">
