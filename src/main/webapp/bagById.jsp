@@ -57,8 +57,6 @@
                 <input class="button__style_buy-now" type="submit" name="command" value="Buy now">
                 </form>
             </div>
-
-
         </div>
 </div>
 
@@ -66,7 +64,7 @@
 <div id="goods">
             <c:forEach var="anyName" items="${listForYouInterested}">
                 <div class="goods--one-item">
-                    <a href="dispatcher?bagId=${anyName.getBagId()}&command=Bag by id"><img src="dispatcher?path=${anyName.getMainPhotoTitle()}&command=Display file" width="380" height="280"></a>
+                    <a href="dispatcher?bagId=${anyName.getBagId()}&command=Bag by id"><img src="dispatcher?path=${anyName.getMainPhotoTitle()}&command=Display file" width="350" height="258"></a>
                     <!-- <p> ${anyName.getBagId()} </p> -->
                     <p class="one-item__name"> ${anyName.getBagName()} </p>
                     <!-- <p> ${anyName.getBagDescription()} </p> -->
