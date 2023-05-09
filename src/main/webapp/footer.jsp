@@ -4,7 +4,7 @@
 
     <div class="footer-left">
         <p>ABOUT THE SHOP:</p>
-        <p>Our workshop "Smart-quiz" is located in Zaporozhye City in the south of Ukraine. We create exclusively handmade accessories using only genuine organic leather and at an affordable price.  Every product is made personally for you.</p>
+        <p>O.W.L. - Original Wallets from Leather. Our workshop is located in Zaporozhye City in the south of Ukraine. We create exclusively handmade accessories using only genuine organic leather and at an affordable price.  Every product is made personally for you.</p>
         <p>We are happy to create for you the accessory according to your taste, desires, preferences...</p>
     </div>
 
