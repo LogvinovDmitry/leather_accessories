@@ -3,7 +3,7 @@ FROM maven:latest as builder
 COPY pom.xml    /usr/local/build/pom.xml
 COPY src        /usr/local/build/src
 WORKDIR         /usr/local/build
-RUN mvn clean compile war:war
+RUN mvn -U clean compile war:war -Dhttps.protocols=TLSv1.2
 
 # Install Tomcat 7 & openjdk 8
 FROM tomcat:7.0.57-jre8
