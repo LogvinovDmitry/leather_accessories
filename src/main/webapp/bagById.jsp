@@ -30,10 +30,10 @@
 <div class="one-bag">
 
         <div class="inner-photo">
-            <img src="dispatcher?path=${bagDto.getMainPhotoTitle()}&command=Display file" width="560" height="414">
+            <img src="dispatcher?path=${bagDto.getMainPhotoTitle()}&command=Display file" width="500" height="370">
 
             <c:forEach var="someName" items="${bagDto.getListPhoto()}">
-                <img src="dispatcher?path=${someName}&command=Display file" width="560" height="414">
+                <img src="dispatcher?path=${someName}&command=Display file" width="500" height="370">
             </c:forEach>
         </div>
         <div class="inner-text">
